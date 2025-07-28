@@ -105,9 +105,6 @@ const Experience = ({ experiences, internships }) => {
   return (
     <section id="experience" className="section-padding">
       <div className="section-container">
-        <h2 className="section-title">
-          Experience
-        </h2>
         <div className="space-y-6 ">
           {sortedExperiences.map((experience, index) => (
             <ExperienceCard

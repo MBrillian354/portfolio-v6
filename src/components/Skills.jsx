@@ -4,10 +4,6 @@ const Skills = ({ skills }) => {
   return (
     <section id="skills" className="section-padding">
       <div className="section-container">
-        <h2 className="section-title">
-          Skills & Expertise
-        </h2>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="card">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Languages</h3>

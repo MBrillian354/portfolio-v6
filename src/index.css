@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'DM Sans', sans-serif;
+}
 
 /* Base styles */
 html {
@@ -10,7 +15,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Roboto', sans-serif;
+  font-family: var(--font-display);
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Roboto', sans-serif; */
   /* font-family: -apple-system, BlinkMacSystemFont, 'Cantarell', sans-serif; */
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
@@ -21,8 +27,9 @@ body {
 
 /* Ensure proper mobile viewport */
 * {
-  @apply box-border
+  @apply box-border;
 }
+
 
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
@@ -125,7 +132,7 @@ body {
 }
 
 @utility section-padding {
-  @apply py-6 sm:py-12 bg-white text-black dark:text-blue-100 dark:bg-gray-900;
+  @apply pb-6 sm:pb-12 bg-white text-black dark:text-blue-100 dark:bg-gray-900;
 }
 
 /* Navigation Components */
@@ -146,7 +153,7 @@ body {
 }
 
 @utility person-summary {
-  @apply text-base text-gray-800 mb-8 max-w-3xl leading-relaxed dark:text-gray-300;
+  @apply text-base text-gray-800 max-w-3xl leading-relaxed dark:text-gray-300;
 }
 
 @utility intext-link {
@@ -193,3 +200,52 @@ body {
 }
 
 /* Keep the original cursor visible - remove cursor: none */
+
+/* Toast Notification Styles */
+.toast-portal {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+  width: 100%;
+  pointer-events: none;
+}
+
+@utility toast-container {
+  @apply 
+    relative overflow-hidden pointer-events-auto
+    rounded-lg border-[0.5px] shadow-lg backdrop-blur-sm
+    p-4 min-w-0 max-w-sm
+    transform transition-all duration-300 ease-out;
+}
+
+/* Toast Animation States */
+.toast-enter {
+  @apply opacity-0 translate-x-full scale-95;
+}
+
+.toast-enter-active {
+  @apply opacity-100 translate-x-0 scale-100;
+}
+
+.toast-exit-active {
+  @apply opacity-0 translate-x-full scale-95;
+}
+
+/* Responsive toast positioning */
+@media (max-width: 640px) {
+  .toast-portal {
+    top: 0.5rem;
+    right: 0.5rem;
+    left: 0.5rem;
+    max-width: none;
+  }
+  
+  .toast-container {
+    @apply max-w-none;
+  }
+}

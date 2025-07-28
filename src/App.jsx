@@ -1,18 +1,19 @@
 
-import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
+import About from './components/About';
+import Navigation from './components/Navigation';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Education from './components/Education';
-import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 import DarkModeToggle from './components/DarkModeToggle';
+import Footer from './components/Footer';
+import ToastProvider from './components/ToastProvider';
 import portfolioData from './data/portfolio.json';
+import Header from './components/Header';
 
 function App() {
   return (
-    <>
+    <ToastProvider>
       <CustomCursor
         gradientStops={12}
         size={1020}
@@ -30,35 +31,39 @@ function App() {
       <div className="min-h-screen bg-white dark:bg-gray-900">
         <div className='max-w-6xl mx-auto'>
           <div className="sm:flex">
-            <Header personalInfo={portfolioData.personalInfo} />
-            <main className="sm:basis-3/5 bg-blue-950 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
-              <Hero personalInfo={portfolioData.personalInfo} />
+            <aside className="hidden sm:block sm:w-1/2 bg-white dark:bg-gray-900 sticky top-0 h-screen overflow-y-auto">
+              <div className="flex flex-col h-full pt-12 min-h-0">
+                <div className="flex-1 min-h-0 overflow-y-auto relative">
+                  <About personalInfo={portfolioData.personalInfo} />
+                  <Navigation />
+                </div>
+              </div>
+            </aside>
+            <main className="sm:basis-3/5 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-12">
+              <div className="sm:hidden">
+                <About personalInfo={portfolioData.personalInfo} />
+              </div>
+              <Header title="Experiences" />
               <Experience
                 experiences={portfolioData.experiences}
                 internships={portfolioData.internships}
               />
+              <Header title="Skills" />
               <Skills skills={portfolioData.skills} />
+              <Header title="Education" />
               <Education
                 education={portfolioData.education}
                 certificates={portfolioData.certificates}
               />
-
-              {/* Footer */}
-              <footer className="bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-400 py-12">
-                <div className="max-w-4xl px-4">
-                  <p className='text-sm'>Built with experimental technologies: React 19, Vite 7, and TailwindCSS v4.</p>
-                  <p className='text-sm'>Heavily inspired by <a href="https://brittanychiang.com" target='_blank' className='intext-link'>Brittany Chiang</a>.</p>
-                </div>
-              </footer>
+              <Footer />
             </main>
-
           </div>
         </div>
-        
+
         {/* Floating Dark Mode Toggle */}
         <DarkModeToggle floating={true} />
       </div>
-    </>
+    </ToastProvider>
   );
 }
 

@@ -4,10 +4,6 @@ const Education = ({ education, certificates }) => {
   return (
     <section className="section-padding">
       <div className="section-container">
-        <h2 className="section-title">
-          Education & Certifications
-        </h2>
-        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Education */}
           <div className="card-gradient-blue">

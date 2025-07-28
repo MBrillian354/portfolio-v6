@@ -1,0 +1,241 @@
+{
+  "personalInfo": {
+    "name": "M. Brillian",
+    "title": "Full Stack Developer & Data Scientist",
+    "profileImage": null,
+    "phone": "+628 1323452095",
+    "email": "brillian354@gmail.com",
+    "website": "https://mbrillian.github.io",
+    "github": "github.com/mbrillian354",
+    "linkedin": "linkedin.com/in/mbrillian354",
+    "location": "Karawang, Indonesia",
+    "countryCode": "id",
+    "description": "I combine web development skills with data science expertise to create innovative solutions.",
+    "summary": [
+      "Full Stack Web Developer and Data Scientist based in Karawang, Indonesia."
+    ]
+  },
+  "experiences": [
+    {
+      "title": "Full Stack Web Developer",
+      "company": "ICT – PPG Komisariat Karawang",
+      "period": "October 2024 – Present",
+      "type": "work",
+      "description": "Design and implement an academic system using MERN stack. Integrate frontend and backend using RestAPI. Configure a combination RBAC and ABAC to differentiate between user access levels. Migrate database from conventional spreadsheets into MongoDB.",
+      "scope": [
+        "Frontend",
+        "Backend",
+        "Database",
+        "Deployment"
+      ],
+      "techStack": [
+        "MongoDB",
+        "React.Js",
+        "Node.Js",
+        "Express",
+        "Firebase",
+        "Nginx"
+      ]
+    },
+    {
+      "title": "IT Staff",
+      "company": "SUGIMA Car Painting & Training Center",
+      "period": "Oct 2023 – Present",
+      "type": "work",
+      "description": "Provided basic technical support to employees, including password resets and software installations. Contributed to the smooth operation of the company's IT infrastructure. Troubleshooted and resolved issues with Windows operating system, Microsoft Office, and various business applications.",
+      "scope": [
+        "Technical Support",
+        "IT Infrastructure"
+      ],
+      "techStack": [
+        "Windows",
+        "Microsoft Office"
+      ]
+    },
+    {
+      "title": "Machine Learning",
+      "company": "College Project – University of Singaperbangsa Karawang",
+      "period": "March – April 2024",
+      "type": "project",
+      "description": "Led and coordinated team to collect, clean, prepare dataset, and train machine learning models for house price prediction in Central Jakarta.",
+      "scope": [
+        "Data Preprocessing",
+        "Exploratory Data Analytics",
+        "Model Training"
+      ],
+      "techStack": [
+        "Python",
+        "Scikit-Learn",
+        "Pandas",
+        "Numpy"
+      ]
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "College Project – University of Singaperbangsa Karawang",
+      "period": "March – May 2024",
+      "type": "project",
+      "description": "Designed and implemented a culinary inspiration website using PHP.",
+      "scope": [
+        "Web Design",
+        "Frontend"
+      ],
+      "techStack": [
+        "Figma",
+        "HTML",
+        "CSS",
+        "PHP",
+        "Bootstrap 5",
+        "Git/GitHub"
+      ]
+    },
+    {
+      "title": "Data Analyst",
+      "company": "Course Project – Bangkit Academy, led by Google, Tokopedia, Gojek, & Traveloka",
+      "period": "January – February 2024",
+      "type": "project",
+      "description": "Performed data analytics on Olist e-commerce dataset. Implemented descriptive analysis, data wrangling, EDA, data visualization, and dashboard development.",
+      "scope": [
+        "Data Analysis",
+        "Visualization",
+        "Dashboard Development"
+      ],
+      "techStack": [
+        "Python",
+        "TensorFlow",
+        "Pandas",
+        "NumPy",
+        "Streamlit"
+      ]
+    },
+    {
+      "title": "Full Stack Web Developer",
+      "company": "College Project – University of Singaperbangsa Karawang",
+      "period": "June – July 2022",
+      "type": "project",
+      "description": "Designed and developed a web-based library management system for book lending, returns, and inventory tracking. Created a MySQL database to manage books, users, and penalties.",
+      "scope": [
+        "Web Design",
+        "Frontend",
+        "Backend"
+      ],
+      "techStack": [
+        "Figma",
+        "HTML",
+        "CSS",
+        "PHP",
+        "Bootstrap 5",
+        "MySQL"
+      ]
+    },
+    {
+      "title": "IT Technician (Teknisi TI)",
+      "company": "LKS Nasional – Kemendikbud",
+      "period": "Sep – Oct 2021",
+      "type": "work",
+      "description": "Develop and manage IT solutions to support the competition. Maintain stable internet and provide comprehensive IT support for judges, including hardware/software configuration, platform monitoring, real-time technical assistance, score input guidance, and rapid troubleshooting to ensure seamless judging.",
+      "scope": [
+        "IT Solutions",
+        "Technical Support",
+        "Infrastructure Management"
+      ],
+      "techStack": [
+        "Hardware Configuration",
+        "Network Management"
+      ]
+    }
+  ],
+  "internships": [
+    {
+      "title": "Machine Learning Intern",
+      "company": "Bangkit Academy, led by Google, Tokopedia, Gojek, & Traveloka",
+      "period": "August – December 2023",
+      "description": "Responsible as a machine learning intern that built an image classification model. Collected and cleaned images dataset from duplicates, anomalies, and inconsistencies. Preprocess and built machine learning (ML) model using Convolutional Neural Networks (CNN) and Transfer Learning.",
+      "scope": [
+        "CNN",
+        "TensorFlow",
+        "Transfer Learning"
+      ],
+      "techStack": [
+        "Python",
+        "TensorFlow",
+        "Pandas",
+        "NumPy"
+      ]
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Host and On-Site Coordinator of CIKABIRAYA Event",
+      "organization": "DPW LDII Jawa Barat",
+      "period": "May 2025",
+      "description": "Prepared venue and coordinated all team to facilitate the running of CIKABIRAYA event."
+    },
+    {
+      "title": "Equipment & Logistic Staff of Junior Football Talent Scouting Event",
+      "organization": "FORSGI Karawang",
+      "period": "January 2025",
+      "description": "Managed and prepared all equipment that are required for the running of Junior Football Talent Scouting Event."
+    },
+    {
+      "title": "Outbound Coordinator of SEMESTA Event",
+      "organization": "Generus Cikampek Tengah",
+      "period": "December 2024",
+      "description": "Led and coordinated all staff to run the outbound of SEMESTA event."
+    },
+    {
+      "title": "Equipment & Logistic Staff and Facilitator Assistant of MOZART Event",
+      "organization": "Generus Cikampek Tengah",
+      "period": "September 2024",
+      "description": "Prepared all equipment required for the running of MOZART Event. Organized and set up event venue. Coordinate with facilitators to align outbound with event rundown."
+    }
+  ],
+  "organization": [
+    {
+      "title": "General Education and Training",
+      "organization": "PAC LDII Jomin Barat",
+      "period": "November 2022 – Present",
+      "description": "Responsible to monitor and evaluate student learning activities. Coordinate with educators and staffs to ensure learning strategies and program goals. Provide regular reports and updates to management."
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Computer Science",
+    "university": "University of Singaperbangsa Karawang",
+    "period": "August 2021 – January 2025",
+    "gpa": "3.61/4.0"
+  },
+  "skills": {
+    "languages": [
+      "Bahasa Indonesia (Native)",
+      "English (IELTS Band 7.0)"
+    ],
+    "hardSkills": [
+      "Python",
+      "R Language",
+      "TensorFlow",
+      "SQL",
+      "NoSQL",
+      "HTML",
+      "CSS",
+      "PHP",
+      "JavaScript",
+      "Google Cloud Platform (GCP)",
+      "Gemini",
+      "Google Workspace"
+    ],
+    "softSkills": [
+      "Leadership",
+      "Teamwork",
+      "Team Management",
+      "Communication",
+      "Critical Thinking"
+    ]
+  },
+  "certificates": [
+    "The MERN Fullstack (Udemy)",
+    "Digital Entrepreneurship Academy (Digitalent)",
+    "Machine Learning Specialization (Coursera)",
+    "TensorFlow Developer Specialization (Coursera)",
+    "Google Data Analytics Specialization (Coursera)"
+  ]
+}
