@@ -12,7 +12,7 @@
     "countryCode": "id",
     "description": "I combine web development skills with data science expertise to create innovative solutions.",
     "summary": [
-      "Full Stack Web Developer and Data Scientist based in Karawang, Indonesia."
+      "I'm a 22 years old computer science graduate, based in Karawang, Indonesia. I have more than 2 years of experience in full stack development and data science."
     ]
   },
   "experiences": [
@@ -231,11 +231,137 @@
       "Critical Thinking"
     ]
   },
+  "currentTechnologies": {
+    "frontend": [
+      {
+        "name": "React 19",
+        "category": "Framework",
+        "description": "Building modern user interfaces",
+        "icon" : "devicon:react"
+      },
+      {
+        "name": "Tailwind CSS v4",
+        "category": "Styling",
+        "description": "Utility-first CSS framework",
+        "icon" : "devicon:tailwindcss"
+      },
+      {
+        "name": "Typescript",
+        "category": "Language",
+        "description": "Core web development language",
+        "icon" : "devicon:typescript"
+      },
+      {
+        "name": "Vite v7",
+        "category": "Build Tool",
+        "description": "Fast development and build tool",
+        "icon" : "devicon:vite"
+      }
+    ],
+    "backend": [
+      {
+        "name": "Node.js",
+        "category": "Runtime",
+        "description": "JavaScript runtime environment",
+        "icon" : "devicon:nodejs"
+      },
+      {
+        "name": "Express",
+        "category": "Framework",
+        "description": "Web application framework",
+        "icon" : "devicon:express"
+      },
+      {
+        "name": "MongoDB",
+        "category": "Database",
+        "description": "NoSQL document database",
+        "icon" : "devicon:mongodb"
+      },
+      {
+        "name": "Firebase",
+        "category": "Platform",
+        "description": "Backend-as-a-Service platform",
+        "icon" : "devicon:firebase"
+      }
+    ],
+    "dataScience": [
+      {
+        "name": "Python",
+        "category": "Language",
+        "description": "Primary language for data science",
+        "icon" : "devicon:python"
+      },
+      {
+        "name": "TensorFlow",
+        "category": "Framework",
+        "description": "Machine learning and AI",
+        "icon" : "devicon:tensorflow"
+      },
+      {
+        "name": "Pandas",
+        "category": "Library",
+        "description": "Data manipulation and analysis",
+        "icon" : "devicon:pandas"
+      },
+      {
+        "name": "NumPy",
+        "category": "Library",
+        "description": "Numerical computing",
+        "icon" : "devicon:numpy"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Docker",
+        "category": "Containerization",
+        "description": "Application containerization",
+        "icon" : "devicon:docker"
+      },
+      {
+        "name": "Git",
+        "category": "Version Control",
+        "description": "Source code management",
+        "icon" : "devicon:git"
+      },
+      {
+        "name": "Figma",
+        "category": "Design",
+        "description": "UI/UX design and prototyping",
+        "icon" : "devicon:figma"
+      },
+      {
+        "name": "VS Code",
+        "category": "IDE",
+        "description": "Code editor and development environment",
+        "icon" : "devicon:vscode"
+      }
+    ]
+  },
   "certificates": [
-    "The MERN Fullstack (Udemy)",
-    "Digital Entrepreneurship Academy (Digitalent)",
-    "Machine Learning Specialization (Coursera)",
-    "TensorFlow Developer Specialization (Coursera)",
-    "Google Data Analytics Specialization (Coursera)"
+    {
+      "title": "The MERN Fullstack",
+      "description": "Comprehensive course covering MongoDB, Express.js, React, and Node.js stack for full-stack web development. Learned to build scalable web applications with modern JavaScript technologies.",
+      "image": "/certificates/mern-fullstack-udemy.jpg"
+    },
+    {
+      "title": "Digital Entrepreneurship Academy",
+      "description": "Professional development program focused on digital business strategies, e-commerce, and online marketing. Gained insights into digital transformation and business innovation.",
+      "image": "/certificates/digital-entrepreneurship-digitalent.jpg"
+    },
+    {
+      "title": "Machine Learning Specialization",
+      "description": "Comprehensive machine learning program covering supervised learning, unsupervised learning, and reinforcement learning. Mastered algorithms, neural networks, and practical ML implementation.",
+      "image": "/certificates/machine-learning-coursera.jpg"
+    },
+    {
+      "title": "TensorFlow Developer Specialization",
+      "description": "Specialized training in TensorFlow framework for building and deploying machine learning models. Learned deep learning, computer vision, and natural language processing techniques.",
+      "image": "/certificates/tensorflow-developer-coursera.jpg"
+    },
+    {
+      "title": "Google Data Analytics Specialization",
+      "description": "Complete data analytics program covering data collection, cleaning, analysis, and visualization. Proficient in R, SQL, Tableau, and Google Analytics for business insights.",
+      "image": "/certificates/google-data-analytics-coursera.jpg"
+    }
   ]
 }

@@ -5,7 +5,7 @@ const Navigation = ({ isMobileOnly = false }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'skills', 'contact'];
+      const sections = ['about', 'current-technologies', 'experience', 'certificates', 'education'];
       const scrollPosition = window.scrollY + 100; // Offset for header height
 
       for (const section of sections) {
@@ -30,8 +30,11 @@ const Navigation = ({ isMobileOnly = false }) => {
 
   const navItems = [
     { href: '#about', label: 'ABOUT', id: 'about' },
+    { href: '#current-technologies', label: 'TECHNOLOGIES', id: 'current-technologies' },
     { href: '#experience', label: 'EXPERIENCE', id: 'experience' },
-    { href: '#skills', label: 'SKILLS', id: 'skills' },
+    { href: '#certificates', label: 'CERTIFICATES', id: 'certificates' },
+    { href: '#education', label: 'EDUCATION', id: 'education' },
+    // { href: '#skills', label: 'SKILLS', id: 'skills' },
   ];
 
   const activeItem = navItems.find(item => item.id === activeSection);

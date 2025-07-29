@@ -20,7 +20,7 @@ const Skills = ({ skills }) => {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Technical Skills</h3>
             <div className="flex flex-wrap gap-2">
               {skills.hardSkills.map((skill, index) => (
-                <span key={index} className="badge-blue-alt">
+                <span key={index} className="badge-alt">
                   {skill}
                 </span>
               ))}
@@ -31,7 +31,7 @@ const Skills = ({ skills }) => {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Soft Skills</h3>
             <div className="flex flex-wrap gap-2">
               {skills.softSkills.map((skill, index) => (
-                <span key={index} className="badge-green">
+                <span key={index} className="badge-type bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
                   {skill}
                 </span>
               ))}

@@ -3,13 +3,16 @@ import About from './components/About';
 import Navigation from './components/Navigation';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
+import CurrentTechnologies from './components/CurrentTechnologies';
 import Education from './components/Education';
+import Certificates from './components/Certificates';
 import CustomCursor from './components/CustomCursor';
 import DarkModeToggle from './components/DarkModeToggle';
 import Footer from './components/Footer';
 import ToastProvider from './components/ToastProvider';
 import portfolioData from './data/portfolio.json';
 import Header from './components/Header';
+import Hero from './components/Hero';
 
 function App() {
   return (
@@ -17,7 +20,7 @@ function App() {
       <CustomCursor
         gradientStops={12}
         size={1020}
-        lightStartColor="#000"
+        lightStartColor="#fff"
         lightEndColor="#8cb4ff"
         darkStartColor="#101828"
         darkEndColor="#9abbfc"
@@ -43,17 +46,21 @@ function App() {
               <div className="sm:hidden">
                 <About personalInfo={portfolioData.personalInfo} />
               </div>
+              <Hero personalInfo={portfolioData.personalInfo} />
+              <Header title="Current Technologies" />
+              <CurrentTechnologies technologies={portfolioData.currentTechnologies} />
               <Header title="Experiences" />
               <Experience
                 experiences={portfolioData.experiences}
                 internships={portfolioData.internships}
               />
-              <Header title="Skills" />
-              <Skills skills={portfolioData.skills} />
+              <Header title="Certificates" />
+              <Certificates certificates={portfolioData.certificates} />
+              {/* <Header title="Skills" /> */}
+              {/* <Skills skills={portfolioData.skills} /> */}
               <Header title="Education" />
               <Education
                 education={portfolioData.education}
-                certificates={portfolioData.certificates}
               />
               <Footer />
             </main>
