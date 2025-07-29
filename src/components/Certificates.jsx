@@ -45,7 +45,7 @@ const CertificateCard = ({ certificate, isHovered, isDimmed, onHover, onLeave })
 
         {/* Certificate Content */}
         <div className="flex-1">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex items-start justify-between">
             <div className="flex-1">
               <h3 className="card-title experience-title">{certificate.title}</h3>
             </div>

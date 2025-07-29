@@ -3,12 +3,6 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import React, { useState } from 'react';
 
 const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) => {
-  const typeColors = {
-    work: 'bg-green-100 text-green-800',
-    project: 'bg-blue-100 text-blue-800',
-    internship: 'bg-purple-100 text-purple-800'
-  };
-
   const getCardClasses = () => {
     let baseClasses = "card-hover-group";
     if (isHovered) {
@@ -28,7 +22,7 @@ const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) =
       <div className="flex flex-col md:flex-row gap-2">
         <span className="min-w-36 font-semibold text-sm text-gray-500 dark:text-gray-400 mb-2 mt-1">{experience.period}</span>
         <div>
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+          <div className="flex flex-row items-start justify-between mb-3">
             <div>
               <h3 className="card-title experience-title">{experience.title}</h3>
               <p className="card-subtitle">{experience.company}</p>
@@ -37,11 +31,6 @@ const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) =
               <span className='hover-rotate-scale'>
                 <Icon icon="ic:round-link" width="24" height="24" />
               </span>
-              {/* {experience.type && (
-                <span className={`badge-alt ${typeColors[experience.type] || 'bg-gray-100 text-gray-800'}`}>
-                  {experience.type}
-                </span>
-              )} */}
             </div>
           </div>
 
