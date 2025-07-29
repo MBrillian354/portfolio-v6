@@ -1,12 +1,11 @@
-
 import { Icon } from '@iconify/react/dist/iconify.js';
 import React, { useState } from 'react';
 
-const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) => {
-  const typeColors = {
-    work: 'bg-green-100 text-green-800',
-    project: 'bg-blue-100 text-blue-800',
-    internship: 'bg-purple-100 text-purple-800'
+const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
+  const statusColors = {
+    'Completed': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+    'In Progress': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+    'On Hold': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
   };
 
   const getCardClasses = () => {
@@ -26,45 +25,35 @@ const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) =
       onMouseLeave={onLeave}
     >
       <div className="flex flex-col md:flex-row gap-2">
-        <span className="min-w-36 font-semibold text-sm text-gray-500 dark:text-gray-400 mb-2 mt-1">{experience.period}</span>
+        <span className="min-w-36 font-semibold text-sm text-gray-500 dark:text-gray-400 mb-2 mt-1">{project.period}</span>
         <div>
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
             <div>
-              <h3 className="card-title experience-title">{experience.title}</h3>
-              <p className="card-subtitle">{experience.company}</p>
+              <h3 className="card-title experience-title">{project.title}</h3>
+              <p className="card-subtitle">{project.company}</p>
             </div>
             <div className="card-content">
               <span className='hover-rotate-scale'>
                 <Icon icon="ic:round-link" width="24" height="24" />
               </span>
-              {/* {experience.type && (
-                <span className={`badge-alt ${typeColors[experience.type] || 'bg-gray-100 text-gray-800'}`}>
-                  {experience.type}
-                </span>
-              )} */}
             </div>
           </div>
 
-          <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">{experience.description}</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
 
-          {experience.scope && experience.scope.length > 0 && (
+          {project.status && (
             <div className="mb-4">
-              <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">Scope of Work:</h4>
-              <div className="flex flex-wrap gap-2">
-                {experience.scope.map((item, index) => (
-                  <span key={index} className="badge-alt">
-                    {item}
-                  </span>
-                ))}
-              </div>
+              <span className={`badge-type ${statusColors[project.status] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'}`}>
+                {project.status}
+              </span>
             </div>
           )}
 
-          {experience.techStack && experience.techStack.length > 0 && (
+          {project.techStack && project.techStack.length > 0 && (
             <div>
               <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">Tech Stack:</h4>
               <div className="flex flex-wrap gap-2">
-                {experience.techStack.map((tech, index) => (
+                {project.techStack.map((tech, index) => (
                   <span key={index} className="badge-alt">
                     {tech}
                   </span>
@@ -78,24 +67,18 @@ const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) =
   );
 };
 
-const Experience = ({ experiences, internships, showArchiveButton = false, onShowArchive }) => {
+const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  const allExperiences = [
-    ...experiences.map(exp => ({ ...exp, type: exp.type || 'work' })),
-    ...internships.map(exp => ({ ...exp, type: 'internship' }))
-  ];
-
   // Sort by period (most recent first)
-  const sortedExperiences = allExperiences.sort((a, b) => {
-    // Simple sorting by checking if period contains "Present"
+  const sortedProjects = projects.sort((a, b) => {
     if (a.period.includes('Present')) return -1;
     if (b.period.includes('Present')) return 1;
     return 0;
   });
 
   // Show only first 5 if showArchiveButton is true
-  const displayExperiences = showArchiveButton ? sortedExperiences.slice(0, 3) : sortedExperiences;
+  const displayProjects = showArchiveButton ? sortedProjects.slice(0, 3) : sortedProjects;
 
   const handleCardHover = (index) => {
     setHoveredCard(index);
@@ -106,13 +89,13 @@ const Experience = ({ experiences, internships, showArchiveButton = false, onSho
   };
 
   return (
-    <section id="experience" className="section-padding">
+    <section id="projects" className="section-padding">
       <div className="section-container">
-        <div className="space-y-6 ">
-          {displayExperiences.map((experience, index) => (
-            <ExperienceCard
+        <div className="space-y-6">
+          {displayProjects.map((project, index) => (
+            <ProjectCard
               key={index}
-              experience={experience}
+              project={project}
               isHovered={hoveredCard === index}
               isDimmed={hoveredCard !== null && hoveredCard !== index}
               onHover={() => handleCardHover(index)}
@@ -121,13 +104,13 @@ const Experience = ({ experiences, internships, showArchiveButton = false, onSho
           ))}
         </div>
         
-        {showArchiveButton && sortedExperiences.length > 3 && (
+        {showArchiveButton && sortedProjects.length > 3 && (
           <div className="mt-8">
             <button
               onClick={onShowArchive}
               className="btn-action"
             >
-              <span>See Full Experience Archive</span>
+              <span>See Full Projects Archive</span>
               <Icon icon="material-symbols:arrow-forward" width="20" height="20" />
             </button>
           </div>
@@ -137,4 +120,4 @@ const Experience = ({ experiences, internships, showArchiveButton = false, onSho
   );
 };
 
-export default Experience;
+export default Projects;

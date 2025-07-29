@@ -63,8 +63,11 @@ const CertificateCard = ({ certificate, isHovered, isDimmed, onHover, onLeave })
   );
 };
 
-const Certificates = ({ certificates }) => {
+const Certificates = ({ certificates, showArchiveButton = false, onShowArchive }) => {
   const [hoveredCard, setHoveredCard] = useState(null);
+
+  // Show only first 5 if showArchiveButton is true
+  const displayCertificates = showArchiveButton ? certificates.slice(0, 3) : certificates;
 
   const handleCardHover = (index) => {
     setHoveredCard(index);
@@ -78,7 +81,7 @@ const Certificates = ({ certificates }) => {
     <section id="certificates" className="section-padding">
       <div className="section-container">
         <div className="space-y-6">
-          {certificates.map((certificate, index) => (
+          {displayCertificates.map((certificate, index) => (
             <CertificateCard
               key={index}
               certificate={certificate}
@@ -89,6 +92,18 @@ const Certificates = ({ certificates }) => {
             />
           ))}
         </div>
+        
+        {showArchiveButton && certificates.length > 3 && (
+          <div className="mt-8">
+            <button
+              onClick={onShowArchive}
+              className="btn-action"
+            >
+              <span>See Full Certificate Archive</span>
+              <Icon icon="material-symbols:arrow-forward" width="20" height="20" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

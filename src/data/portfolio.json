@@ -250,12 +250,6 @@
         "category": "Language",
         "description": "Core web development language",
         "icon" : "devicon:typescript"
-      },
-      {
-        "name": "Vite v7",
-        "category": "Build Tool",
-        "description": "Fast development and build tool",
-        "icon" : "devicon:vite"
       }
     ],
     "backend": [
@@ -266,22 +260,10 @@
         "icon" : "devicon:nodejs"
       },
       {
-        "name": "Express",
-        "category": "Framework",
-        "description": "Web application framework",
-        "icon" : "devicon:express"
-      },
-      {
         "name": "MongoDB",
         "category": "Database",
         "description": "NoSQL document database",
         "icon" : "devicon:mongodb"
-      },
-      {
-        "name": "Firebase",
-        "category": "Platform",
-        "description": "Backend-as-a-Service platform",
-        "icon" : "devicon:firebase"
       }
     ],
     "dataScience": [
@@ -298,42 +280,10 @@
         "icon" : "devicon:tensorflow"
       },
       {
-        "name": "Pandas",
-        "category": "Library",
-        "description": "Data manipulation and analysis",
-        "icon" : "devicon:pandas"
-      },
-      {
         "name": "NumPy",
         "category": "Library",
         "description": "Numerical computing",
         "icon" : "devicon:numpy"
-      }
-    ],
-    "tools": [
-      {
-        "name": "Docker",
-        "category": "Containerization",
-        "description": "Application containerization",
-        "icon" : "devicon:docker"
-      },
-      {
-        "name": "Git",
-        "category": "Version Control",
-        "description": "Source code management",
-        "icon" : "devicon:git"
-      },
-      {
-        "name": "Figma",
-        "category": "Design",
-        "description": "UI/UX design and prototyping",
-        "icon" : "devicon:figma"
-      },
-      {
-        "name": "VS Code",
-        "category": "IDE",
-        "description": "Code editor and development environment",
-        "icon" : "devicon:vscode"
       }
     ]
   },
@@ -362,6 +312,134 @@
       "title": "Google Data Analytics Specialization",
       "description": "Complete data analytics program covering data collection, cleaning, analysis, and visualization. Proficient in R, SQL, Tableau, and Google Analytics for business insights.",
       "image": "/certificates/google-data-analytics-coursera.jpg"
+    }
+    ,
+    {
+      "title": "Belajar Analisis Data dengan Python",
+      "description": "Dicoding",
+      "image": "/certificates/google-data-analytics-coursera.jpg"
+    },
+    {
+      "title": "DeepLearning.AI TensorFlow Developer",
+      "description": "Specialized training in TensorFlow framework for building and deploying machine learning models. Learned deep learning, computer vision, and natural language processing techniques.",
+      "image": "/certificates/tensorflow-developer-coursera.jpg"
+    },
+    {
+      "title": "TensorFlow: Data and Deployment Specialization",
+      "description": "Advanced specialization in TensorFlow for data processing and model deployment",
+      "image": "/certificates/tensorflow-data-deployment-coursera.jpg"
+    },
+    {
+      "title": "Mathematics for Machine Learning and Data Science Specialization",
+      "description": "Comprehensive mathematics course covering linear algebra, calculus, and statistics for machine learning and data science applications.",
+      "image": "/certificates/mathematics-machine-learning-data-science-coursera.jpg"
+    },
+    {
+      "title": "Belajar Dasar Git dan GitHub",
+      "description": "Dicoding",
+      "image": "/certificates/belajar-dasar-git-github-dicoding.jpg"
+    },
+    {
+      "title": "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software",
+      "description": "Dicoding",
+      "image": "/certificates/memulai-dasar-pemrograman-untuk-menjadi-pengembang-software-dicoding.jpg"},
+    {
+      "title": "Pengenalan ke Logika Pemrograman (Programming Logic 101)",
+      "description": "Dicoding",
+      "image": "/certificates/pengenalan-ke-logika-pemrograman-dicoding.jpg"
+    }
+  ],
+  "projects": [
+    {
+      "title": "House Price Prediction Model",
+      "period": "March – April 2024",
+      "company": "University of Singaperbangsa Karawang",
+      "description": "Led and coordinated team to collect, clean, prepare dataset, and train machine learning models for house price prediction in Central Jakarta.",
+      "techStack": [
+        "Python",
+        "Scikit-Learn",
+        "Pandas",
+        "Numpy"
+      ],
+      "link": "https://github.com/mbrillian354/house-price-prediction",
+      "status": "Completed"
+    },
+    {
+      "title": "Culinary Inspiration Website",
+      "period": "March – May 2024",
+      "company": "University of Singaperbangsa Karawang",
+      "description": "Designed and implemented a culinary inspiration website using PHP with responsive design and user-friendly interface.",
+      "techStack": [
+        "Figma",
+        "HTML",
+        "CSS",
+        "PHP",
+        "Bootstrap 5",
+        "Git/GitHub"
+      ],
+      "link": "https://github.com/mbrillian354/culinary-website",
+      "status": "Completed"
+    },
+    {
+      "title": "Olist E-commerce Analytics",
+      "period": "January – February 2024",
+      "company": "Bangkit Academy",
+      "description": "Performed comprehensive data analytics on Olist e-commerce dataset with interactive dashboard development using Streamlit.",
+      "techStack": [
+        "Python",
+        "TensorFlow",
+        "Pandas",
+        "NumPy",
+        "Streamlit"
+      ],
+      "link": "https://github.com/mbrillian354/olist-analytics",
+      "status": "Completed"
+    },
+    {
+      "title": "Library Management System",
+      "period": "June – July 2022",
+      "company": "University of Singaperbangsa Karawang",
+      "description": "Designed and developed a comprehensive web-based library management system for book lending, returns, and inventory tracking with MySQL database integration.",
+      "techStack": [
+        "Figma",
+        "HTML",
+        "CSS",
+        "PHP",
+        "Bootstrap 5",
+        "MySQL"
+      ],
+      "link": "https://github.com/mbrillian354/library-management",
+      "status": "Completed"
+    },
+    {
+      "title": "Academic System PPG",
+      "period": "October 2024 – Present",
+      "company": "ICT – PPG Komisariat Karawang",
+      "description": "Design and implement an academic system using MERN stack with role-based access control and database migration from spreadsheets to MongoDB.",
+      "techStack": [
+        "MongoDB",
+        "React.Js",
+        "Node.Js",
+        "Express",
+        "Firebase",
+        "Nginx"
+      ],
+      "link": "https://github.com/mbrillian354/academic-system",
+      "status": "In Progress"
+    },
+    {
+      "title": "Portfolio Website v6",
+      "period": "July 2025",
+      "company": "Personal Project",
+      "description": "Modern portfolio website built with React 19 and Tailwind CSS v4, featuring dark mode, responsive design, and interactive components.",
+      "techStack": [
+        "React 19",
+        "Tailwind CSS v4",
+        "Vite",
+        "JavaScript"
+      ],
+      "link": "https://github.com/mbrillian354/portfolio-v6",
+      "status": "In Progress"
     }
   ]
 }

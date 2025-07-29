@@ -73,7 +73,7 @@ const About = ({ personalInfo }) => {
       <div className="mt-auto py-4 flex justify-start flex-wrap gap-3 text-gray-700 dark:text-gray-400">
         <button
           onClick={handleCVDownload}
-          className="flex items-center gap-1 pl-2 pr-3 py-2 rounded-sm border border-gray-300 dark:border-gray-500 text-gray-400 hover:text-gray-800 dark:text-gray-400 hover:border-gray-800 dark:hover:border-gray-200 dark:hover:text-gray-200 transition-all duration-150 ease-out group hover:cursor-pointer"
+          className="btn-action-compact"
           title="Download CV"
         >
           <Icon icon="material-symbols-light:download-2-outline-rounded"
@@ -84,7 +84,7 @@ const About = ({ personalInfo }) => {
         </button>
         <button
           onClick={handleEmailCopy}
-          className="flex items-center gap-2 px-3 py-2 rounded-sm border border-gray-300 dark:border-gray-500 text-gray-400 hover:text-gray-800 dark:text-gray-400 hover:border-gray-800 dark:hover:border-gray-200 dark:hover:text-gray-200 transition-all duration-150 ease-out group hover:cursor-pointer"
+          className="btn-action-compact"
           title="Copy email to clipboard"
         >
           <Icon

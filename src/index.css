@@ -69,7 +69,7 @@ body {
 }
 
 @utility card-static {
-   @apply bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/100 dark:border-gray-700/50;
+  @apply bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/100 dark:border-gray-700/50;
 }
 
 @utility card-hover-group {
@@ -170,6 +170,78 @@ body {
 }
 
 
+/* Archive Table Styles */
+@utility archive-table {
+  @apply w-full border-collapse;
+}
+
+@utility archive-header {
+  @apply sticky bg-white dark:bg-gray-900 border-b-2 border-gray-200 dark:border-gray-700;
+}
+
+@utility archive-header-cell {
+  @apply text-left py-4 px-4 font-semibold text-gray-900 dark:text-blue-100;
+}
+
+@utility archive-row {
+  @apply border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors;
+}
+
+@utility archive-cell {
+  @apply py-4 px-4;
+}
+
+@utility archive-title {
+  @apply font-semibold text-gray-900 dark:text-blue-100 mb-1;
+}
+
+@utility archive-description {
+  @apply text-sm text-gray-600 dark:text-gray-400 max-w-md;
+}
+
+@utility archive-period {
+  @apply text-sm font-medium text-gray-600 dark:text-gray-400;
+}
+
+@utility archive-company {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+@utility archive-link-button {
+  @apply p-2 rounded-lg bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors inline-block;
+}
+
+@utility archive-close-button {
+  @apply p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
+}
+
+@utility archive-header-sticky {
+  @apply flex items-center justify-between mb-8 sticky top-0 bg-white dark:bg-gray-900 py-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+@utility archive-overlay {
+  @apply fixed inset-0 bg-white dark:bg-gray-900 z-50 overflow-y-auto;
+}
+
+@utility archive-container {
+  @apply section-container py-8;
+}
+
+@utility btn-action {
+  @apply flex items-start justify-start gap-2 px-3 py-2 rounded-sm border border-gray-300 dark:border-gray-500 text-gray-400 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-800 dark:hover:border-gray-200 transition-all duration-150 ease-out hover:cursor-pointer;
+  transition: all 0.15s ease-out, padding 0.15s ease-out;
+}
+
+.btn-action:hover {
+  padding-left: calc(0.75rem + 6px);
+  padding-right: calc(0.75rem + 6px);
+}
+
+@utility btn-action-compact {
+  @apply flex items-center gap-1 pl-2 pr-3 py-2 rounded-sm border border-gray-300 dark:border-gray-500 text-gray-400 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-800 dark:hover:border-gray-200 transition-all duration-150 ease-out hover:cursor-pointer;
+}
+
+
 
 /* Custom Cursor Styles */
 .custom-cursor {
@@ -224,12 +296,8 @@ body {
   pointer-events: none;
 }
 
-@utility toast-container {
-  @apply 
-    relative overflow-hidden pointer-events-auto
-    rounded-lg border-[0.5px] shadow-lg backdrop-blur-sm
-    p-4 min-w-0 max-w-sm
-    transform transition-all duration-300 ease-out;
+.toast-container {
+  @apply relative overflow-hidden pointer-events-auto rounded-lg border-[0.5px] shadow-lg backdrop-blur-sm p-4 min-w-0 max-w-sm transform transition-all duration-300 ease-out;
 }
 
 /* Toast Animation States */
@@ -253,7 +321,7 @@ body {
     left: 0.5rem;
     max-width: none;
   }
-  
+
   .toast-container {
     @apply max-w-none;
   }

@@ -5,7 +5,7 @@ const Navigation = ({ isMobileOnly = false }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'current-technologies', 'experience', 'certificates', 'education'];
+      const sections = ['about', 'current-technologies', 'experience', 'projects', 'certificates', 'education'];
       const scrollPosition = window.scrollY + 100; // Offset for header height
 
       for (const section of sections) {
@@ -32,8 +32,9 @@ const Navigation = ({ isMobileOnly = false }) => {
     { href: '#about', label: 'ABOUT', id: 'about' },
     { href: '#current-technologies', label: 'TECHNOLOGIES', id: 'current-technologies' },
     { href: '#experience', label: 'EXPERIENCE', id: 'experience' },
+    { href: '#projects', label: 'PROJECTS', id: 'projects' },
     { href: '#certificates', label: 'CERTIFICATES', id: 'certificates' },
-    { href: '#education', label: 'EDUCATION', id: 'education' },
+    // { href: '#education', label: 'EDUCATION', id: 'education' },
     // { href: '#skills', label: 'SKILLS', id: 'skills' },
   ];
 
