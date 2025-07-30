@@ -36,7 +36,7 @@ const About = ({ personalInfo }) => {
   };
 
   return (
-    <div className="p-6 flex flex-col max-md:items-center max-md:justify-center bg-white dark:bg-gray-900">
+    <div className="p-6 md:p-6 flex flex-col max-md:items-center max-md:justify-center bg-white dark:bg-gray-900">
       {/* Profile Picture */}
       <div className="flex mb-4">
         <div className="relative w-48 h-64 rounded-md overflow-hidden ring-1 ring-gray-300 dark:ring-blue-300 group">

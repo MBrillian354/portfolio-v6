@@ -65,7 +65,7 @@ body {
 /* Reusable Component Classes */
 /* Card Components */
 @utility card {
-  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 text-gray-900 dark:text-gray-100;
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 md:p-6 text-gray-900 dark:text-gray-100;
 }
 
 @utility card-static {
@@ -73,7 +73,7 @@ body {
 }
 
 @utility card-hover-group {
-  @apply p-6 dark:text-blue-100 rounded-lg transition-all duration-150 ease-out hover:cursor-pointer;
+  @apply p-4 md:p-6 dark:text-blue-100 rounded-lg transition-all duration-150 ease-out hover:cursor-pointer;
 }
 
 @utility card-hover-active {
@@ -128,7 +128,7 @@ body {
 
 /* Section Components */
 @utility section-container {
-  @apply max-w-4xl mx-auto px-4;
+  @apply max-w-4xl mx-auto px-6 md:px-4;
 }
 
 @utility section-title {
@@ -136,7 +136,7 @@ body {
 }
 
 @utility section-padding {
-  @apply pb-6 sm:pb-12 bg-white text-black dark:text-blue-100 dark:bg-gray-900;
+  @apply pb-8 sm:pb-12 bg-white text-black dark:text-blue-100 dark:bg-gray-900;
 }
 
 /* Navigation Components */
@@ -239,6 +239,19 @@ body {
 
 @utility btn-action-compact {
   @apply flex items-center gap-1 pl-2 pr-3 py-2 rounded-sm border border-gray-300 dark:border-gray-500 text-gray-400 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-800 dark:hover:border-gray-200 transition-all duration-150 ease-out hover:cursor-pointer;
+}
+
+/* Mobile-specific spacing utilities */
+@utility mobile-section-spacing {
+  @apply space-y-4 md:space-y-6;
+}
+
+@utility mobile-card-padding {
+  @apply p-4 md:p-6;
+}
+
+@utility mobile-button-margin {
+  @apply mt-6 md:mt-8;
 }
 
 

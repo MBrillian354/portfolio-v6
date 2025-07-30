@@ -27,7 +27,7 @@ const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
       <div className="flex flex-col md:flex-row gap-2">
         <span className="min-w-36 font-semibold text-sm text-gray-500 dark:text-gray-400 mb-2 mt-1">{project.period}</span>
         <div>
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+          <div className="flex items-start justify-between mb-3">
             <div>
               <h3 className="card-title experience-title">{project.title}</h3>
               <p className="card-subtitle">{project.company}</p>
@@ -39,10 +39,10 @@ const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
             </div>
           </div>
 
-          <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4 leading-relaxed">{project.description}</p>
 
           {project.status && (
-            <div className="mb-4">
+            <div className="mb-3 md:mb-4">
               <span className={`badge-type ${statusColors[project.status] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'}`}>
                 {project.status}
               </span>
@@ -91,7 +91,7 @@ const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
   return (
     <section id="projects" className="section-padding">
       <div className="section-container">
-        <div className="space-y-6">
+        <div className="mobile-section-spacing">
           {displayProjects.map((project, index) => (
             <ProjectCard
               key={index}
@@ -105,7 +105,7 @@ const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
         </div>
         
         {showArchiveButton && sortedProjects.length > 3 && (
-          <div className="mt-8">
+          <div className="mobile-button-margin">
             <button
               onClick={onShowArchive}
               className="btn-action"

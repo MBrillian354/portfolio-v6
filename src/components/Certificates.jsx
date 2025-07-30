@@ -80,7 +80,7 @@ const Certificates = ({ certificates, showArchiveButton = false, onShowArchive }
   return (
     <section id="certificates" className="section-padding">
       <div className="section-container">
-        <div className="space-y-6">
+        <div className="mobile-section-spacing">
           {displayCertificates.map((certificate, index) => (
             <CertificateCard
               key={index}
@@ -94,7 +94,7 @@ const Certificates = ({ certificates, showArchiveButton = false, onShowArchive }
         </div>
         
         {showArchiveButton && certificates.length > 3 && (
-          <div className="mt-8">
+          <div className="mobile-button-margin">
             <button
               onClick={onShowArchive}
               className="btn-action"

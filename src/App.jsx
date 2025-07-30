@@ -78,14 +78,14 @@ function App() {
           <div className='max-w-6xl mx-auto'>
             <div className="sm:flex">
               <aside className="hidden sm:block sm:w-1/2 bg-white dark:bg-gray-900 sticky top-0 h-screen overflow-y-auto">
-                <div className="flex flex-col h-full pt-12 min-h-0">
+                <div className="flex flex-col h-full pt-8 md:pt-12 min-h-0">
                   <div className="flex-1 min-h-0 overflow-y-auto relative">
                     <About personalInfo={portfolioData.personalInfo} />
                     <Navigation />
                   </div>
                 </div>
               </aside>
-              <main className="sm:basis-3/5 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-12">
+              <main className="sm:basis-3/5 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-8 md:pt-12">
                 <div className="sm:hidden">
                   <About personalInfo={portfolioData.personalInfo} />
                 </div>

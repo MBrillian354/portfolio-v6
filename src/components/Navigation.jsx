@@ -44,7 +44,7 @@ const Navigation = ({ isMobileOnly = false }) => {
     <>
       {/* Mobile: Top sticky header */}
       <header className="sm:hidden bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-4 py-4">
+        <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex items-center justify-center">
             <h1 className="text-lg font-medium text-blue-600 dark:text-blue-400">
               {activeItem?.label || 'About'}

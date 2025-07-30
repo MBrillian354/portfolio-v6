@@ -34,10 +34,10 @@ const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) =
             </div>
           </div>
 
-          <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">{experience.description}</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4 leading-relaxed">{experience.description}</p>
 
           {experience.scope && experience.scope.length > 0 && (
-            <div className="mb-4">
+            <div className="mb-3 md:mb-4">
               <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">Scope of Work:</h4>
               <div className="flex flex-wrap gap-2">
                 {experience.scope.map((item, index) => (
@@ -97,7 +97,7 @@ const Experience = ({ experiences, internships, showArchiveButton = false, onSho
   return (
     <section id="experience" className="section-padding">
       <div className="section-container">
-        <div className="space-y-6 ">
+        <div className="mobile-section-spacing">
           {displayExperiences.map((experience, index) => (
             <ExperienceCard
               key={index}
@@ -111,7 +111,7 @@ const Experience = ({ experiences, internships, showArchiveButton = false, onSho
         </div>
         
         {showArchiveButton && sortedExperiences.length > 3 && (
-          <div className="mt-8">
+          <div className="mobile-button-margin">
             <button
               onClick={onShowArchive}
               className="btn-action"

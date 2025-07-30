@@ -3,7 +3,7 @@ import React from 'react';
 const Hero = ({ personalInfo }) => {
   return (
     <section id="about" className="section-padding">
-      <div className="section-container mt-8 pl-8">
+      <div className="section-container mt-6 md:mt-8">
         {Array.isArray(personalInfo.summary) ? (
           personalInfo.summary.map((text, idx) => (
             <p key={idx} className="person-summary text-gray-600 dark:text-gray-400">

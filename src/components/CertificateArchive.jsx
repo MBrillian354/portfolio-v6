@@ -15,7 +15,7 @@ const CertificateArchive = ({ certificates, onClose }) => {
   }, [onClose]);
   return (
     <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 overflow-y-auto">
-      <div className="section-container py-8">
+      <div className="max-w-4xl mx-auto px-6 md:px-4 py-8">
         {/* Header */}
         <div className="flex flex-col items-start justify-start gap-4 mb-8 bg-white dark:bg-gray-900 py-4">
           <button
