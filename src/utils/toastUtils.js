@@ -1,5 +1,6 @@
 // Toast utility functions for common use cases
-import { useToast } from '../components/ToastProvider';
+import { useCallback } from 'react';
+import { useToast } from '../context/toastContext';
 
 // Custom hook for common toast actions
 export const useAppToast = () => {
@@ -39,42 +40,50 @@ export const useAppToast = () => {
   };
 };
 
-// Utility function for handling async operations with toast feedback
-export const withToastFeedback = async (
-  operation, 
-  { 
-    successMessage = 'Operation completed successfully!',
-    errorMessage = 'Operation failed. Please try again.',
-    loadingMessage = null,
-    showLoading = false
-  } = {}
-) => {
+// Hook that wraps async operations with toast feedback
+//
+// Returns a runner function: await runWithToast(operation, options)
+// Must be called from inside a component/hook, since it reads the toast context.
+export const useToastFeedback = () => {
   const toast = useToast();
-  
-  let loadingToastId = null;
-  
-  try {
-    if (showLoading && loadingMessage) {
-      loadingToastId = toast.showInfo(loadingMessage, 10000); // Long duration for loading
-    }
-    
-    const result = await operation();
-    
-    if (loadingToastId) {
-      toast.removeToast(loadingToastId);
-    }
-    
-    toast.showSuccess(successMessage, 2500);
-    return result;
-    
-  } catch (error) {
-    if (loadingToastId) {
-      toast.removeToast(loadingToastId);
-    }
-    
-    toast.showError(errorMessage, 3000);
-    throw error;
-  }
+
+  return useCallback(
+    async (
+      operation,
+      {
+        successMessage = 'Operation completed successfully!',
+        errorMessage = 'Operation failed. Please try again.',
+        loadingMessage = null,
+        showLoading = false
+      } = {}
+    ) => {
+      let loadingToastId = null;
+
+      try {
+        if (showLoading && loadingMessage) {
+          loadingToastId = toast.showInfo(loadingMessage, 10000); // Long duration for loading
+        }
+
+        const result = await operation();
+
+        if (loadingToastId) {
+          toast.removeToast(loadingToastId);
+        }
+
+        toast.showSuccess(successMessage, 2500);
+        return result;
+
+      } catch (error) {
+        if (loadingToastId) {
+          toast.removeToast(loadingToastId);
+        }
+
+        toast.showError(errorMessage, 3000);
+        throw error;
+      }
+    },
+    [toast]
+  );
 };
 
-export default { useAppToast, withToastFeedback };
+export default { useAppToast, useToastFeedback };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const Navigation = ({ isMobileOnly = false }) => {
+// const Navigation = ({ isMobileOnly = false }) => {
+const Navigation = () => {
   const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {

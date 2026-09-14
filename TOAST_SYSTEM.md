@@ -16,7 +16,7 @@ A modern, accessible toast notification system built for the portfolio project w
 ### Basic Usage
 
 ```jsx
-import { useToast } from '../components/ToastProvider';
+import { useToast } from '../context/toastContext';
 
 const MyComponent = () => {
   const { showSuccess, showError, showWarning, showInfo } = useToast();
@@ -56,11 +56,13 @@ const MyComponent = () => {
 ### Advanced Usage with Async Operations
 
 ```jsx
-import { withToastFeedback } from '../utils/toastUtils';
+import { useToastFeedback } from '../utils/toastUtils';
 
 const MyComponent = () => {
+  const runWithToast = useToastFeedback();
+
   const handleAsyncOperation = () => {
-    withToastFeedback(
+    runWithToast(
       async () => {
         // Your async operation
         await someApiCall();
@@ -130,6 +132,24 @@ const {
   showInfo,             // (message, duration?) => void
   showWarning           // (message, duration?) => void
 } = useAppToast();
+```
+
+### useToastFeedback Hook
+
+Runs an async operation with automatic success/error (and optional loading) toasts:
+
+```typescript
+const runWithToast = useToastFeedback();
+
+await runWithToast(
+  () => someApiCall(),
+  {
+    successMessage?: string,
+    errorMessage?: string,
+    loadingMessage?: string,
+    showLoading?: boolean
+  }
+);
 ```
 
 ## Styling

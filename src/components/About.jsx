@@ -19,7 +19,7 @@ const About = ({ personalInfo }) => {
     try {
       await navigator.clipboard.writeText(personalInfo.email);
       showCopySuccess('Email');
-    } catch (error) {
+    } catch {
       // Fallback for browsers that don't support clipboard API
       const textArea = document.createElement('textarea');
       textArea.value = personalInfo.email;
@@ -28,7 +28,7 @@ const About = ({ personalInfo }) => {
       try {
         document.execCommand('copy');
         showCopySuccess('Email');
-      } catch (fallbackError) {
+      } catch {
         showCopyError();
       }
       document.body.removeChild(textArea);
@@ -42,7 +42,7 @@ const About = ({ personalInfo }) => {
         <div className="relative w-48 h-64 rounded-md overflow-hidden ring-1 ring-gray-300 dark:ring-blue-300 group">
           {/* Shimmer overlay */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-full group-hover:-translate-x-full transition-transform duration-500 ease-in-out"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-full group-hover:-translate-x-full transition-transform duration-500 ease-in-out"></div>
           </div>
           <img
             src={personalInfo.profileImage || profileImage}
@@ -59,16 +59,6 @@ const About = ({ personalInfo }) => {
       <h2 className="person-title pl-1 text-gray-700 dark:text-gray-400">
         {personalInfo.title || "Your Title"}
       </h2>
-
-      <h3 className='pl-1 flex items-base gap-2 text-gray-700 dark:text-gray-400 mb-4 mt-1'>
-        <Icon
-          icon={personalInfo.countryCode ? `flag:${personalInfo.countryCode}-4x3` : "heroicons:map-pin-16-solid"}
-          width="24"
-          height="18"
-          className='rounded-xs ring-1 ring-gray-300 dark:ring-0'
-        />
-        <span>{personalInfo.location || "Location not specified"}</span>
-      </h3>
 
       <div className="mt-auto py-4 flex justify-start flex-wrap gap-3 text-gray-700 dark:text-gray-400">
         <button

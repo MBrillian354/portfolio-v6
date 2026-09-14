@@ -1,15 +1,6 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
+import { ToastContext } from '../context/toastContext';
 import Toast from './Toast';
-
-const ToastContext = createContext();
-
-export const useToast = () => {
-  const context = useContext(ToastContext);
-  if (!context) {
-    throw new Error('useToast must be used within a ToastProvider');
-  }
-  return context;
-};
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
@@ -47,14 +38,15 @@ export const ToastProvider = ({ children }) => {
     return addToast(message, 'info', duration);
   }, [addToast]);
 
-  const value = {
+  // Memoized so consumers of useToast() get a stable value between renders.
+  const value = useMemo(() => ({
     addToast,
     removeToast,
     showSuccess,
     showError,
     showWarning,
     showInfo
-  };
+  }), [addToast, removeToast, showSuccess, showError, showWarning, showInfo]);
 
   return (
     <ToastContext.Provider value={value}>

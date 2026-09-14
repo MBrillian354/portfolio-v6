@@ -67,7 +67,7 @@ const CustomCursor = ({
   transitionDuration = 0.1 // Animation duration in seconds
 }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
@@ -75,8 +75,8 @@ const CustomCursor = ({
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
-    const handleMouseEnter = () => setIsVisible(true);
-    const handleMouseLeave = () => setIsVisible(false);
+    // const handleMouseEnter = () => setIsVisible(true);
+    // const handleMouseLeave = () => setIsVisible(false);
 
     const handleMouseOver = (e) => {
       const target = e.target;
@@ -93,15 +93,15 @@ const CustomCursor = ({
 
     // Add event listeners
     document.addEventListener('mousemove', updateCursor);
-    document.addEventListener('mouseenter', handleMouseEnter);
-    document.addEventListener('mouseleave', handleMouseLeave);
+    // document.addEventListener('mouseenter', handleMouseEnter);
+    // document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseover', handleMouseOver);
 
     // Cleanup
     return () => {
       document.removeEventListener('mousemove', updateCursor);
-      document.removeEventListener('mouseenter', handleMouseEnter);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      // document.removeEventListener('mouseenter', handleMouseEnter);
+      // document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
