@@ -1,10 +1,26 @@
+import { useState } from 'react';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import profileImage from '../assets/DSC8935_resized.jpg';
 import cvFile from '../assets/MBrillian_CV_2025_06_26.pdf';
 import { useAppToast } from '../utils/toastUtils';
+import ImageLightbox from './ImageLightbox';
 
 const About = ({ personalInfo }) => {
   const { showCopySuccess, showCopyError } = useAppToast();
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxOrigin, setLightboxOrigin] = useState(null);
+
+  const imageSrc = personalInfo.profileImage || profileImage;
+  const imageAlt = `${personalInfo.name} profile`;
+
+  // Capture the picture's on-screen box so the lightbox can grow out of it.
+  const handlePictureClick = (event) => {
+    const { width, height, left, top } = event.currentTarget.getBoundingClientRect();
+    setLightboxOrigin({ width, height, left, top });
+    setIsLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => setIsLightboxOpen(false);
 
   const handleCVDownload = () => {
     const link = document.createElement('a');
@@ -39,18 +55,31 @@ const About = ({ personalInfo }) => {
     <div className="p-6 md:p-6 flex flex-col max-md:items-center max-md:justify-center bg-white dark:bg-gray-900">
       {/* Profile Picture */}
       <div className="flex mb-4">
-        <div className="relative w-48 h-64 rounded-md overflow-hidden ring-1 ring-gray-300 dark:ring-blue-300 group">
+        <button
+          type="button"
+          onClick={handlePictureClick}
+          aria-label={`View full-size photo of ${personalInfo.name}`}
+          className="relative w-48 h-64 rounded-md overflow-hidden ring-1 ring-gray-300 dark:ring-blue-300 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400"
+        >
           {/* Shimmer overlay */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-full group-hover:-translate-x-full transition-transform duration-500 ease-in-out"></div>
           </div>
           <img
-            src={personalInfo.profileImage || profileImage}
-            alt={`${personalInfo.name} profile`}
+            src={imageSrc}
+            alt={imageAlt}
             className="w-full h-full object-cover"
           />
-        </div>
+        </button>
       </div>
+
+      <ImageLightbox
+        src={imageSrc}
+        alt={imageAlt}
+        isOpen={isLightboxOpen}
+        onClose={handleLightboxClose}
+        originRect={lightboxOrigin}
+      />
 
       <h1 className="person-name mb-1 mt-4 max-md:text-center">
         {personalInfo.name || "Your Name"}
