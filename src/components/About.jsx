@@ -85,7 +85,7 @@ const About = ({ personalInfo }) => {
         {personalInfo.name || "Your Name"}
       </h1>
 
-      <h2 className="person-title pl-1 text-gray-700 dark:text-gray-400">
+      <h2 className="person-title pl-0.5 text-gray-700 dark:text-gray-400">
         {personalInfo.title || "Your Title"}
       </h2>
 

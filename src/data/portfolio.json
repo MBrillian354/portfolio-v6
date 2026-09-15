@@ -234,30 +234,30 @@
   "currentTechnologies": {
     "frontend": [
       {
-        "name": "React 19",
+        "name": "Next.js 16",
         "category": "Framework",
-        "description": "Building modern user interfaces",
-        "icon" : "devicon:react"
+        "description": "Production React framework with SSR and file-based routing",
+        "icon" : "devicon:nextjs"
       },
       {
-        "name": "Tailwind CSS v4",
-        "category": "Styling",
-        "description": "Utility-first CSS framework",
-        "icon" : "devicon:tailwindcss"
-      },
-      {
-        "name": "Typescript",
+        "name": "TypeScript",
         "category": "Language",
         "description": "Core web development language",
         "icon" : "devicon:typescript"
+      },
+      {
+        "name": "shadcn/ui",
+        "category": "UI Library",
+        "description": "Copy-paste accessible React components built on Radix",
+        "icon" : "simple-icons:shadcnui"
       }
     ],
     "backend": [
       {
-        "name": "Node.js",
-        "category": "Runtime",
-        "description": "JavaScript runtime environment",
-        "icon" : "devicon:nodejs"
+        "name": "PostgreSQL",
+        "category": "Database",
+        "description": "Relational database management system",
+        "icon" : "devicon:postgresql"
       },
       {
         "name": "MongoDB",
@@ -278,12 +278,6 @@
         "category": "Framework",
         "description": "Machine learning and AI",
         "icon" : "devicon:tensorflow"
-      },
-      {
-        "name": "NumPy",
-        "category": "Library",
-        "description": "Numerical computing",
-        "icon" : "devicon:numpy"
       }
     ]
   },
