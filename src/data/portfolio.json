@@ -17,30 +17,34 @@
   },
   "experiences": [
     {
-      "title": "Full Stack Web Developer",
-      "company": "ICT – PPG Komisariat Karawang",
-      "period": "October 2024 – Present",
+      "title": "Full Stack Developer",
+      "company": "Elice",
+      "period": "Oct 2025 – Present",
       "type": "work",
-      "description": "Design and implement an academic system using MERN stack. Integrate frontend and backend using RestAPI. Configure a combination RBAC and ABAC to differentiate between user access levels. Migrate database from conventional spreadsheets into MongoDB.",
+      "description": "Engineered the frontend for Creator AI, an AI-powered platform where creators and educators generate slide decks, documents, and multimedia content from prompts, building the end-to-end creation flow with multi-step wizards, live slide and code editors, real-time generation job tracking, and client-side PDF/PPTX export. Also developed an AI interview practice platform for job and university admission preparation, pairing a FastAPI backend with RAG-based question retrieval, GPT-4o scoring, Whisper speech-to-text, and a PostgreSQL background job queue to deliver scored sessions with structured AI feedback and PDF performance reports.",
       "scope": [
-        "Frontend",
-        "Backend",
-        "Database",
-        "Deployment"
+        "Frontend Development",
+        "UI/UX Implementation",
+        "Design System (shadcn/ui + Radix)",
+        "State Management",
+        "API Integration",
+        "Testing",
+        "Database Design & Migrations (PostgreSQL & Alembic)",
+        "Authentication & Authorization (JWT)"
       ],
       "techStack": [
-        "MongoDB",
-        "React.Js",
-        "Node.Js",
-        "Express",
-        "Firebase",
-        "Nginx"
+        "Next.js",
+        "Node.js",
+        "TanStack Query",
+        "FastAPI",
+        "SQLAlchemy",
+        "Docker"
       ]
     },
     {
       "title": "IT Staff",
       "company": "SUGIMA Car Painting & Training Center",
-      "period": "Oct 2023 – Present",
+      "period": "Oct 2023 – Dec 2024",
       "type": "work",
       "description": "Provided basic technical support to employees, including password resets and software installations. Contributed to the smooth operation of the company's IT infrastructure. Troubleshooted and resolved issues with Windows operating system, Microsoft Office, and various business applications.",
       "scope": [
