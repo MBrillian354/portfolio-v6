@@ -1,21 +1,24 @@
-import React from 'react';
+import React from "react";
 
 const Hero = ({ personalInfo }) => {
-  return (
-    <section id="about" className="section-padding">
-      <div className="section-container mt-6 md:mt-8">
-        {Array.isArray(personalInfo.summary) ? (
-          personalInfo.summary.map((text, idx) => (
-            <p key={idx} className="person-summary text-gray-600 dark:text-gray-400">
-              {text}
-            </p>
-          ))
-        ) : (
-          <p className="person-summary text-gray-600 dark:text-gray-400">
-            {personalInfo.summary}
-          </p>
-        )}
-        {/* <div className="text-center">
+	return (
+		<section id="about" className="section-padding">
+			<div className="section-container mt-6 md:mt-8">
+				{Array.isArray(personalInfo.summary) ? (
+					personalInfo.summary.map((text, idx) => (
+						<p
+							key={idx}
+							className="person-summary text-gray-600 dark:text-gray-400"
+						>
+							{text}
+						</p>
+					))
+				) : (
+					<p className="person-summary text-gray-600 dark:text-gray-400">
+						{personalInfo.summary}
+					</p>
+				)}
+				{/* <div className="text-center">
           <div className="avatar">
             <span className="avatar-text">
               {personalInfo.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
@@ -44,9 +47,9 @@ const Hero = ({ personalInfo }) => {
             </a>
           </div>
         </div> */}
-      </div>
-    </section>
-  );
+			</div>
+		</section>
+	);
 };
 
 export default Hero;

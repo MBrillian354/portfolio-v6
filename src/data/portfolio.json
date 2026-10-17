@@ -1,436 +1,348 @@
 {
-  "personalInfo": {
-    "name": "M. Brillian",
-    "title": "Full Stack Engineer & Data Scientist",
-    "profileImage": null,
-    "phone": "+628 1323452095",
-    "email": "brillian354@gmail.com",
-    "website": "https://mbrillian.github.io",
-    "github": "github.com/mbrillian354",
-    "linkedin": "linkedin.com/in/mbrillian354",
-    "location": "Karawang, Indonesia",
-    "countryCode": "id",
-    "description": "I combine web development skills with data science expertise to create innovative solutions.",
-    "summary": [
-      "More than 3 years of experience in full stack engineering."
-    ]
-  },
-  "experiences": [
-    {
-      "title": "Full Stack Developer",
-      "company": "Elice",
-      "period": "Oct 2025 – Present",
-      "type": "work",
-      "description": "Engineered the frontend for Creator AI, an AI-powered platform where creators and educators generate slide decks, documents, and multimedia content from prompts, building the end-to-end creation flow with multi-step wizards, live slide and code editors, real-time generation job tracking, and client-side PDF/PPTX export. Also developed an AI interview practice platform for job and university admission preparation, pairing a FastAPI backend with RAG-based question retrieval, GPT-4o scoring, Whisper speech-to-text, and a PostgreSQL background job queue to deliver scored sessions with structured AI feedback and PDF performance reports.",
-      "scope": [
-        "Frontend Development",
-        "UI/UX Implementation",
-        "Design System (shadcn/ui + Radix)",
-        "State Management",
-        "API Integration",
-        "Testing",
-        "Database Design & Migrations (PostgreSQL & Alembic)",
-        "Authentication & Authorization (JWT)"
-      ],
-      "techStack": [
-        "Next.js",
-        "Node.js",
-        "TanStack Query",
-        "FastAPI",
-        "SQLAlchemy",
-        "Docker"
-      ]
-    },
-    {
-      "title": "IT Staff",
-      "company": "SUGIMA Car Painting & Training Center",
-      "period": "Oct 2023 – Dec 2024",
-      "type": "work",
-      "description": "Provided basic technical support to employees, including password resets and software installations. Contributed to the smooth operation of the company's IT infrastructure. Troubleshooted and resolved issues with Windows operating system, Microsoft Office, and various business applications.",
-      "scope": [
-        "Technical Support",
-        "IT Infrastructure"
-      ],
-      "techStack": [
-        "Windows",
-        "Microsoft Office"
-      ]
-    },
-    {
-      "title": "Machine Learning",
-      "company": "College Project – University of Singaperbangsa Karawang",
-      "period": "March – April 2024",
-      "type": "project",
-      "description": "Led and coordinated team to collect, clean, prepare dataset, and train machine learning models for house price prediction in Central Jakarta.",
-      "scope": [
-        "Data Preprocessing",
-        "Exploratory Data Analytics",
-        "Model Training"
-      ],
-      "techStack": [
-        "Python",
-        "Scikit-Learn",
-        "Pandas",
-        "Numpy"
-      ]
-    },
-    {
-      "title": "Frontend Developer",
-      "company": "College Project – University of Singaperbangsa Karawang",
-      "period": "March – May 2024",
-      "type": "project",
-      "description": "Designed and implemented a culinary inspiration website using PHP.",
-      "scope": [
-        "Web Design",
-        "Frontend"
-      ],
-      "techStack": [
-        "Figma",
-        "HTML",
-        "CSS",
-        "PHP",
-        "Bootstrap 5",
-        "Git/GitHub"
-      ]
-    },
-    {
-      "title": "Data Analyst",
-      "company": "Course Project – Bangkit Academy, led by Google, Tokopedia, Gojek, & Traveloka",
-      "period": "January – February 2024",
-      "type": "project",
-      "description": "Performed data analytics on Olist e-commerce dataset. Implemented descriptive analysis, data wrangling, EDA, data visualization, and dashboard development.",
-      "scope": [
-        "Data Analysis",
-        "Visualization",
-        "Dashboard Development"
-      ],
-      "techStack": [
-        "Python",
-        "TensorFlow",
-        "Pandas",
-        "NumPy",
-        "Streamlit"
-      ]
-    },
-    {
-      "title": "Full Stack Web Developer",
-      "company": "College Project – University of Singaperbangsa Karawang",
-      "period": "June – July 2022",
-      "type": "project",
-      "description": "Designed and developed a web-based library management system for book lending, returns, and inventory tracking. Created a MySQL database to manage books, users, and penalties.",
-      "scope": [
-        "Web Design",
-        "Frontend",
-        "Backend"
-      ],
-      "techStack": [
-        "Figma",
-        "HTML",
-        "CSS",
-        "PHP",
-        "Bootstrap 5",
-        "MySQL"
-      ]
-    },
-    {
-      "title": "IT Technician (Teknisi TI)",
-      "company": "LKS Nasional – Kemendikbud",
-      "period": "Sep – Oct 2021",
-      "type": "work",
-      "description": "Develop and manage IT solutions to support the competition. Maintain stable internet and provide comprehensive IT support for judges, including hardware/software configuration, platform monitoring, real-time technical assistance, score input guidance, and rapid troubleshooting to ensure seamless judging.",
-      "scope": [
-        "IT Solutions",
-        "Technical Support",
-        "Infrastructure Management"
-      ],
-      "techStack": [
-        "Hardware Configuration",
-        "Network Management"
-      ]
-    }
-  ],
-  "internships": [
-    {
-      "title": "Machine Learning Intern",
-      "company": "Bangkit Academy, led by Google, Tokopedia, Gojek, & Traveloka",
-      "period": "August – December 2023",
-      "description": "Responsible as a machine learning intern that built an image classification model. Collected and cleaned images dataset from duplicates, anomalies, and inconsistencies. Preprocess and built machine learning (ML) model using Convolutional Neural Networks (CNN) and Transfer Learning.",
-      "scope": [
-        "CNN",
-        "TensorFlow",
-        "Transfer Learning"
-      ],
-      "techStack": [
-        "Python",
-        "TensorFlow",
-        "Pandas",
-        "NumPy"
-      ]
-    }
-  ],
-  "volunteering": [
-    {
-      "title": "Host and On-Site Coordinator of CIKABIRAYA Event",
-      "organization": "DPW LDII Jawa Barat",
-      "period": "May 2025",
-      "description": "Prepared venue and coordinated all team to facilitate the running of CIKABIRAYA event."
-    },
-    {
-      "title": "Equipment & Logistic Staff of Junior Football Talent Scouting Event",
-      "organization": "FORSGI Karawang",
-      "period": "January 2025",
-      "description": "Managed and prepared all equipment that are required for the running of Junior Football Talent Scouting Event."
-    },
-    {
-      "title": "Outbound Coordinator of SEMESTA Event",
-      "organization": "Generus Cikampek Tengah",
-      "period": "December 2024",
-      "description": "Led and coordinated all staff to run the outbound of SEMESTA event."
-    },
-    {
-      "title": "Equipment & Logistic Staff and Facilitator Assistant of MOZART Event",
-      "organization": "Generus Cikampek Tengah",
-      "period": "September 2024",
-      "description": "Prepared all equipment required for the running of MOZART Event. Organized and set up event venue. Coordinate with facilitators to align outbound with event rundown."
-    }
-  ],
-  "organization": [
-    {
-      "title": "General Education and Training",
-      "organization": "PAC LDII Jomin Barat",
-      "period": "November 2022 – Present",
-      "description": "Responsible to monitor and evaluate student learning activities. Coordinate with educators and staffs to ensure learning strategies and program goals. Provide regular reports and updates to management."
-    }
-  ],
-  "education": {
-    "degree": "Bachelor of Computer Science",
-    "university": "University of Singaperbangsa Karawang",
-    "period": "August 2021 – January 2025",
-    "gpa": "3.61/4.0"
-  },
-  "skills": {
-    "languages": [
-      "Bahasa Indonesia (Native)",
-      "English (IELTS Band 7.0)"
-    ],
-    "hardSkills": [
-      "Python",
-      "R Language",
-      "TensorFlow",
-      "SQL",
-      "NoSQL",
-      "HTML",
-      "CSS",
-      "PHP",
-      "JavaScript",
-      "Google Cloud Platform (GCP)",
-      "Gemini",
-      "Google Workspace"
-    ],
-    "softSkills": [
-      "Leadership",
-      "Teamwork",
-      "Team Management",
-      "Communication",
-      "Critical Thinking"
-    ]
-  },
-  "currentTechnologies": {
-    "frontend": [
-      {
-        "name": "Next.js 16",
-        "category": "Framework",
-        "description": "Production React framework with SSR and file-based routing",
-        "icon" : "devicon:nextjs"
-      },
-      {
-        "name": "TypeScript",
-        "category": "Language",
-        "description": "Core web development language",
-        "icon" : "devicon:typescript"
-      },
-      {
-        "name": "shadcn/ui",
-        "category": "UI Library",
-        "description": "Copy-paste accessible React components built on Radix",
-        "icon" : "simple-icons:shadcnui"
-      }
-    ],
-    "backend": [
-      {
-        "name": "PostgreSQL",
-        "category": "Database",
-        "description": "Relational database management system",
-        "icon" : "devicon:postgresql"
-      },
-      {
-        "name": "MongoDB",
-        "category": "Database",
-        "description": "NoSQL document database",
-        "icon" : "devicon:mongodb"
-      }
-    ],
-    "dataScience": [
-      {
-        "name": "Python",
-        "category": "Language",
-        "description": "Primary language for data science",
-        "icon" : "devicon:python"
-      },
-      {
-        "name": "TensorFlow",
-        "category": "Framework",
-        "description": "Machine learning and AI",
-        "icon" : "devicon:tensorflow"
-      }
-    ]
-  },
-  "certificates": [
-    {
-      "title": "The MERN Fullstack",
-      "description": "Comprehensive course covering MongoDB, Express.js, React, and Node.js stack for full-stack web development. Learned to build scalable web applications with modern JavaScript technologies.",
-      "image": "/certificates/mern-fullstack-udemy.jpg"
-    },
-    {
-      "title": "Digital Entrepreneurship Academy",
-      "description": "Professional development program focused on digital business strategies, e-commerce, and online marketing. Gained insights into digital transformation and business innovation.",
-      "image": "/certificates/digital-entrepreneurship-digitalent.jpg"
-    },
-    {
-      "title": "Machine Learning Specialization",
-      "description": "Comprehensive machine learning program covering supervised learning, unsupervised learning, and reinforcement learning. Mastered algorithms, neural networks, and practical ML implementation.",
-      "image": "/certificates/machine-learning-coursera.jpg"
-    },
-    {
-      "title": "TensorFlow Developer Specialization",
-      "description": "Specialized training in TensorFlow framework for building and deploying machine learning models. Learned deep learning, computer vision, and natural language processing techniques.",
-      "image": "/certificates/tensorflow-developer-coursera.jpg"
-    },
-    {
-      "title": "Google Data Analytics Specialization",
-      "description": "Complete data analytics program covering data collection, cleaning, analysis, and visualization. Proficient in R, SQL, Tableau, and Google Analytics for business insights.",
-      "image": "/certificates/google-data-analytics-coursera.jpg"
-    },
-    {
-      "title": "Data Analysis with Python",
-      "description": "Dicoding",
-      "image": "/certificates/data-analytics-python-dicoding.jpg"
-    },
-    {
-      "title": "TensorFlow: Data and Deployment Specialization",
-      "description": "Advanced specialization in TensorFlow for data processing and model deployment",
-      "image": "/certificates/tensorflow-data-deployment-coursera.jpg"
-    },
-    {
-      "title": "Mathematics for Machine Learning and Data Science Specialization",
-      "description": "Comprehensive mathematics course covering linear algebra, calculus, and statistics for machine learning and data science applications.",
-      "image": "/certificates/mathematics-machine-learning-data-science-coursera.jpg"
-    },
-    {
-      "title": "Git and GitHub",
-      "description": "Dicoding",
-      "image": "/certificates/belajar-dasar-git-github-dicoding.jpg"
-    },
-    {
-      "title": "Programming for Software Engineers",
-      "description": "Dicoding",
-      "image": "/certificates/memulai-dasar-pemrograman-untuk-menjadi-pengembang-software-dicoding.jpg"},
-    {
-      "title": "Programming Logic",
-      "description": "Dicoding",
-      "image": "/certificates/pengenalan-ke-logika-pemrograman-dicoding.jpg"
-    }
-  ],
-  "projects": [
-    {
-      "title": "House Price Prediction Model",
-      "period": "March – April 2024",
-      "company": "University of Singaperbangsa Karawang",
-      "description": "Led and coordinated team to collect, clean, prepare dataset, and train machine learning models for house price prediction in Central Jakarta.",
-      "techStack": [
-        "Python",
-        "Scikit-Learn",
-        "Pandas",
-        "Numpy"
-      ],
-      "link": "https://github.com/mbrillian354/house-price-prediction",
-      "status": "Completed"
-    },
-    {
-      "title": "Culinary Inspiration Website",
-      "period": "March – May 2024",
-      "company": "University of Singaperbangsa Karawang",
-      "description": "Designed and implemented a culinary inspiration website using PHP with responsive design and user-friendly interface.",
-      "techStack": [
-        "Figma",
-        "HTML",
-        "CSS",
-        "PHP",
-        "Bootstrap 5",
-        "Git/GitHub"
-      ],
-      "link": "https://github.com/mbrillian354/culinary-website",
-      "status": "Completed"
-    },
-    {
-      "title": "Olist E-commerce Analytics",
-      "period": "January – February 2024",
-      "company": "Bangkit Academy",
-      "description": "Performed comprehensive data analytics on Olist e-commerce dataset with interactive dashboard development using Streamlit.",
-      "techStack": [
-        "Python",
-        "TensorFlow",
-        "Pandas",
-        "NumPy",
-        "Streamlit"
-      ],
-      "link": "https://github.com/mbrillian354/olist-analytics",
-      "status": "Completed"
-    },
-    {
-      "title": "Library Management System",
-      "period": "June – July 2022",
-      "company": "University of Singaperbangsa Karawang",
-      "description": "Designed and developed a comprehensive web-based library management system for book lending, returns, and inventory tracking with MySQL database integration.",
-      "techStack": [
-        "Figma",
-        "HTML",
-        "CSS",
-        "PHP",
-        "Bootstrap 5",
-        "MySQL"
-      ],
-      "link": "https://github.com/mbrillian354/library-management",
-      "status": "Completed"
-    },
-    {
-      "title": "Academic System PPG",
-      "period": "October 2024 – Present",
-      "company": "ICT – PPG Komisariat Karawang",
-      "description": "Built, deployed, and monitor an integrated digital platform for an Islamic Educational Institution (30+ locations, 200+ teachers, 1000+ students). System Built: , IAM SSO, Academic System, CIS (competition information system), Digital library, Marriage information service, and, SEO optimized landing page.",
-      "techStack": [
-        "MongoDB",
-        "Next.Js",
-        "TanStack Query",
-        "Shadcn/ui",
-        "Nginx"
-      ],
-      "link": "https://github.com/mbrillian354/academic-system",
-      "status": "In Progress"
-    },
-    {
-      "title": "Portfolio Website v6",
-      "period": "July 2025",
-      "company": "Personal Project",
-      "description": "Modern portfolio website built with React 19 and Tailwind CSS v4, featuring dark mode, responsive design, and interactive components.",
-      "techStack": [
-        "React 19",
-        "Tailwind CSS v4",
-        "Vite",
-        "JavaScript"
-      ],
-      "link": "https://github.com/mbrillian354/portfolio-v6",
-      "status": "In Progress"
-    }
-  ]
+	"personalInfo": {
+		"name": "M. Brillian",
+		"title": "Full Stack Engineer & Data Scientist",
+		"profileImage": null,
+		"phone": "+628 1323452095",
+		"email": "brillian354@gmail.com",
+		"website": "https://mbrillian.github.io",
+		"github": "github.com/mbrillian354",
+		"linkedin": "linkedin.com/in/mbrillian354",
+		"location": "Karawang, Indonesia",
+		"countryCode": "id",
+		"description": "I combine web development skills with data science expertise to create innovative solutions.",
+		"summary": ["More than 3 years of experience in full stack engineering."]
+	},
+	"experiences": [
+		{
+			"title": "Full Stack Developer",
+			"company": "Elice",
+			"period": "Oct 2025 – Present",
+			"type": "work",
+			"description": "Engineered the frontend for Creator AI, an AI-powered platform where creators and educators generate slide decks, documents, and multimedia content from prompts, building the end-to-end creation flow with multi-step wizards, live slide and code editors, real-time generation job tracking, and client-side PDF/PPTX export. Also developed an AI interview practice platform for job and university admission preparation, pairing a FastAPI backend with RAG-based question retrieval, GPT-4o scoring, Whisper speech-to-text, and a PostgreSQL background job queue to deliver scored sessions with structured AI feedback and PDF performance reports.",
+			"scope": [
+				"Frontend Development",
+				"UI/UX Implementation",
+				"Design System (shadcn/ui + Radix)",
+				"State Management",
+				"API Integration",
+				"Testing",
+				"Database Design & Migrations (PostgreSQL & Alembic)",
+				"Authentication & Authorization (JWT)"
+			],
+			"techStack": [
+				"Next.js",
+				"Node.js",
+				"TanStack Query",
+				"FastAPI",
+				"SQLAlchemy",
+				"Docker"
+			]
+		},
+		{
+			"title": "IT Staff",
+			"company": "SUGIMA Car Painting & Training Center",
+			"period": "Oct 2023 – Dec 2024",
+			"type": "work",
+			"description": "Provided basic technical support to employees, including password resets and software installations. Contributed to the smooth operation of the company's IT infrastructure. Troubleshooted and resolved issues with Windows operating system, Microsoft Office, and various business applications.",
+			"scope": ["Technical Support", "IT Infrastructure"],
+			"techStack": ["Windows", "Microsoft Office"]
+		},
+		{
+			"title": "Machine Learning",
+			"company": "College Project – University of Singaperbangsa Karawang",
+			"period": "March – April 2024",
+			"type": "project",
+			"description": "Led and coordinated team to collect, clean, prepare dataset, and train machine learning models for house price prediction in Central Jakarta.",
+			"scope": [
+				"Data Preprocessing",
+				"Exploratory Data Analytics",
+				"Model Training"
+			],
+			"techStack": ["Python", "Scikit-Learn", "Pandas", "Numpy"]
+		},
+		{
+			"title": "Frontend Developer",
+			"company": "College Project – University of Singaperbangsa Karawang",
+			"period": "March – May 2024",
+			"type": "project",
+			"description": "Designed and implemented a culinary inspiration website using PHP.",
+			"scope": ["Web Design", "Frontend"],
+			"techStack": ["Figma", "HTML", "CSS", "PHP", "Bootstrap 5", "Git/GitHub"]
+		},
+		{
+			"title": "Data Analyst",
+			"company": "Course Project – Bangkit Academy, led by Google, Tokopedia, Gojek, & Traveloka",
+			"period": "January – February 2024",
+			"type": "project",
+			"description": "Performed data analytics on Olist e-commerce dataset. Implemented descriptive analysis, data wrangling, EDA, data visualization, and dashboard development.",
+			"scope": ["Data Analysis", "Visualization", "Dashboard Development"],
+			"techStack": ["Python", "TensorFlow", "Pandas", "NumPy", "Streamlit"]
+		},
+		{
+			"title": "Full Stack Web Developer",
+			"company": "College Project – University of Singaperbangsa Karawang",
+			"period": "June – July 2022",
+			"type": "project",
+			"description": "Designed and developed a web-based library management system for book lending, returns, and inventory tracking. Created a MySQL database to manage books, users, and penalties.",
+			"scope": ["Web Design", "Frontend", "Backend"],
+			"techStack": ["Figma", "HTML", "CSS", "PHP", "Bootstrap 5", "MySQL"]
+		},
+		{
+			"title": "IT Technician (Teknisi TI)",
+			"company": "LKS Nasional – Kemendikbud",
+			"period": "Sep – Oct 2021",
+			"type": "work",
+			"description": "Develop and manage IT solutions to support the competition. Maintain stable internet and provide comprehensive IT support for judges, including hardware/software configuration, platform monitoring, real-time technical assistance, score input guidance, and rapid troubleshooting to ensure seamless judging.",
+			"scope": [
+				"IT Solutions",
+				"Technical Support",
+				"Infrastructure Management"
+			],
+			"techStack": ["Hardware Configuration", "Network Management"]
+		}
+	],
+	"internships": [
+		{
+			"title": "Machine Learning Intern",
+			"company": "Bangkit Academy, led by Google, Tokopedia, Gojek, & Traveloka",
+			"period": "August – December 2023",
+			"description": "Responsible as a machine learning intern that built an image classification model. Collected and cleaned images dataset from duplicates, anomalies, and inconsistencies. Preprocess and built machine learning (ML) model using Convolutional Neural Networks (CNN) and Transfer Learning.",
+			"scope": ["CNN", "TensorFlow", "Transfer Learning"],
+			"techStack": ["Python", "TensorFlow", "Pandas", "NumPy"]
+		}
+	],
+	"volunteering": [
+		{
+			"title": "Host and On-Site Coordinator of CIKABIRAYA Event",
+			"organization": "DPW LDII Jawa Barat",
+			"period": "May 2025",
+			"description": "Prepared venue and coordinated all team to facilitate the running of CIKABIRAYA event."
+		},
+		{
+			"title": "Equipment & Logistic Staff of Junior Football Talent Scouting Event",
+			"organization": "FORSGI Karawang",
+			"period": "January 2025",
+			"description": "Managed and prepared all equipment that are required for the running of Junior Football Talent Scouting Event."
+		},
+		{
+			"title": "Outbound Coordinator of SEMESTA Event",
+			"organization": "Generus Cikampek Tengah",
+			"period": "December 2024",
+			"description": "Led and coordinated all staff to run the outbound of SEMESTA event."
+		},
+		{
+			"title": "Equipment & Logistic Staff and Facilitator Assistant of MOZART Event",
+			"organization": "Generus Cikampek Tengah",
+			"period": "September 2024",
+			"description": "Prepared all equipment required for the running of MOZART Event. Organized and set up event venue. Coordinate with facilitators to align outbound with event rundown."
+		}
+	],
+	"organization": [
+		{
+			"title": "General Education and Training",
+			"organization": "PAC LDII Jomin Barat",
+			"period": "November 2022 – Present",
+			"description": "Responsible to monitor and evaluate student learning activities. Coordinate with educators and staffs to ensure learning strategies and program goals. Provide regular reports and updates to management."
+		}
+	],
+	"education": {
+		"degree": "Bachelor of Computer Science",
+		"university": "University of Singaperbangsa Karawang",
+		"period": "August 2021 – January 2025",
+		"gpa": "3.61/4.0"
+	},
+	"skills": {
+		"languages": ["Bahasa Indonesia (Native)", "English (IELTS Band 7.0)"],
+		"hardSkills": [
+			"Python",
+			"R Language",
+			"TensorFlow",
+			"SQL",
+			"NoSQL",
+			"HTML",
+			"CSS",
+			"PHP",
+			"JavaScript",
+			"Google Cloud Platform (GCP)",
+			"Gemini",
+			"Google Workspace"
+		],
+		"softSkills": [
+			"Leadership",
+			"Teamwork",
+			"Team Management",
+			"Communication",
+			"Critical Thinking"
+		]
+	},
+	"currentTechnologies": {
+		"frontend": [
+			{
+				"name": "Next.js 16",
+				"category": "Framework",
+				"description": "Production React framework with SSR and file-based routing",
+				"icon": "devicon:nextjs"
+			},
+			{
+				"name": "TypeScript",
+				"category": "Language",
+				"description": "Core web development language",
+				"icon": "devicon:typescript"
+			},
+			{
+				"name": "shadcn/ui",
+				"category": "UI Library",
+				"description": "Copy-paste accessible React components built on Radix",
+				"icon": "simple-icons:shadcnui"
+			}
+		],
+		"backend": [
+			{
+				"name": "PostgreSQL",
+				"category": "Database",
+				"description": "Relational database management system",
+				"icon": "devicon:postgresql"
+			},
+			{
+				"name": "MongoDB",
+				"category": "Database",
+				"description": "NoSQL document database",
+				"icon": "devicon:mongodb"
+			}
+		],
+		"dataScience": [
+			{
+				"name": "Python",
+				"category": "Language",
+				"description": "Primary language for data science",
+				"icon": "devicon:python"
+			},
+			{
+				"name": "TensorFlow",
+				"category": "Framework",
+				"description": "Machine learning and AI",
+				"icon": "devicon:tensorflow"
+			}
+		]
+	},
+	"certificates": [
+		{
+			"title": "The MERN Fullstack",
+			"description": "Comprehensive course covering MongoDB, Express.js, React, and Node.js stack for full-stack web development. Learned to build scalable web applications with modern JavaScript technologies.",
+			"image": "/certificates/mern-fullstack-udemy.jpg"
+		},
+		{
+			"title": "Digital Entrepreneurship Academy",
+			"description": "Professional development program focused on digital business strategies, e-commerce, and online marketing. Gained insights into digital transformation and business innovation.",
+			"image": "/certificates/digital-entrepreneurship-digitalent.jpg"
+		},
+		{
+			"title": "Machine Learning Specialization",
+			"description": "Comprehensive machine learning program covering supervised learning, unsupervised learning, and reinforcement learning. Mastered algorithms, neural networks, and practical ML implementation.",
+			"image": "/certificates/machine-learning-coursera.jpg"
+		},
+		{
+			"title": "TensorFlow Developer Specialization",
+			"description": "Specialized training in TensorFlow framework for building and deploying machine learning models. Learned deep learning, computer vision, and natural language processing techniques.",
+			"image": "/certificates/tensorflow-developer-coursera.jpg"
+		},
+		{
+			"title": "Google Data Analytics Specialization",
+			"description": "Complete data analytics program covering data collection, cleaning, analysis, and visualization. Proficient in R, SQL, Tableau, and Google Analytics for business insights.",
+			"image": "/certificates/google-data-analytics-coursera.jpg"
+		},
+		{
+			"title": "Data Analysis with Python",
+			"description": "Dicoding",
+			"image": "/certificates/data-analytics-python-dicoding.jpg"
+		},
+		{
+			"title": "TensorFlow: Data and Deployment Specialization",
+			"description": "Advanced specialization in TensorFlow for data processing and model deployment",
+			"image": "/certificates/tensorflow-data-deployment-coursera.jpg"
+		},
+		{
+			"title": "Mathematics for Machine Learning and Data Science Specialization",
+			"description": "Comprehensive mathematics course covering linear algebra, calculus, and statistics for machine learning and data science applications.",
+			"image": "/certificates/mathematics-machine-learning-data-science-coursera.jpg"
+		},
+		{
+			"title": "Git and GitHub",
+			"description": "Dicoding",
+			"image": "/certificates/belajar-dasar-git-github-dicoding.jpg"
+		},
+		{
+			"title": "Programming for Software Engineers",
+			"description": "Dicoding",
+			"image": "/certificates/memulai-dasar-pemrograman-untuk-menjadi-pengembang-software-dicoding.jpg"
+		},
+		{
+			"title": "Programming Logic",
+			"description": "Dicoding",
+			"image": "/certificates/pengenalan-ke-logika-pemrograman-dicoding.jpg"
+		}
+	],
+	"projects": [
+		{
+			"title": "House Price Prediction Model",
+			"period": "March – April 2024",
+			"company": "University of Singaperbangsa Karawang",
+			"description": "Led and coordinated team to collect, clean, prepare dataset, and train machine learning models for house price prediction in Central Jakarta.",
+			"techStack": ["Python", "Scikit-Learn", "Pandas", "Numpy"],
+			"link": "https://github.com/mbrillian354/house-price-prediction",
+			"status": "Completed"
+		},
+		{
+			"title": "Culinary Inspiration Website",
+			"period": "March – May 2024",
+			"company": "University of Singaperbangsa Karawang",
+			"description": "Designed and implemented a culinary inspiration website using PHP with responsive design and user-friendly interface.",
+			"techStack": ["Figma", "HTML", "CSS", "PHP", "Bootstrap 5", "Git/GitHub"],
+			"link": "https://github.com/mbrillian354/culinary-website",
+			"status": "Completed"
+		},
+		{
+			"title": "Olist E-commerce Analytics",
+			"period": "January – February 2024",
+			"company": "Bangkit Academy",
+			"description": "Performed comprehensive data analytics on Olist e-commerce dataset with interactive dashboard development using Streamlit.",
+			"techStack": ["Python", "TensorFlow", "Pandas", "NumPy", "Streamlit"],
+			"link": "https://github.com/mbrillian354/olist-analytics",
+			"status": "Completed"
+		},
+		{
+			"title": "Library Management System",
+			"period": "June – July 2022",
+			"company": "University of Singaperbangsa Karawang",
+			"description": "Designed and developed a comprehensive web-based library management system for book lending, returns, and inventory tracking with MySQL database integration.",
+			"techStack": ["Figma", "HTML", "CSS", "PHP", "Bootstrap 5", "MySQL"],
+			"link": "https://github.com/mbrillian354/library-management",
+			"status": "Completed"
+		},
+		{
+			"title": "Academic System PPG",
+			"period": "October 2024 – Present",
+			"company": "ICT – PPG Komisariat Karawang",
+			"description": "Built, deployed, and monitor an integrated digital platform for an Islamic Educational Institution (30+ locations, 200+ teachers, 1000+ students). System Built: , IAM SSO, Academic System, CIS (competition information system), Digital library, Marriage information service, and, SEO optimized landing page.",
+			"techStack": [
+				"MongoDB",
+				"Next.Js",
+				"TanStack Query",
+				"Shadcn/ui",
+				"Nginx"
+			],
+			"link": "https://github.com/mbrillian354/academic-system",
+			"status": "In Progress"
+		},
+		{
+			"title": "Portfolio Website v6",
+			"period": "July 2025",
+			"company": "Personal Project",
+			"description": "Modern portfolio website built with React 19 and Tailwind CSS v4, featuring dark mode, responsive design, and interactive components.",
+			"techStack": ["React 19", "Tailwind CSS v4", "Vite", "JavaScript"],
+			"link": "https://github.com/mbrillian354/portfolio-v6",
+			"status": "In Progress"
+		}
+	]
 }

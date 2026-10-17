@@ -1,356 +1,366 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: 'DM Sans', sans-serif;
+	--font-display: "DM Sans", sans-serif;
 }
 
 /* Base styles */
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-display);
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Roboto', sans-serif; */
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Cantarell', sans-serif; */
-  font-weight: 500;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: var(--text-sm);
-  line-height: var(--tw-leading, var(--text-sm--line-height));
+	margin: 0;
+	padding: 0;
+	font-family: var(--font-display);
+	/* font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Roboto', sans-serif; */
+	/* font-family: -apple-system, BlinkMacSystemFont, 'Cantarell', sans-serif; */
+	font-weight: 500;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: var(--text-sm);
+	line-height: var(--tw-leading, var(--text-sm--line-height));
 }
 
 /* Ensure proper mobile viewport */
 * {
-  @apply box-border;
+	@apply box-border;
 }
-
 
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
-  width: 8px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+	background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+	background: #c1c1c1;
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+	background: #a8a8a8;
 }
 
 /* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-track {
-  background: #374151;
+	background: #374151;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #6b7280;
+	background: #6b7280;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+	background: #9ca3af;
 }
 
 /* Reusable Component Classes */
 /* Card Components */
 @utility card {
-  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 md:p-6 text-gray-900 dark:text-gray-100;
+	@apply rounded-lg border border-gray-200 bg-white p-4 text-gray-900 shadow-sm md:p-6 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100;
 }
 
 @utility card-static {
-  @apply bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/100 dark:border-gray-700/50;
+	@apply border border-gray-200/100 bg-white/50 backdrop-blur-sm dark:border-gray-700/50 dark:bg-gray-800/50;
 }
 
 @utility card-hover-group {
-  @apply p-4 md:p-6 dark:text-blue-100 rounded-lg transition-all duration-150 ease-out hover:cursor-pointer;
+	@apply rounded-lg p-4 transition-all duration-150 ease-out hover:cursor-pointer md:p-6 dark:text-blue-100;
 }
 
 @utility card-hover-active {
-  @apply bg-blue-100/30 dark:bg-blue-500/10 dark:shadow-white;
+	@apply bg-blue-100/30 dark:bg-blue-500/10 dark:shadow-white;
 }
 
 @utility card-hover-dimmed {
-  @apply opacity-40
+	@apply opacity-40;
 }
 
 @utility card-title {
-  @apply text-lg font-semibold text-gray-900 dark:text-blue-100 mb-1;
+	@apply mb-1 text-lg font-semibold text-gray-900 dark:text-blue-100;
 }
 
 @utility card-subtitle {
-  @apply text-gray-600 mb-2 dark:text-gray-300;
+	@apply mb-2 text-gray-600 dark:text-gray-300;
 }
 
 @utility card-content {
-  @apply flex flex-col sm:items-end text-gray-700 mb-4 dark:text-gray-400;
+	@apply mb-4 flex flex-col text-gray-700 sm:items-end dark:text-gray-400;
 }
 
 @utility card-gradient-blue {
-  @apply bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200;
+	@apply rounded-lg border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-6;
 }
 
 @utility card-gradient-green {
-  @apply bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200;
+	@apply rounded-lg border border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 p-6;
 }
 
 /* Badge/Tag Components */
 @utility badge-alt {
-  @apply font-semibold bg-blue-200 text-blue-950 dark:bg-blue-950 dark:text-blue-200 px-3 py-1 rounded-full text-sm;
+	@apply rounded-full bg-blue-200 px-3 py-1 text-sm font-semibold text-blue-950 dark:bg-blue-950 dark:text-blue-200;
 }
 
 @utility badge-type {
-  @apply px-2 py-1 rounded-full text-xs font-medium;
+	@apply rounded-full px-2 py-1 text-xs font-medium;
 }
 
 /* Transform Components */
 @utility hover-rotate-scale {
-  @apply transition-transform duration-150 ease-out;
+	@apply transition-transform duration-150 ease-out;
 }
 
 .card-hover-active .hover-rotate-scale {
-  @apply rotate-135 scale-[1.02] dark:text-blue-300;
+	@apply scale-[1.02] rotate-135 dark:text-blue-300;
 }
 
 .card-hover-active .experience-title {
-  @apply dark:text-blue-300;
+	@apply dark:text-blue-300;
 }
 
 /* Section Components */
 @utility section-container {
-  @apply max-w-4xl mx-auto px-6 md:px-4;
+	@apply mx-auto max-w-4xl px-6 md:px-4;
 }
 
 @utility section-title {
-  @apply md:hidden text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center;
+	@apply mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl md:hidden;
 }
 
 @utility section-padding {
-  @apply pb-8 sm:pb-12 bg-white text-black dark:text-blue-100 dark:bg-gray-900;
+	@apply bg-white pb-8 text-black sm:pb-12 dark:bg-gray-900 dark:text-blue-100;
 }
 
 /* Navigation Components */
 @utility nav-link {
-  @apply block font-semibold px-4 py-3 rounded-lg transition-all duration-150 ease-out;
+	@apply block rounded-lg px-4 py-3 font-semibold transition-all duration-150 ease-out;
 }
 
 @utility nav-link-active {
-  @apply px-4 py-3 rounded-lg transition-all duration-150 ease-out text-blue-600 font-medium dark:text-blue-400 dark:border-blue-400;
+	@apply rounded-lg px-4 py-3 font-medium text-blue-600 transition-all duration-150 ease-out dark:border-blue-400 dark:text-blue-400;
 }
 
 @utility person-name {
-  @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 dark:text-blue-100;
+	@apply mb-4 text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl dark:text-blue-100;
 }
 
 @utility person-title {
-  @apply text-xl font-semibold text-gray-700 mb-2 dark:text-gray-300;
+	@apply mb-2 text-xl font-semibold text-gray-700 dark:text-gray-300;
 }
 
 @utility person-summary {
-  @apply text-base text-gray-800 max-w-3xl leading-relaxed dark:text-gray-300;
+	@apply max-w-3xl text-base leading-relaxed text-gray-800 dark:text-gray-300;
 }
 
 @utility intext-link {
-  @apply font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-150 ease-out;
+	@apply font-semibold text-gray-700 transition-all duration-150 ease-out hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400;
 }
 
 /* Additional Transform Utilities */
 .rotate-135 {
-  transform: rotate(135deg);
+	transform: rotate(135deg);
 }
-
 
 /* Archive Table Styles */
 @utility archive-table {
-  @apply w-full border-collapse;
+	@apply w-full border-collapse;
 }
 
 @utility archive-header {
-  @apply sticky bg-white dark:bg-gray-900 border-b-2 border-gray-200 dark:border-gray-700;
+	@apply sticky border-b-2 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900;
 }
 
 @utility archive-header-cell {
-  @apply text-left py-4 px-4 font-semibold text-gray-900 dark:text-blue-100;
+	@apply px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100;
 }
 
 @utility archive-row {
-  @apply border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors;
+	@apply border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50;
 }
 
 @utility archive-cell {
-  @apply py-4 px-4;
+	@apply px-4 py-4;
 }
 
 @utility archive-title {
-  @apply font-semibold text-gray-900 dark:text-blue-100 mb-1;
+	@apply mb-1 font-semibold text-gray-900 dark:text-blue-100;
 }
 
 @utility archive-description {
-  @apply text-sm text-gray-600 dark:text-gray-400 max-w-md;
+	@apply max-w-md text-sm text-gray-600 dark:text-gray-400;
 }
 
 @utility archive-period {
-  @apply text-sm font-medium text-gray-600 dark:text-gray-400;
+	@apply text-sm font-medium text-gray-600 dark:text-gray-400;
 }
 
 @utility archive-company {
-  @apply text-gray-700 dark:text-gray-300;
+	@apply text-gray-700 dark:text-gray-300;
 }
 
 @utility archive-link-button {
-  @apply p-2 rounded-lg bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors inline-block;
+	@apply inline-block rounded-lg bg-blue-100 p-2 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800;
 }
 
 @utility archive-close-button {
-  @apply p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
+	@apply rounded-lg bg-gray-100 p-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700;
 }
 
 @utility archive-header-sticky {
-  @apply flex items-center justify-between mb-8 sticky top-0 bg-white dark:bg-gray-900 py-4 border-b border-gray-200 dark:border-gray-700;
+	@apply sticky top-0 mb-8 flex items-center justify-between border-b border-gray-200 bg-white py-4 dark:border-gray-700 dark:bg-gray-900;
 }
 
 @utility archive-overlay {
-  @apply fixed inset-0 bg-white dark:bg-gray-900 z-50 overflow-y-auto;
+	@apply fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900;
 }
 
 @utility archive-container {
-  @apply section-container py-8;
+	@apply section-container py-8;
 }
 
 @utility btn-action {
-  @apply flex items-start justify-start gap-2 px-3 py-2 rounded-sm border border-gray-300 dark:border-gray-500 text-gray-400 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-800 dark:hover:border-gray-200 transition-all duration-150 ease-out hover:cursor-pointer;
-  transition: all 0.15s ease-out, padding 0.15s ease-out;
+	@apply flex items-start justify-start gap-2 rounded-sm border border-gray-300 px-3 py-2 text-gray-400 transition-all duration-150 ease-out hover:cursor-pointer hover:border-gray-800 hover:text-gray-800 dark:border-gray-500 dark:text-gray-400 dark:hover:border-gray-200 dark:hover:text-gray-200;
+	transition:
+		all 0.15s ease-out,
+		padding 0.15s ease-out;
 }
 
 .btn-action:hover {
-  padding-left: calc(0.75rem + 6px);
-  padding-right: calc(0.75rem + 6px);
+	padding-left: calc(0.75rem + 6px);
+	padding-right: calc(0.75rem + 6px);
 }
 
 @utility btn-action-compact {
-  @apply flex items-center gap-1 pl-2 pr-3 py-2 rounded-sm border border-gray-300 dark:border-gray-500 text-gray-400 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-800 dark:hover:border-gray-200 transition-all duration-150 ease-out hover:cursor-pointer;
+	@apply flex items-center gap-1 rounded-sm border border-gray-300 py-2 pr-3 pl-2 text-gray-400 transition-all duration-150 ease-out hover:cursor-pointer hover:border-gray-800 hover:text-gray-800 dark:border-gray-500 dark:text-gray-400 dark:hover:border-gray-200 dark:hover:text-gray-200;
 }
 
 /* Mobile-specific spacing utilities */
 @utility mobile-section-spacing {
-  @apply space-y-4 md:space-y-6;
+	@apply space-y-4 md:space-y-6;
 }
 
 @utility mobile-card-padding {
-  @apply p-4 md:p-6;
+	@apply p-4 md:p-6;
 }
 
 @utility mobile-button-margin {
-  @apply mt-6 md:mt-8;
+	@apply mt-6 md:mt-8;
 }
 
 /* Fullscreen Image Lightbox */
 @utility lightbox-overlay {
-  @apply fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6 bg-white/95 dark:bg-gray-950/95;
+	@apply fixed inset-0 z-100 flex items-center justify-center bg-white/95 p-4 sm:p-6 dark:bg-gray-950/95;
 }
 
 /* `origin-top-left` is required by the open transition, which anchors the
    measured top-left corner of the image while it scales out of its thumbnail. */
 @utility lightbox-image {
-  @apply max-h-full max-w-full object-contain origin-top-left select-none;
+	@apply max-h-full max-w-full origin-top-left object-contain select-none;
 }
 
 @utility lightbox-close {
-  @apply absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-500 dark:text-gray-400 shadow-lg border border-gray-200 dark:border-gray-700 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-white dark:hover:bg-gray-800 hover:cursor-pointer transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400;
+	@apply absolute top-4 right-4 z-10 rounded-full border border-gray-200 bg-white/80 p-2 text-gray-500 shadow-lg transition-colors duration-150 ease-out hover:cursor-pointer hover:bg-white hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100 dark:focus-visible:outline-blue-400;
 }
-
-
 
 /* Custom Cursor Styles */
 .custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  /* Lower z-index to stay behind the original cursor */
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  border-radius: 50%;
-  /* CSS Custom Properties for easy theming */
-  --light-gradient: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(59, 130, 246, 0.3) 40%, rgba(59, 130, 246, 0.1) 70%, transparent 100%);
-  --dark-gradient: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.2) 70%, transparent 100%);
+	position: fixed;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 9998;
+	/* Lower z-index to stay behind the original cursor */
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	border-radius: 50%;
+	/* CSS Custom Properties for easy theming */
+	--light-gradient: radial-gradient(
+		circle,
+		rgba(59, 130, 246, 0.6) 0%,
+		rgba(59, 130, 246, 0.3) 40%,
+		rgba(59, 130, 246, 0.1) 70%,
+		transparent 100%
+	);
+	--dark-gradient: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.8) 0%,
+		rgba(255, 255, 255, 0.4) 40%,
+		rgba(255, 255, 255, 0.2) 70%,
+		transparent 100%
+	);
 }
 
 .custom-cursor.visible {
-  opacity: 1;
+	opacity: 1;
 }
 
 .custom-cursor::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--light-gradient);
-  transition: background 0.3s ease;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: var(--light-gradient);
+	transition: background 0.3s ease;
 }
 
 /* Dark mode cursor */
 .dark .custom-cursor::before {
-  background: var(--dark-gradient);
+	background: var(--dark-gradient);
 }
 
 /* Keep the original cursor visible - remove cursor: none */
 
 /* Toast Notification Styles */
 .toast-portal {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-width: 400px;
-  width: 100%;
-  pointer-events: none;
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 400px;
+	width: 100%;
+	pointer-events: none;
 }
 
 .toast-container {
-  @apply relative overflow-hidden pointer-events-auto rounded-lg border-[0.5px] shadow-lg backdrop-blur-sm p-4 min-w-0 max-w-sm transform transition-all duration-300 ease-out;
+	@apply pointer-events-auto relative max-w-sm min-w-0 transform overflow-hidden rounded-lg border-[0.5px] p-4 shadow-lg backdrop-blur-sm transition-all duration-300 ease-out;
 }
 
 /* Toast Animation States */
 .toast-enter {
-  @apply opacity-0 translate-x-full scale-95;
+	@apply translate-x-full scale-95 opacity-0;
 }
 
 .toast-enter-active {
-  @apply opacity-100 translate-x-0 scale-100;
+	@apply translate-x-0 scale-100 opacity-100;
 }
 
 .toast-exit-active {
-  @apply opacity-0 translate-x-full scale-95;
+	@apply translate-x-full scale-95 opacity-0;
 }
 
 /* Responsive toast positioning */
 @media (max-width: 640px) {
-  .toast-portal {
-    top: 0.5rem;
-    right: 0.5rem;
-    left: 0.5rem;
-    max-width: none;
-  }
+	.toast-portal {
+		top: 0.5rem;
+		right: 0.5rem;
+		left: 0.5rem;
+		max-width: none;
+	}
 
-  .toast-container {
-    @apply max-w-none;
-  }
+	.toast-container {
+		@apply max-w-none;
+	}
 }

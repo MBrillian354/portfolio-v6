@@ -16,88 +16,92 @@ A modern, accessible toast notification system built for the portfolio project w
 ### Basic Usage
 
 ```jsx
-import { useToast } from '../context/toastContext';
+import { useToast } from "../context/toastContext";
 
 const MyComponent = () => {
-  const { showSuccess, showError, showWarning, showInfo } = useToast();
+	const { showSuccess, showError, showWarning, showInfo } = useToast();
 
-  const handleAction = () => {
-    showSuccess('Operation completed successfully!');
-    showError('Something went wrong!');
-    showWarning('Please check your input.');
-    showInfo('Did you know...?');
-  };
+	const handleAction = () => {
+		showSuccess("Operation completed successfully!");
+		showError("Something went wrong!");
+		showWarning("Please check your input.");
+		showInfo("Did you know...?");
+	};
 
-  return <button onClick={handleAction}>Click me</button>;
+	return <button onClick={handleAction}>Click me</button>;
 };
 ```
 
 ### Using Utility Functions
 
 ```jsx
-import { useAppToast } from '../utils/toastUtils';
+import { useAppToast } from "../utils/toastUtils";
 
 const MyComponent = () => {
-  const { showCopySuccess, showCopyError, showDownloadSuccess } = useAppToast();
+	const { showCopySuccess, showCopyError, showDownloadSuccess } = useAppToast();
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText('some text');
-      showCopySuccess('Text'); // Shows "Text copied to clipboard!"
-    } catch (error) {
-      showCopyError(); // Shows "Failed to copy. Please try again."
-    }
-  };
+	const handleCopy = async () => {
+		try {
+			await navigator.clipboard.writeText("some text");
+			showCopySuccess("Text"); // Shows "Text copied to clipboard!"
+		} catch (error) {
+			showCopyError(); // Shows "Failed to copy. Please try again."
+		}
+	};
 
-  return <button onClick={handleCopy}>Copy</button>;
+	return <button onClick={handleCopy}>Copy</button>;
 };
 ```
 
 ### Advanced Usage with Async Operations
 
 ```jsx
-import { useToastFeedback } from '../utils/toastUtils';
+import { useToastFeedback } from "../utils/toastUtils";
 
 const MyComponent = () => {
-  const runWithToast = useToastFeedback();
+	const runWithToast = useToastFeedback();
 
-  const handleAsyncOperation = () => {
-    runWithToast(
-      async () => {
-        // Your async operation
-        await someApiCall();
-      },
-      {
-        successMessage: 'Data saved successfully!',
-        errorMessage: 'Failed to save data.',
-        loadingMessage: 'Saving...',
-        showLoading: true
-      }
-    );
-  };
+	const handleAsyncOperation = () => {
+		runWithToast(
+			async () => {
+				// Your async operation
+				await someApiCall();
+			},
+			{
+				successMessage: "Data saved successfully!",
+				errorMessage: "Failed to save data.",
+				loadingMessage: "Saving...",
+				showLoading: true
+			}
+		);
+	};
 
-  return <button onClick={handleAsyncOperation}>Save</button>;
+	return <button onClick={handleAsyncOperation}>Save</button>;
 };
 ```
 
 ## Toast Types
 
 ### Success Toast
+
 - **Use for**: Successful operations, confirmations
 - **Duration**: 2.5 seconds
 - **Color**: Green theme
 
-### Error Toast  
+### Error Toast
+
 - **Use for**: Failed operations, validation errors
 - **Duration**: 3-4 seconds
 - **Color**: Red theme
 
 ### Warning Toast
+
 - **Use for**: Important notices, cautions
-- **Duration**: 3.5 seconds  
+- **Duration**: 3.5 seconds
 - **Color**: Yellow theme
 
 ### Info Toast
+
 - **Use for**: General information, tips
 - **Duration**: 3 seconds
 - **Color**: Blue theme
@@ -108,12 +112,12 @@ const MyComponent = () => {
 
 ```typescript
 const {
-  addToast,     // (message, type, duration) => id
-  removeToast,  // (id) => void
-  showSuccess,  // (message, duration?) => id
-  showError,    // (message, duration?) => id
-  showWarning,  // (message, duration?) => id
-  showInfo      // (message, duration?) => id
+	addToast, // (message, type, duration) => id
+	removeToast, // (id) => void
+	showSuccess, // (message, duration?) => id
+	showError, // (message, duration?) => id
+	showWarning, // (message, duration?) => id
+	showInfo // (message, duration?) => id
 } = useToast();
 ```
 
@@ -123,14 +127,14 @@ Pre-configured utility functions for common use cases:
 
 ```typescript
 const {
-  showCopySuccess,      // (item?) => void
-  showDownloadSuccess,  // (item?) => void
-  showSaveSuccess,      // (item?) => void
-  showCopyError,        // () => void
-  showNetworkError,     // () => void
-  showGenericError,     // (message?) => void
-  showInfo,             // (message, duration?) => void
-  showWarning           // (message, duration?) => void
+	showCopySuccess, // (item?) => void
+	showDownloadSuccess, // (item?) => void
+	showSaveSuccess, // (item?) => void
+	showCopyError, // () => void
+	showNetworkError, // () => void
+	showGenericError, // (message?) => void
+	showInfo, // (message, duration?) => void
+	showWarning // (message, duration?) => void
 } = useAppToast();
 ```
 
@@ -190,14 +194,15 @@ The toast system is automatically available throughout the app via the `ToastPro
 ## Examples from the Project
 
 ### Email Copy (About.jsx)
+
 ```jsx
 const handleEmailCopy = async () => {
-  try {
-    await navigator.clipboard.writeText(personalInfo.email);
-    showCopySuccess('Email');
-  } catch (error) {
-    showCopyError();
-  }
+	try {
+		await navigator.clipboard.writeText(personalInfo.email);
+		showCopySuccess("Email");
+	} catch (error) {
+		showCopyError();
+	}
 };
 ```
 

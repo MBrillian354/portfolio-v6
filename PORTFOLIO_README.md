@@ -13,17 +13,20 @@ A modern, mobile-first portfolio website built with React, Vite, and Tailwind CS
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v16 or higher)
 - npm or yarn
 
 ### Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -106,7 +109,7 @@ This creates a `dist/` folder with optimized files ready for deployment.
 The portfolio is designed mobile-first with breakpoints:
 
 - **Mobile**: < 640px
-- **Tablet**: 640px - 1024px  
+- **Tablet**: 640px - 1024px
 - **Desktop**: > 1024px
 
 ## Browser Support
