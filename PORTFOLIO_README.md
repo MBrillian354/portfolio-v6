@@ -30,6 +30,19 @@ npm run dev
 
 3. Open your browser and navigate to `http://localhost:5173`
 
+## Code Quality
+
+```bash
+pnpm lint          # check lint + formatting (fails on any warning)
+pnpm lint:fix      # auto-fix everything fixable
+pnpm format        # rewrite files with Prettier, then run eslint --fix
+pnpm format:check  # verify formatting without writing (for CI)
+```
+
+Prettier settings live in `.prettierrc.cjs` (tabs, double quotes, 80 columns,
+sorted Tailwind classes) and Prettier runs as an ESLint rule via
+`eslint-plugin-prettier`, so `pnpm lint` reports formatting problems as errors.
+
 ## Customization
 
 ### Editing Your Information
