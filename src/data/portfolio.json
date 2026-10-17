@@ -310,17 +310,11 @@
       "title": "Google Data Analytics Specialization",
       "description": "Complete data analytics program covering data collection, cleaning, analysis, and visualization. Proficient in R, SQL, Tableau, and Google Analytics for business insights.",
       "image": "/certificates/google-data-analytics-coursera.jpg"
-    }
-    ,
-    {
-      "title": "Belajar Analisis Data dengan Python",
-      "description": "Dicoding",
-      "image": "/certificates/google-data-analytics-coursera.jpg"
     },
     {
-      "title": "DeepLearning.AI TensorFlow Developer",
-      "description": "Specialized training in TensorFlow framework for building and deploying machine learning models. Learned deep learning, computer vision, and natural language processing techniques.",
-      "image": "/certificates/tensorflow-developer-coursera.jpg"
+      "title": "Data Analysis with Python",
+      "description": "Dicoding",
+      "image": "/certificates/data-analytics-python-dicoding.jpg"
     },
     {
       "title": "TensorFlow: Data and Deployment Specialization",
@@ -333,16 +327,16 @@
       "image": "/certificates/mathematics-machine-learning-data-science-coursera.jpg"
     },
     {
-      "title": "Belajar Dasar Git dan GitHub",
+      "title": "Git and GitHub",
       "description": "Dicoding",
       "image": "/certificates/belajar-dasar-git-github-dicoding.jpg"
     },
     {
-      "title": "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software",
+      "title": "Programming for Software Engineers",
       "description": "Dicoding",
       "image": "/certificates/memulai-dasar-pemrograman-untuk-menjadi-pengembang-software-dicoding.jpg"},
     {
-      "title": "Pengenalan ke Logika Pemrograman (Programming Logic 101)",
+      "title": "Programming Logic",
       "description": "Dicoding",
       "image": "/certificates/pengenalan-ke-logika-pemrograman-dicoding.jpg"
     }
@@ -413,13 +407,12 @@
       "title": "Academic System PPG",
       "period": "October 2024 – Present",
       "company": "ICT – PPG Komisariat Karawang",
-      "description": "Design and implement an academic system using MERN stack with role-based access control and database migration from spreadsheets to MongoDB.",
+      "description": "Built, deployed, and monitor an integrated digital platform for an Islamic Educational Institution (30+ locations, 200+ teachers, 1000+ students). System Built: , IAM SSO, Academic System, CIS (competition information system), Digital library, Marriage information service, and, SEO optimized landing page.",
       "techStack": [
         "MongoDB",
-        "React.Js",
-        "Node.Js",
-        "Express",
-        "Firebase",
+        "Next.Js",
+        "TanStack Query",
+        "Shadcn/ui",
         "Nginx"
       ],
       "link": "https://github.com/mbrillian354/academic-system",
