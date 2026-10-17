@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Icon } from '@iconify/react/dist/iconify.js';
+import { sortByPeriodDesc } from '../utils/periodSort';
 
 const ExperienceArchive = ({ experiences, internships, onClose }) => {
   // Handle escape key
@@ -19,12 +20,8 @@ const ExperienceArchive = ({ experiences, internships, onClose }) => {
     ...internships.map(exp => ({ ...exp, type: 'internship' }))
   ];
 
-  // Sort by period (most recent first)
-  const sortedExperiences = allExperiences.sort((a, b) => {
-    if (a.period.includes('Present')) return -1;
-    if (b.period.includes('Present')) return 1;
-    return 0;
-  });
+  // Ongoing experiences first, then by start date (most recent first)
+  const sortedExperiences = sortByPeriodDesc(allExperiences);
 
   const typeColors = {
     work: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',

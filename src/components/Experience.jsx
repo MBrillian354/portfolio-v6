@@ -1,6 +1,7 @@
 
 import { Icon } from '@iconify/react/dist/iconify.js';
 import React, { useState } from 'react';
+import { sortByPeriodDesc } from '../utils/periodSort';
 
 const ExperienceCard = ({ experience, isHovered, isDimmed, onHover, onLeave }) => {
   const getCardClasses = () => {
@@ -75,15 +76,10 @@ const Experience = ({ experiences, internships, showArchiveButton = false, onSho
     ...internships.map(exp => ({ ...exp, type: 'internship' }))
   ];
 
-  // Sort by period (most recent first)
-  const sortedExperiences = allExperiences.sort((a, b) => {
-    // Simple sorting by checking if period contains "Present"
-    if (a.period.includes('Present')) return -1;
-    if (b.period.includes('Present')) return 1;
-    return 0;
-  });
+  // Ongoing experiences first, then by start date (most recent first)
+  const sortedExperiences = sortByPeriodDesc(allExperiences);
 
-  // Show only first 5 if showArchiveButton is true
+  // Show only the first 3 if showArchiveButton is true
   const displayExperiences = showArchiveButton ? sortedExperiences.slice(0, 3) : sortedExperiences;
 
   const handleCardHover = (index) => {

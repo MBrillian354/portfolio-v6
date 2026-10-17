@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react/dist/iconify.js';
 import React, { useState } from 'react';
+import { sortByPeriodDesc } from '../utils/periodSort';
 
 const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
   const statusColors = {
@@ -70,14 +71,10 @@ const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
 const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Sort by period (most recent first)
-  const sortedProjects = projects.sort((a, b) => {
-    if (a.period.includes('Present')) return -1;
-    if (b.period.includes('Present')) return 1;
-    return 0;
-  });
+  // Ongoing projects first, then by start date (most recent first)
+  const sortedProjects = sortByPeriodDesc(projects);
 
-  // Show only first 5 if showArchiveButton is true
+  // Show only the first 3 if showArchiveButton is true
   const displayProjects = showArchiveButton ? sortedProjects.slice(0, 3) : sortedProjects;
 
   const handleCardHover = (index) => {

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Icon } from '@iconify/react/dist/iconify.js';
+import { sortByPeriodDesc } from '../utils/periodSort';
 
 const ProjectArchive = ({ projects, onClose }) => {
   // Handle escape key
@@ -13,12 +14,8 @@ const ProjectArchive = ({ projects, onClose }) => {
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClose]);
-  // Sort by period (most recent first)
-  const sortedProjects = projects.sort((a, b) => {
-    if (a.period.includes('Present')) return -1;
-    if (b.period.includes('Present')) return 1;
-    return 0;
-  });
+  // Ongoing projects first, then by start date (most recent first)
+  const sortedProjects = sortByPeriodDesc(projects);
 
   const statusColors = {
     'Completed': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
