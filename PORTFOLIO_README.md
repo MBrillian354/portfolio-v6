@@ -15,20 +15,20 @@ A modern, mobile-first portfolio website built with React, Vite, and Tailwind CS
 ### Prerequisites
 
 - Node.js (v16 or higher)
-- npm or yarn
+- pnpm
 
 ### Installation
 
 1. Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 2. Start the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 3. Open your browser and navigate to `http://localhost:5173`
@@ -92,7 +92,7 @@ src/
 ### Build for Production
 
 ```bash
-npm run build
+pnpm build
 ```
 
 This creates a `dist/` folder with optimized files ready for deployment.
