@@ -10,7 +10,8 @@
 		"lint:fix": "eslint . --fix --max-warnings=0",
 		"format": "prettier --write . && eslint --fix .",
 		"format:check": "prettier --check .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"favicons": "node scripts/generate-favicons.mjs"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.11",
@@ -32,6 +33,7 @@
 		"globals": "^16.3.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-tailwindcss": "^0.8.1",
+		"sharp": "^0.35.5",
 		"vite": "^7.0.4"
 	}
 }

@@ -1,0 +1,21 @@
+{
+	"name": "M. Brillian - Full Stack Developer & Data Science Enthusiast",
+	"short_name": "M. Brillian",
+	"description": "M. Brillian - Full Stack Developer & Data Science Enthusiast",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#101828",
+	"theme_color": "#101828",
+	"icons": [
+		{
+			"src": "/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
