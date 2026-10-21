@@ -4,57 +4,81 @@ import { sortByPeriodDesc } from "../utils/periodSort";
 import { useImageGallery } from "../utils/useImageGallery";
 import ImageLightbox from "./ImageLightbox";
 
-const ProjectImageStrip = ({ project, onOpenImage }) => {
+// Deepest layer first, so the nearer layer paints on top without extra z-index.
+const STACK_LAYER_DEPTHS = [2, 1];
+
+const ProjectImageStack = ({ project, onOpenImage }) => {
 	const images = project.images?.filter(Boolean) ?? [];
 	if (images.length === 0) return null;
 
+	const hasMultipleImages = images.length > 1;
+	const visibleLayerCount = Math.min(
+		images.length - 1,
+		STACK_LAYER_DEPTHS.length
+	);
+	const layerDepths = hasMultipleImages
+		? STACK_LAYER_DEPTHS.slice(-visibleLayerCount)
+		: [];
+
 	return (
 		<div className="mt-4">
-			<div className="project-image-strip">
-				{images.map((src, index) => (
-					<button
-						key={`${src}-${index}`}
-						type="button"
-						onClick={(event) => onOpenImage(event, index)}
-						aria-label={`View screenshot ${index + 1} of ${images.length} of ${project.title}`}
-						aria-haspopup="dialog"
-						className="group/tile project-image-tile"
-					>
-						<img
-							src={src}
-							alt=""
-							loading="lazy"
-							decoding="async"
-							draggable={false}
-							className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover/tile:scale-[1.04]"
-							onError={(event) => {
-								// Swap to the icon tile so a broken path doesn't collapse the row.
-								const image = event.currentTarget;
-								image.style.display = "none";
-								const fallback = image.nextElementSibling;
-								fallback?.classList.remove("hidden");
-								fallback?.classList.add("flex");
-							}}
+			<button
+				type="button"
+				onClick={(event) => onOpenImage(event, 0)}
+				aria-label={
+					hasMultipleImages
+						? `View ${images.length} screenshots of ${project.title}`
+						: `View screenshot of ${project.title}`
+				}
+				aria-haspopup="dialog"
+				className="project-image-stack"
+			>
+				{layerDepths.map((depth) => (
+					<span
+						key={depth}
+						aria-hidden="true"
+						data-depth={depth}
+						className="project-image-stack-layer"
+					/>
+				))}
+
+				<span className="project-image-tile relative z-10 block">
+					<img
+						src={images[0]}
+						alt=""
+						loading="lazy"
+						decoding="async"
+						draggable={false}
+						className="project-image-stack-image"
+						onError={(event) => {
+							// Swap to the icon tile so a broken path doesn't collapse the thumbnail.
+							const image = event.currentTarget;
+							image.style.display = "none";
+							const fallback = image.nextElementSibling;
+							fallback?.classList.remove("hidden");
+							fallback?.classList.add("flex");
+						}}
+					/>
+					<span className="absolute inset-0 hidden items-center justify-center bg-gray-100 dark:bg-gray-700">
+						<Icon
+							icon="material-symbols:image-outline"
+							width="28"
+							height="28"
+							className="text-gray-400 dark:text-gray-500"
 						/>
-						<span className="hidden h-full w-full items-center justify-center bg-gray-100 dark:bg-gray-700">
+					</span>
+					{hasMultipleImages && (
+						<span className="project-image-count" aria-hidden="true">
 							<Icon
 								icon="material-symbols:image-outline"
-								width="28"
-								height="28"
-								className="text-gray-400 dark:text-gray-500"
+								width="13"
+								height="13"
 							/>
+							<span>{images.length}</span>
 						</span>
-						<span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-950/0 opacity-0 transition-all duration-200 ease-out group-hover/tile:bg-gray-950/30 group-hover/tile:opacity-100">
-							<Icon
-								icon="material-symbols:zoom-in"
-								width="24"
-								height="24"
-								className="text-white"
-							/>
-						</span>
-					</button>
-				))}
-			</div>
+					)}
+				</span>
+			</button>
 		</div>
 	);
 };
@@ -138,7 +162,7 @@ const ProjectCard = ({
 						</div>
 					)}
 
-					<ProjectImageStrip project={project} onOpenImage={onOpenImage} />
+					<ProjectImageStack project={project} onOpenImage={onOpenImage} />
 				</div>
 			</div>
 		</div>

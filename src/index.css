@@ -267,36 +267,67 @@ body {
 	@apply absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full border border-gray-200 bg-white/80 px-3 py-1 text-xs font-medium text-gray-600 tabular-nums shadow-lg backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-300;
 }
 
-/* Project image strip (main Projects cards) */
-@utility project-image-strip {
-	@apply -mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-1 pt-1 pb-2;
-	scrollbar-width: thin;
-	scrollbar-color: var(--color-gray-300) transparent;
+/* Project image stack (main Projects cards) */
+@utility project-image-stack {
+	@apply relative mr-5 mb-5 block w-fit cursor-zoom-in rounded-md p-0 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400;
 }
 
-.dark .project-image-strip {
-	scrollbar-color: var(--color-gray-700) transparent;
+@utility project-image-stack-layer {
+	@apply pointer-events-none absolute inset-0 rounded-md border border-gray-300 bg-gray-100 transition-transform duration-200 ease-out dark:border-gray-600 dark:bg-gray-800;
+	transform: translate(var(--stack-offset-x), var(--stack-offset-y))
+		rotate(var(--stack-rotation));
 }
 
-.project-image-strip::-webkit-scrollbar {
-	height: 6px;
+.project-image-stack-layer[data-depth="1"] {
+	--stack-offset-x: 5px;
+	--stack-offset-y: 5px;
+	--stack-rotation: 1deg;
 }
 
-.project-image-strip::-webkit-scrollbar-track {
-	background: transparent;
+.project-image-stack-layer[data-depth="2"] {
+	--stack-offset-x: 10px;
+	--stack-offset-y: 10px;
+	--stack-rotation: -1.5deg;
 }
 
-.project-image-strip::-webkit-scrollbar-thumb {
-	background: var(--color-gray-300);
-	border-radius: 999px;
+@media (prefers-reduced-motion: no-preference) {
+	.project-image-stack:hover .project-image-stack-layer[data-depth="1"],
+	.project-image-stack:focus-visible
+		.project-image-stack-layer[data-depth="1"] {
+		--stack-offset-x: 8px;
+		--stack-offset-y: 8px;
+		--stack-rotation: 2deg;
+	}
+
+	.project-image-stack:hover .project-image-stack-layer[data-depth="2"],
+	.project-image-stack:focus-visible
+		.project-image-stack-layer[data-depth="2"] {
+		--stack-offset-x: 14px;
+		--stack-offset-y: 14px;
+		--stack-rotation: -2.5deg;
+	}
 }
 
-.dark .project-image-strip::-webkit-scrollbar-thumb {
-	background: var(--color-gray-700);
+@utility project-image-stack-image {
+	@apply h-full w-full object-cover;
 }
 
 @utility project-image-tile {
-	@apply relative aspect-[16/10] w-52 shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-md bg-gray-100 ring-1 ring-gray-300 transition-all duration-150 ease-out hover:ring-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:bg-gray-800 dark:ring-gray-600 dark:hover:ring-blue-500 dark:focus-visible:outline-blue-400;
+	@apply relative aspect-[16/10] w-52 overflow-hidden rounded-md bg-gray-100 ring-1 ring-gray-300 transition-all duration-150 ease-out dark:bg-gray-800 dark:ring-gray-600;
+}
+
+.project-image-stack:hover .project-image-tile,
+.project-image-stack:focus-visible .project-image-tile {
+	@apply ring-blue-400;
+}
+
+.dark .project-image-stack:hover .project-image-tile,
+.dark .project-image-stack:focus-visible .project-image-tile {
+	@apply ring-blue-500;
+}
+
+@utility project-image-count {
+	@apply pointer-events-none absolute right-1.5 bottom-1.5 z-20 flex items-center gap-1 rounded-full bg-gray-950/70 px-1.5 py-1 text-[11px] leading-none font-semibold text-white tabular-nums shadow-sm backdrop-blur-sm;
 }
 
 /* `origin-top-left` is required by the open transition, which anchors the
