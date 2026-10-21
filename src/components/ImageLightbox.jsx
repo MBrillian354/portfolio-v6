@@ -11,6 +11,7 @@ import { lockScroll, unlockScroll } from "../utils/scrollLock";
 
 const ENTER_DURATION = 320;
 const EXIT_DURATION = 200;
+const SWAP_FADE_DURATION = 160;
 const FLIP_EASING = "cubic-bezier(0.16, 1, 0.3, 1)";
 
 const FOCUSABLE_SELECTOR =
@@ -57,8 +58,26 @@ const usePrefersReducedMotion = () => {
  * @param {{width: number, height: number, left: number, top: number}} [originRect]
  *   Bounding rect of the clicked trigger, captured at click time. Without it the
  *   image simply fades in instead of scaling up.
+ * @param {Function} [onPrev] - Show the previous image. Enables gallery controls.
+ * @param {Function} [onNext] - Show the next image. Enables gallery controls.
+ * @param {number} [index] - Zero-based position of the current image in the set.
+ * @param {number} [count] - Total number of images. Gallery controls need > 1.
+ * @param {HTMLElement} [returnFocusTo] - Focus target when the element that had
+ *   focus when the dialog opened is no longer focusable (Safari does not focus a
+ *   button on click), so focus still lands back on the thumbnail.
  */
-const ImageLightbox = ({ src, alt, isOpen, onClose, originRect }) => {
+const ImageLightbox = ({
+	src,
+	alt,
+	isOpen,
+	onClose,
+	originRect,
+	onPrev,
+	onNext,
+	index = 0,
+	count = 0,
+	returnFocusTo = null
+}) => {
 	// Trails `isOpen` on close so the fade-out can finish before the unmount.
 	const [isRendered, setIsRendered] = useState(isOpen);
 
@@ -67,6 +86,14 @@ const ImageLightbox = ({ src, alt, isOpen, onClose, originRect }) => {
 	const closeButtonRef = useRef(null);
 	const previouslyFocusedRef = useRef(null);
 	const hasAnimatedInRef = useRef(false);
+	// The src that was last painted, so a load can tell "opening" from "switched".
+	const loadedSrcRef = useRef(src);
+	const returnFocusToRef = useRef(returnFocusTo);
+	returnFocusToRef.current = returnFocusTo;
+
+	const showGalleryNav = count > 1;
+	const canGoPrev = showGalleryNav && index > 0;
+	const canGoNext = showGalleryNav && index < count - 1;
 
 	const prefersReducedMotion = usePrefersReducedMotion();
 	const enterDuration = prefersReducedMotion ? 0 : ENTER_DURATION;
@@ -148,6 +175,27 @@ const ImageLightbox = ({ src, alt, isOpen, onClose, originRect }) => {
 		);
 	}, [enterDuration, originRect]);
 
+	// A load counts as a swap when the dialog is already on screen with another
+	// image. The opening FLIP must not replay for it, so crossfade the new image
+	// in instead; `onLoad` (rather than an effect on `src`) keeps the fade
+	// starting only once the replacement has been decoded.
+	const handleImageLoad = useCallback(() => {
+		const isSwap = hasAnimatedInRef.current && loadedSrcRef.current !== src;
+		loadedSrcRef.current = src;
+
+		startFlipAnimation();
+
+		if (!isSwap) return;
+
+		const image = imageRef.current;
+		if (!image || enterDuration === 0) return;
+
+		image.animate([{ opacity: 0 }, { opacity: 1 }], {
+			duration: SWAP_FADE_DURATION,
+			easing: "ease-out"
+		});
+	}, [enterDuration, src, startFlipAnimation]);
+
 	// Freeze the page behind the overlay, including during the fade-out.
 	//
 	// Runs as a layout effect and is declared before the enter animation, because
@@ -172,11 +220,18 @@ const ImageLightbox = ({ src, alt, isOpen, onClose, originRect }) => {
 			const previouslyFocused = previouslyFocusedRef.current;
 			previouslyFocusedRef.current = null;
 
-			if (
+			// A click on a button focuses it in Chrome/Firefox but not always in
+			// Safari, in which case activeElement was <body>. Fall back to the
+			// trigger passed in by the gallery.
+			const target =
 				previouslyFocused instanceof HTMLElement &&
+				previouslyFocused !== document.body &&
 				document.contains(previouslyFocused)
-			) {
-				previouslyFocused.focus({ preventScroll: true });
+					? previouslyFocused
+					: returnFocusToRef.current;
+
+			if (target instanceof HTMLElement && document.contains(target)) {
+				target.focus({ preventScroll: true });
 			}
 		};
 	}, [isRendered]);
@@ -218,6 +273,18 @@ const ImageLightbox = ({ src, alt, isOpen, onClose, originRect }) => {
 				return;
 			}
 
+			if (event.key === "ArrowLeft" && canGoPrev) {
+				event.preventDefault();
+				onPrev?.();
+				return;
+			}
+
+			if (event.key === "ArrowRight" && canGoNext) {
+				event.preventDefault();
+				onNext?.();
+				return;
+			}
+
 			if (event.key !== "Tab") return;
 
 			const overlay = overlayRef.current;
@@ -247,7 +314,7 @@ const ImageLightbox = ({ src, alt, isOpen, onClose, originRect }) => {
 
 		document.addEventListener("keydown", handleKeyDown);
 		return () => document.removeEventListener("keydown", handleKeyDown);
-	}, [isRendered, isOpen, onClose]);
+	}, [isRendered, isOpen, onClose, onPrev, onNext, canGoPrev, canGoNext]);
 
 	// Only clicks on the backdrop itself close; the image and close button are
 	// children, so re-renders and image drags never dismiss the viewer.
@@ -272,9 +339,46 @@ const ImageLightbox = ({ src, alt, isOpen, onClose, originRect }) => {
 				src={src}
 				alt={alt}
 				className="lightbox-image"
-				onLoad={startFlipAnimation}
+				onLoad={handleImageLoad}
 				draggable={false}
 			/>
+			{showGalleryNav && (
+				<>
+					<button
+						type="button"
+						onClick={onPrev}
+						disabled={!canGoPrev}
+						className="lightbox-nav left-2 sm:left-4"
+						aria-label="Previous image"
+					>
+						<Icon
+							icon="material-symbols:chevron-left-rounded"
+							width="28"
+							height="28"
+						/>
+					</button>
+					<button
+						type="button"
+						onClick={onNext}
+						disabled={!canGoNext}
+						className="lightbox-nav right-2 sm:right-4"
+						aria-label="Next image"
+					>
+						<Icon
+							icon="material-symbols:chevron-right-rounded"
+							width="28"
+							height="28"
+						/>
+					</button>
+					<div
+						className="lightbox-counter"
+						aria-live="polite"
+						aria-atomic="true"
+					>
+						{index + 1} / {count}
+					</div>
+				</>
+			)}
 			<button
 				ref={closeButtonRef}
 				type="button"

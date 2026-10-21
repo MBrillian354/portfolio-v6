@@ -291,7 +291,8 @@
 			"description": "Led and coordinated team to collect, clean, prepare dataset, and train machine learning models for house price prediction in Central Jakarta.",
 			"techStack": ["Python", "Scikit-Learn", "Pandas", "Numpy"],
 			"link": "https://github.com/mbrillian354/house-price-prediction",
-			"status": "Completed"
+			"status": "Completed",
+			"images": []
 		},
 		{
 			"title": "Culinary Inspiration Website",
@@ -300,7 +301,8 @@
 			"description": "Designed and implemented a culinary inspiration website using PHP with responsive design and user-friendly interface.",
 			"techStack": ["Figma", "HTML", "CSS", "PHP", "Bootstrap 5", "Git/GitHub"],
 			"link": "https://github.com/mbrillian354/culinary-website",
-			"status": "Completed"
+			"status": "Completed",
+			"images": []
 		},
 		{
 			"title": "Olist E-commerce Analytics",
@@ -309,7 +311,8 @@
 			"description": "Performed comprehensive data analytics on Olist e-commerce dataset with interactive dashboard development using Streamlit.",
 			"techStack": ["Python", "TensorFlow", "Pandas", "NumPy", "Streamlit"],
 			"link": "https://github.com/mbrillian354/olist-analytics",
-			"status": "Completed"
+			"status": "Completed",
+			"images": []
 		},
 		{
 			"title": "Library Management System",
@@ -318,7 +321,8 @@
 			"description": "Designed and developed a comprehensive web-based library management system for book lending, returns, and inventory tracking with MySQL database integration.",
 			"techStack": ["Figma", "HTML", "CSS", "PHP", "Bootstrap 5", "MySQL"],
 			"link": "https://github.com/mbrillian354/library-management",
-			"status": "Completed"
+			"status": "Completed",
+			"images": []
 		},
 		{
 			"title": "Academic System PPG",
@@ -333,7 +337,12 @@
 				"Nginx"
 			],
 			"link": "https://github.com/mbrillian354/academic-system",
-			"status": "In Progress"
+			"status": "In Progress",
+			"images": [
+				"/projects/academic-system-ppg/01.jpg",
+				"/projects/academic-system-ppg/02.jpg",
+				"/projects/academic-system-ppg/03.jpg"
+			]
 		},
 		{
 			"title": "Portfolio Website v6",
@@ -342,7 +351,11 @@
 			"description": "Modern portfolio website built with React 19 and Tailwind CSS v4, featuring dark mode, responsive design, and interactive components.",
 			"techStack": ["React 19", "Tailwind CSS v4", "Vite", "JavaScript"],
 			"link": "https://github.com/mbrillian354/portfolio-v6",
-			"status": "In Progress"
+			"status": "In Progress",
+			"images": [
+				"/projects/portfolio-website-v6/01.jpg",
+				"/projects/portfolio-website-v6/02.jpg"
+			]
 		}
 	]
 }

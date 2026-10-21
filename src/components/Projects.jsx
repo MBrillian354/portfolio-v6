@@ -1,8 +1,72 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
 import { sortByPeriodDesc } from "../utils/periodSort";
+import { useImageGallery } from "../utils/useImageGallery";
+import ImageLightbox from "./ImageLightbox";
 
-const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
+const ProjectImageStrip = ({ project, onOpenImage }) => {
+	const images = project.images?.filter(Boolean) ?? [];
+	if (images.length === 0) return null;
+
+	return (
+		<div className="mt-4">
+			<div className="project-image-strip">
+				{images.map((src, index) => (
+					<button
+						key={`${src}-${index}`}
+						type="button"
+						onClick={(event) => onOpenImage(event, index)}
+						aria-label={`View screenshot ${index + 1} of ${images.length} of ${project.title}`}
+						aria-haspopup="dialog"
+						className="group/tile project-image-tile"
+					>
+						<img
+							src={src}
+							alt=""
+							loading="lazy"
+							decoding="async"
+							draggable={false}
+							className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover/tile:scale-[1.04]"
+							onError={(event) => {
+								// Swap to the icon tile so a broken path doesn't collapse the row.
+								const image = event.currentTarget;
+								image.style.display = "none";
+								const fallback = image.nextElementSibling;
+								fallback?.classList.remove("hidden");
+								fallback?.classList.add("flex");
+							}}
+						/>
+						<span className="hidden h-full w-full items-center justify-center bg-gray-100 dark:bg-gray-700">
+							<Icon
+								icon="material-symbols:image-outline"
+								width="28"
+								height="28"
+								className="text-gray-400 dark:text-gray-500"
+							/>
+						</span>
+						<span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-950/0 opacity-0 transition-all duration-200 ease-out group-hover/tile:bg-gray-950/30 group-hover/tile:opacity-100">
+							<Icon
+								icon="material-symbols:zoom-in"
+								width="24"
+								height="24"
+								className="text-white"
+							/>
+						</span>
+					</button>
+				))}
+			</div>
+		</div>
+	);
+};
+
+const ProjectCard = ({
+	project,
+	isHovered,
+	isDimmed,
+	onHover,
+	onLeave,
+	onOpenImage
+}) => {
 	const statusColors = {
 		Completed:
 			"bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
@@ -73,6 +137,8 @@ const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
 							</div>
 						</div>
 					)}
+
+					<ProjectImageStrip project={project} onOpenImage={onOpenImage} />
 				</div>
 			</div>
 		</div>
@@ -81,6 +147,7 @@ const ProjectCard = ({ project, isHovered, isDimmed, onHover, onLeave }) => {
 
 const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
 	const [hoveredCard, setHoveredCard] = useState(null);
+	const gallery = useImageGallery();
 
 	// Ongoing projects first, then by start date (most recent first)
 	const sortedProjects = sortByPeriodDesc(projects);
@@ -98,6 +165,15 @@ const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
 		setHoveredCard(null);
 	};
 
+	const handleOpenImage = (project, event, index) => {
+		gallery.open({
+			images: project.images,
+			index,
+			altPrefix: `${project.title} screenshot`,
+			trigger: event.currentTarget
+		});
+	};
+
 	return (
 		<section id="projects" className="section-padding">
 			<div className="section-container">
@@ -110,6 +186,9 @@ const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
 							isDimmed={hoveredCard !== null && hoveredCard !== index}
 							onHover={() => handleCardHover(index)}
 							onLeave={handleCardLeave}
+							onOpenImage={(event, imageIndex) =>
+								handleOpenImage(project, event, imageIndex)
+							}
 						/>
 					))}
 				</div>
@@ -127,6 +206,19 @@ const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
 					</div>
 				)}
 			</div>
+
+			<ImageLightbox
+				src={gallery.src}
+				alt={gallery.alt}
+				isOpen={gallery.isOpen}
+				onClose={gallery.close}
+				originRect={gallery.originRect}
+				onPrev={gallery.prev}
+				onNext={gallery.next}
+				index={gallery.index}
+				count={gallery.count}
+				returnFocusTo={gallery.trigger}
+			/>
 		</section>
 	);
 };

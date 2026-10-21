@@ -1,21 +1,79 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { sortByPeriodDesc } from "../utils/periodSort";
+import { useImageGallery } from "../utils/useImageGallery";
+import ImageLightbox from "./ImageLightbox";
+
+const ARCHIVE_THUMB_LIMIT = 3;
+
+const ProjectImageCell = ({ project, onOpenImage }) => {
+	const images = project.images?.filter(Boolean) ?? [];
+	if (images.length === 0) return null;
+
+	const hiddenCount = images.length - ARCHIVE_THUMB_LIMIT;
+
+	return (
+		<div className="flex items-center gap-1.5">
+			{images.slice(0, ARCHIVE_THUMB_LIMIT).map((src, index) => (
+				<button
+					key={`${src}-${index}`}
+					type="button"
+					onClick={(event) => onOpenImage(event, index)}
+					aria-label={`View screenshot ${index + 1} of ${images.length} of ${project.title}`}
+					aria-haspopup="dialog"
+					className="h-10 w-14 shrink-0 cursor-zoom-in overflow-hidden rounded border border-gray-200 bg-gray-100 transition-colors duration-150 ease-out hover:border-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-blue-500 dark:focus-visible:outline-blue-400"
+				>
+					<img
+						src={src}
+						alt=""
+						loading="lazy"
+						decoding="async"
+						draggable={false}
+						className="h-full w-full object-cover"
+					/>
+				</button>
+			))}
+			{hiddenCount > 0 && (
+				<button
+					type="button"
+					onClick={(event) => onOpenImage(event, ARCHIVE_THUMB_LIMIT)}
+					aria-label={`View all ${images.length} screenshots of ${project.title}`}
+					aria-haspopup="dialog"
+					className="cursor-zoom-in badge-alt text-xs transition-colors duration-150 ease-out hover:bg-blue-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:hover:bg-blue-900 dark:focus-visible:outline-blue-400"
+				>
+					+{hiddenCount}
+				</button>
+			)}
+		</div>
+	);
+};
 
 const ProjectArchive = ({ projects, onClose }) => {
-	// Handle escape key
+	const gallery = useImageGallery();
+
+	// Handle escape key. The lightbox handles its own Escape while open, so the
+	// archive must not also close underneath it.
 	useEffect(() => {
 		const handleEscape = (e) => {
-			if (e.key === "Escape") {
-				onClose();
-			}
+			if (e.key !== "Escape" || gallery.isOpen) return;
+			onClose();
 		};
 
 		document.addEventListener("keydown", handleEscape);
 		return () => document.removeEventListener("keydown", handleEscape);
-	}, [onClose]);
+	}, [onClose, gallery.isOpen]);
+
 	// Ongoing projects first, then by start date (most recent first)
 	const sortedProjects = sortByPeriodDesc(projects);
+
+	const handleOpenImage = (project, event, index) => {
+		gallery.open({
+			images: project.images,
+			index,
+			altPrefix: `${project.title} screenshot`,
+			trigger: event.currentTarget
+		});
+	};
 
 	const statusColors = {
 		Completed:
@@ -28,7 +86,7 @@ const ProjectArchive = ({ projects, onClose }) => {
 
 	return (
 		<div className="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900">
-			<div className="mx-auto max-w-4xl px-6 py-8 md:px-4">
+			<div className="mx-auto max-w-6xl px-6 py-8 md:px-4">
 				{/* Header */}
 				<div className="mb-8 flex flex-col items-start justify-start gap-4 bg-white py-4 dark:bg-gray-900">
 					<button
@@ -56,10 +114,10 @@ const ProjectArchive = ({ projects, onClose }) => {
 								<th className="min-w-[140px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Period
 								</th>
-								<th className="px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
+								<th className="min-w-[240px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Project
 								</th>
-								<th className="px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
+								<th className="min-w-[140px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Company
 								</th>
 								<th className="px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
@@ -67,6 +125,9 @@ const ProjectArchive = ({ projects, onClose }) => {
 								</th>
 								<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Status
+								</th>
+								<th className="min-w-[120px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
+									Images
 								</th>
 								<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Link
@@ -115,6 +176,14 @@ const ProjectArchive = ({ projects, onClose }) => {
 										</span>
 									</td>
 									<td className="px-4 py-4">
+										<ProjectImageCell
+											project={project}
+											onOpenImage={(event, imageIndex) =>
+												handleOpenImage(project, event, imageIndex)
+											}
+										/>
+									</td>
+									<td className="px-4 py-4">
 										{project.link && (
 											<a
 												href={project.link}
@@ -138,6 +207,19 @@ const ProjectArchive = ({ projects, onClose }) => {
 					</table>
 				</div>
 			</div>
+
+			<ImageLightbox
+				src={gallery.src}
+				alt={gallery.alt}
+				isOpen={gallery.isOpen}
+				onClose={gallery.close}
+				originRect={gallery.originRect}
+				onPrev={gallery.prev}
+				onNext={gallery.next}
+				index={gallery.index}
+				count={gallery.count}
+				returnFocusTo={gallery.trigger}
+			/>
 		</div>
 	);
 };

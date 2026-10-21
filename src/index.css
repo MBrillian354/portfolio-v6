@@ -259,6 +259,46 @@ body {
 	@apply fixed inset-0 z-100 flex items-center justify-center bg-white/95 p-4 sm:p-6 dark:bg-gray-950/95;
 }
 
+@utility lightbox-nav {
+	@apply absolute top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white/80 p-2 text-gray-600 shadow-lg transition-colors duration-150 ease-out hover:cursor-pointer hover:bg-white hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 disabled:cursor-not-allowed disabled:opacity-30 dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100 dark:focus-visible:outline-blue-400;
+}
+
+@utility lightbox-counter {
+	@apply absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full border border-gray-200 bg-white/80 px-3 py-1 text-xs font-medium text-gray-600 tabular-nums shadow-lg backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-300;
+}
+
+/* Project image strip (main Projects cards) */
+@utility project-image-strip {
+	@apply -mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-1 pt-1 pb-2;
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-gray-300) transparent;
+}
+
+.dark .project-image-strip {
+	scrollbar-color: var(--color-gray-700) transparent;
+}
+
+.project-image-strip::-webkit-scrollbar {
+	height: 6px;
+}
+
+.project-image-strip::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.project-image-strip::-webkit-scrollbar-thumb {
+	background: var(--color-gray-300);
+	border-radius: 999px;
+}
+
+.dark .project-image-strip::-webkit-scrollbar-thumb {
+	background: var(--color-gray-700);
+}
+
+@utility project-image-tile {
+	@apply relative aspect-[16/10] w-52 shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-md bg-gray-100 ring-1 ring-gray-300 transition-all duration-150 ease-out hover:ring-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:bg-gray-800 dark:ring-gray-600 dark:hover:ring-blue-500 dark:focus-visible:outline-blue-400;
+}
+
 /* `origin-top-left` is required by the open transition, which anchors the
    measured top-left corner of the image while it scales out of its thumbnail. */
 @utility lightbox-image {
