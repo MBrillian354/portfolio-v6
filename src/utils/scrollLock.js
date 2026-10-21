@@ -5,6 +5,10 @@
 // nested scrollers are handled by keeping overlays outside of them, which is why
 // ImageLightbox portals to document.body instead of rendering inline.
 //
+// The desktop nav column is also `position: sticky`, so the lock must freeze
+// scrolling without creating a scroll container on any ancestor of it -- see the
+// body rule at the end of lockScroll.
+//
 // A module-level counter makes overlapping locks safe: only the first lock
 // touches the DOM and only the last unlock restores it. This also keeps the
 // save/restore pair balanced when React StrictMode double-invokes effects.
@@ -37,8 +41,15 @@ export const lockScroll = () => {
 		documentElement.style.paddingRight = `${scrollbarWidth}px`;
 	}
 
+	// `clip` rather than `hidden` on the body: `hidden` would turn the body into a
+	// scroll container, so the sticky nav column would resolve against it
+	// (scrollTop 0) instead of the viewport and get painted a page height above
+	// it -- the rail disappeared whenever the page was scrolled. `clip` never
+	// creates a scroll container, so sticky keeps tracking the viewport while the
+	// document stays frozen. <html> keeps `hidden` as the primary lock; the body
+	// rule is the belt-and-braces for browsers that ignore the root lock.
 	documentElement.style.overflow = "hidden";
-	body.style.overflow = "hidden";
+	body.style.overflow = "clip";
 };
 
 export const unlockScroll = () => {
