@@ -75,15 +75,6 @@ const ProjectArchive = ({ projects, onClose }) => {
 		});
 	};
 
-	const statusColors = {
-		Completed:
-			"bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-		"In Progress":
-			"bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-		"On Hold":
-			"bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-	};
-
 	return (
 		<div className="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900">
 			<div className="mx-auto max-w-6xl px-6 py-8 md:px-4">
@@ -122,9 +113,6 @@ const ProjectArchive = ({ projects, onClose }) => {
 								</th>
 								<th className="px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Built With
-								</th>
-								<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
-									Status
 								</th>
 								<th className="min-w-[120px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Images
@@ -167,13 +155,6 @@ const ProjectArchive = ({ projects, onClose }) => {
 												</span>
 											)}
 										</div>
-									</td>
-									<td className="px-4 py-4">
-										<span
-											className={`badge-type ${statusColors[project.status] || "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"}`}
-										>
-											{project.status || "Unknown"}
-										</span>
 									</td>
 									<td className="px-4 py-4">
 										<ProjectImageCell

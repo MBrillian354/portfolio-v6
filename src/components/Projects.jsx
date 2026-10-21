@@ -91,15 +91,6 @@ const ProjectCard = ({
 	onLeave,
 	onOpenImage
 }) => {
-	const statusColors = {
-		Completed:
-			"bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-		"In Progress":
-			"bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-		"On Hold":
-			"bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-	};
-
 	const getCardClasses = () => {
 		let baseClasses = "card-hover-group";
 		if (isHovered) {
@@ -136,16 +127,6 @@ const ProjectCard = ({
 					<p className="mb-3 leading-relaxed text-gray-700 md:mb-4 dark:text-gray-300">
 						{project.description}
 					</p>
-
-					{project.status && (
-						<div className="mb-3 md:mb-4">
-							<span
-								className={`badge-type ${statusColors[project.status] || "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"}`}
-							>
-								{project.status}
-							</span>
-						</div>
-					)}
 
 					{project.techStack && project.techStack.length > 0 && (
 						<div>
