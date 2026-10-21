@@ -86,9 +86,9 @@ const About = ({ personalInfo }) => {
 				{personalInfo.name || "Your Name"}
 			</h1>
 
-			<h2 className="person-title pl-0.5 text-gray-700 dark:text-gray-400">
+			{/* <h2 className="person-title pl-0.5 text-gray-700 dark:text-gray-400">
 				{personalInfo.title || "Your Title"}
-			</h2>
+			</h2> */}
 
 			<div className="mt-auto flex flex-wrap justify-start gap-3 py-4 text-gray-700 dark:text-gray-400">
 				<button

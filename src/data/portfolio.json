@@ -19,7 +19,7 @@
 			"company": "Elice",
 			"period": "Oct 2025 – Present",
 			"type": "work",
-			"description": "Engineered the frontend for Creator AI, an AI-powered platform where creators and educators generate slide decks, documents, and multimedia content from prompts, building the end-to-end creation flow with multi-step wizards, live slide and code editors, real-time generation job tracking, and client-side PDF/PPTX export. Also developed an AI interview practice platform for job and university admission preparation, pairing a FastAPI backend with RAG-based question retrieval, GPT-4o scoring, Whisper speech-to-text, and a PostgreSQL background job queue to deliver scored sessions with structured AI feedback and PDF performance reports.",
+			"description": "Built AI-powered products, interview-preparation platforms, and interactive educational content. At SkillsFuture Singapore grant-funded Creator AI, shipped core course-authoring features across Next.js, React, and FastAPI services; other contributions include developing the Iksan interview-practice backend, building the SCAQ-Prep frontend, creating ~16 physics simulations for Singapore’s Ministry of Education, and mentoring a participant with additional support needs in building mobile applications using AI agents.",
 			"scope": [
 				"Frontend Development",
 				"UI/UX Implementation",
