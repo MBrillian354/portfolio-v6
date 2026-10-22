@@ -259,6 +259,31 @@ body {
 	@apply fixed inset-0 z-100 flex items-center justify-center bg-white/95 p-4 sm:p-6 dark:bg-gray-950/95;
 }
 
+@utility lightbox-figure {
+	@apply flex max-h-full w-fit max-w-full flex-col items-center gap-3;
+}
+
+@utility lightbox-caption {
+	@apply max-w-2xl text-center text-sm leading-snug font-medium text-balance break-words text-gray-600 dark:text-gray-300;
+}
+
+@keyframes lightbox-caption-in {
+	from {
+		opacity: 0;
+		transform: translateY(2px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.lightbox-caption {
+		animation: lightbox-caption-in 160ms ease-out;
+	}
+}
+
 @utility lightbox-nav {
 	@apply absolute top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white/80 p-2 text-gray-600 shadow-lg transition-colors duration-150 ease-out hover:cursor-pointer hover:bg-white hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 disabled:cursor-not-allowed disabled:opacity-30 dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100 dark:focus-visible:outline-blue-400;
 }
@@ -333,7 +358,7 @@ body {
 /* `origin-top-left` is required by the open transition, which anchors the
    measured top-left corner of the image while it scales out of its thumbnail. */
 @utility lightbox-image {
-	@apply max-h-full max-w-full origin-top-left object-contain select-none;
+	@apply max-w-full origin-top-left object-contain select-none;
 }
 
 @utility lightbox-close {

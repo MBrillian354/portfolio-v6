@@ -9,6 +9,7 @@
 // an image to paint while its fade-out animation plays.
 
 import { useCallback, useMemo, useState } from "react";
+import { normalizeImages } from "./imageUtils";
 
 const toOriginRect = (element) => {
 	if (!element || typeof element.getBoundingClientRect !== "function") {
@@ -20,11 +21,6 @@ const toOriginRect = (element) => {
 
 	return { width, height, left, top };
 };
-
-const normalizeImages = (images) =>
-	Array.isArray(images)
-		? images.filter((src) => typeof src === "string" && src.length > 0)
-		: [];
 
 export const useImageGallery = () => {
 	const [state, setState] = useState({ content: null, isOpen: false });
@@ -77,11 +73,12 @@ export const useImageGallery = () => {
 	const altPrefix = content?.altPrefix ?? "";
 
 	return useMemo(() => {
-		const src = content?.images[index] ?? null;
+		const activeImage = content?.images[index] ?? null;
 
 		return {
 			isOpen: state.isOpen,
-			src,
+			src: activeImage?.src ?? null,
+			caption: activeImage?.caption ?? "",
 			alt: count > 1 ? `${altPrefix} ${index + 1} of ${count}` : altPrefix,
 			index,
 			count,

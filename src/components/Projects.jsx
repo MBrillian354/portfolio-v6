@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
+import { normalizeImages } from "../utils/imageUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
 import { useImageGallery } from "../utils/useImageGallery";
 import ImageLightbox from "./ImageLightbox";
@@ -8,7 +9,7 @@ import ImageLightbox from "./ImageLightbox";
 const STACK_LAYER_DEPTHS = [2, 1];
 
 const ProjectImageStack = ({ project, onOpenImage }) => {
-	const images = project.images?.filter(Boolean) ?? [];
+	const images = normalizeImages(project.images);
 	if (images.length === 0) return null;
 
 	const hasMultipleImages = images.length > 1;
@@ -44,7 +45,7 @@ const ProjectImageStack = ({ project, onOpenImage }) => {
 
 				<span className="project-image-tile relative z-10 block">
 					<img
-						src={images[0]}
+						src={images[0].src}
 						alt=""
 						loading="lazy"
 						decoding="async"
@@ -215,6 +216,7 @@ const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
 			<ImageLightbox
 				src={gallery.src}
 				alt={gallery.alt}
+				caption={gallery.caption}
 				isOpen={gallery.isOpen}
 				onClose={gallery.close}
 				originRect={gallery.originRect}

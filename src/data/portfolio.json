@@ -11,7 +11,7 @@
 		"location": "Karawang, Indonesia",
 		"countryCode": "id",
 		"description": "I combine web development skills with data science expertise to create innovative solutions.",
-		"summary": ["More than 3 years of experience in full stack engineering."]
+		"summary": ["I'm Muhammad Brillian, a full stack engineer, building solutions since 2024."]
 	},
 	"experiences": [
 		{
@@ -334,10 +334,22 @@
 			],
 			"link": "https://github.com/mbrillian354/academic-system",
 			"images": [
-				"/projects/academic-system-ppg/01.jpg",
-				"/projects/academic-system-ppg/02.jpg",
-				"/projects/academic-system-ppg/03.jpg",
-				"/projects/academic-system-ppg/04.jpg"
+				{
+					"src": "/projects/academic-system-ppg/01.jpg",
+					"caption": "Placeholder — MERN Fullstack certificate"
+				},
+				{
+					"src": "/projects/academic-system-ppg/02.jpg",
+					"caption": "Placeholder — KOMDIGI microcredential certificate"
+				},
+				{
+					"src": "/projects/academic-system-ppg/03.jpg",
+					"caption": "Placeholder — Google Data Analytics certificate"
+				},
+				{
+					"src": "/projects/academic-system-ppg/04.jpg",
+					"caption": "Placeholder — Google Data Analytics certificate (duplicate)"
+				}
 			]
 		},
 		{
@@ -348,8 +360,14 @@
 			"techStack": ["React 19", "Tailwind CSS v4", "Vite", "JavaScript"],
 			"link": "https://github.com/mbrillian354/portfolio-v6",
 			"images": [
-				"/projects/portfolio-website-v6/01.jpg",
-				"/projects/portfolio-website-v6/02.jpg"
+				{
+					"src": "/projects/portfolio-website-v6/01.jpg",
+					"caption": "Placeholder — Machine Learning Specialization certificate"
+				},
+				{
+					"src": "/projects/portfolio-website-v6/02.jpg",
+					"caption": "Placeholder — TensorFlow Developer certificate"
+				}
 			]
 		}
 	]

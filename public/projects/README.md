@@ -20,8 +20,18 @@ public/projects/
 Images are referenced by public-root URL in `src/data/portfolio.json`:
 
 ```json
-"images": ["/projects/academic-system-ppg/01.jpg"]
+"images": [
+  {
+    "src": "/projects/academic-system-ppg/01.jpg",
+    "caption": "Teacher attendance dashboard"
+  }
+]
 ```
+
+Each entry has a required `src` and an optional `caption`. Captions are shown
+below the image in the fullscreen lightbox; an image without one renders without
+a caption. Plain string entries are still accepted for backwards compatibility,
+but new entries should use the object form.
 
 Array order is display order; the first image is the cover shown in the archive.
 A project with no `images` (or an empty array) simply renders no image area.
@@ -38,5 +48,6 @@ A project with no `images` (or an empty array) simply renders no image area.
 
 The files currently committed under `academic-system-ppg/` and
 `portfolio-website-v6/` are downscaled certificate images copied in as
-placeholders for development. Replace them with real project screenshots; keep
-the file names or update `src/data/portfolio.json` to match.
+placeholders for development. Their captions are temporary sample copy prefixed
+with `Placeholder —`. Replace both the images and captions with real project
+screenshots; keep the file names or update `src/data/portfolio.json` to match.

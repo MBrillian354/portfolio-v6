@@ -1,6 +1,7 @@
 import {
 	useCallback,
 	useEffect,
+	useId,
 	useLayoutEffect,
 	useRef,
 	useState
@@ -53,6 +54,7 @@ const usePrefersReducedMotion = () => {
  *
  * @param {string} src - Image source. May be the same source the thumbnail uses.
  * @param {string} alt - Alt text, also used for the dialog's accessible name.
+ * @param {string} [caption] - Optional short label shown below the image.
  * @param {boolean} isOpen - Whether the viewer is open.
  * @param {Function} onClose - Called on backdrop click, close button, or Escape.
  * @param {{width: number, height: number, left: number, top: number}} [originRect]
@@ -69,6 +71,7 @@ const usePrefersReducedMotion = () => {
 const ImageLightbox = ({
 	src,
 	alt,
+	caption = "",
 	isOpen,
 	onClose,
 	originRect,
@@ -80,6 +83,7 @@ const ImageLightbox = ({
 }) => {
 	// Trails `isOpen` on close so the fade-out can finish before the unmount.
 	const [isRendered, setIsRendered] = useState(isOpen);
+	const captionId = useId();
 
 	const overlayRef = useRef(null);
 	const imageRef = useRef(null);
@@ -331,17 +335,33 @@ const ImageLightbox = ({
 			role="dialog"
 			aria-modal="true"
 			aria-label={alt ? `Full-size view: ${alt}` : "Full-size image"}
+			aria-describedby={caption ? captionId : undefined}
 			className="lightbox-overlay"
 			onClick={handleBackdropClick}
 		>
-			<img
-				ref={imageRef}
-				src={src}
-				alt={alt}
-				className="lightbox-image"
-				onLoad={handleImageLoad}
-				draggable={false}
-			/>
+			<figure className="lightbox-figure">
+				<img
+					ref={imageRef}
+					src={src}
+					alt={alt}
+					className={`lightbox-image ${
+						caption
+							? "max-h-[calc(100dvh_-_10rem)]"
+							: "max-h-[calc(100dvh_-_2rem)] sm:max-h-[calc(100dvh_-_3rem)]"
+					}`}
+					onLoad={handleImageLoad}
+					draggable={false}
+				/>
+				{caption && (
+					<figcaption
+						key={`${src}-${caption}`}
+						id={captionId}
+						className="lightbox-caption"
+					>
+						{caption}
+					</figcaption>
+				)}
+			</figure>
 			{showGalleryNav && (
 				<>
 					<button
@@ -375,6 +395,7 @@ const ImageLightbox = ({
 						aria-live="polite"
 						aria-atomic="true"
 					>
+						{caption && <span className="sr-only">{caption}. </span>}
 						{index + 1} / {count}
 					</div>
 				</>

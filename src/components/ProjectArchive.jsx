@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { normalizeImages } from "../utils/imageUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
 import { useImageGallery } from "../utils/useImageGallery";
 import ImageLightbox from "./ImageLightbox";
@@ -7,16 +8,16 @@ import ImageLightbox from "./ImageLightbox";
 const ARCHIVE_THUMB_LIMIT = 3;
 
 const ProjectImageCell = ({ project, onOpenImage }) => {
-	const images = project.images?.filter(Boolean) ?? [];
+	const images = normalizeImages(project.images);
 	if (images.length === 0) return null;
 
 	const hiddenCount = images.length - ARCHIVE_THUMB_LIMIT;
 
 	return (
 		<div className="flex items-center gap-1.5">
-			{images.slice(0, ARCHIVE_THUMB_LIMIT).map((src, index) => (
+			{images.slice(0, ARCHIVE_THUMB_LIMIT).map((image, index) => (
 				<button
-					key={`${src}-${index}`}
+					key={`${image.src}-${index}`}
 					type="button"
 					onClick={(event) => onOpenImage(event, index)}
 					aria-label={`View screenshot ${index + 1} of ${images.length} of ${project.title}`}
@@ -24,7 +25,7 @@ const ProjectImageCell = ({ project, onOpenImage }) => {
 					className="h-10 w-14 shrink-0 cursor-zoom-in overflow-hidden rounded border border-gray-200 bg-gray-100 transition-colors duration-150 ease-out hover:border-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-blue-500 dark:focus-visible:outline-blue-400"
 				>
 					<img
-						src={src}
+						src={image.src}
 						alt=""
 						loading="lazy"
 						decoding="async"
@@ -192,6 +193,7 @@ const ProjectArchive = ({ projects, onClose }) => {
 			<ImageLightbox
 				src={gallery.src}
 				alt={gallery.alt}
+				caption={gallery.caption}
 				isOpen={gallery.isOpen}
 				onClose={gallery.close}
 				originRect={gallery.originRect}
