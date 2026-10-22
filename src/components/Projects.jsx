@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
+import { Link } from "react-router";
 import { normalizeImages } from "../utils/imageUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
 import { useImageGallery } from "../utils/useImageGallery";
@@ -151,7 +152,7 @@ const ProjectCard = ({
 	);
 };
 
-const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
+const Projects = ({ projects, showArchiveButton = false }) => {
 	const [hoveredCard, setHoveredCard] = useState(null);
 	const gallery = useImageGallery();
 
@@ -201,14 +202,14 @@ const Projects = ({ projects, showArchiveButton = false, onShowArchive }) => {
 
 				{showArchiveButton && sortedProjects.length > 3 && (
 					<div className="mobile-button-margin">
-						<button onClick={onShowArchive} className="btn-action">
+						<Link to="/projects" className="btn-action">
 							<span>See Full Projects Archive</span>
 							<Icon
 								icon="material-symbols:arrow-forward"
 								width="20"
 								height="20"
 							/>
-						</button>
+						</Link>
 					</div>
 				)}
 			</div>

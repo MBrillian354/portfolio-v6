@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
+import { Link } from "react-router";
 import { sortByPeriodDesc } from "../utils/periodSort";
 import CardLinkIcon from "./CardLinkIcon";
 
@@ -86,8 +87,7 @@ const ExperienceCard = ({
 const Experience = ({
 	experiences,
 	internships,
-	showArchiveButton = false,
-	onShowArchive
+	showArchiveButton = false
 }) => {
 	const [hoveredCard, setHoveredCard] = useState(null);
 
@@ -130,14 +130,14 @@ const Experience = ({
 
 				{showArchiveButton && sortedExperiences.length > 3 && (
 					<div className="mobile-button-margin">
-						<button onClick={onShowArchive} className="btn-action">
+						<Link to="/experience" className="btn-action">
 							<span>See Full Experience Archive</span>
 							<Icon
 								icon="material-symbols:arrow-forward"
 								width="20"
 								height="20"
 							/>
-						</button>
+						</Link>
 					</div>
 				)}
 			</div>

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { normalizeImages } from "../utils/imageUtils";
 import { hasAnyLink, hasLink, openRowLink } from "../utils/linkUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
 import { useImageGallery } from "../utils/useImageGallery";
+import ArchiveHeader from "./ArchiveHeader";
 import ImageLightbox from "./ImageLightbox";
 
 const ARCHIVE_THUMB_LIMIT = 3;
@@ -50,20 +50,8 @@ const ProjectImageCell = ({ project, onOpenImage }) => {
 	);
 };
 
-const ProjectArchive = ({ projects, onClose }) => {
+const ProjectArchive = ({ projects }) => {
 	const gallery = useImageGallery();
-
-	// Handle escape key. The lightbox handles its own Escape while open, so the
-	// archive must not also close underneath it.
-	useEffect(() => {
-		const handleEscape = (e) => {
-			if (e.key !== "Escape" || gallery.isOpen) return;
-			onClose();
-		};
-
-		document.addEventListener("keydown", handleEscape);
-		return () => document.removeEventListener("keydown", handleEscape);
-	}, [onClose, gallery.isOpen]);
 
 	// Ongoing projects first, then by start date (most recent first)
 	const sortedProjects = sortByPeriodDesc(projects);
@@ -79,26 +67,9 @@ const ProjectArchive = ({ projects, onClose }) => {
 	};
 
 	return (
-		<div className="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900">
+		<div className="min-h-screen bg-white dark:bg-gray-900">
 			<div className="mx-auto max-w-6xl px-6 py-8 md:px-4">
-				{/* Header */}
-				<div className="mb-8 flex flex-col items-start justify-start gap-4 bg-white py-4 dark:bg-gray-900">
-					<button
-						onClick={onClose}
-						className="btn-action"
-						aria-label="Close Projects Archive"
-					>
-						<Icon
-							icon="material-symbols:arrow-back-rounded"
-							width="20"
-							height="20"
-						/>
-						<span>M. Brillian</span>
-					</button>
-					<h1 className="text-3xl font-bold text-gray-900 dark:text-blue-100">
-						Projects Archive
-					</h1>
-				</div>
+				<ArchiveHeader title="Projects Archive" />
 
 				{/* Table */}
 				<div className="overflow-x-auto">

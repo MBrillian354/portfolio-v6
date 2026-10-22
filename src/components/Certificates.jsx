@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
+import { Link } from "react-router";
 import { useImageGallery } from "../utils/useImageGallery";
 import CardLinkIcon from "./CardLinkIcon";
 import CertificateThumbnail from "./CertificateThumbnail";
@@ -62,11 +63,7 @@ const CertificateCard = ({
 	);
 };
 
-const Certificates = ({
-	certificates,
-	showArchiveButton = false,
-	onShowArchive
-}) => {
+const Certificates = ({ certificates, showArchiveButton = false }) => {
 	const [hoveredCard, setHoveredCard] = useState(null);
 	const gallery = useImageGallery();
 
@@ -114,14 +111,14 @@ const Certificates = ({
 
 				{showArchiveButton && certificates.length > 3 && (
 					<div className="mobile-button-margin">
-						<button onClick={onShowArchive} className="btn-action">
+						<Link to="/certificates" className="btn-action">
 							<span>See Full Certificate Archive</span>
 							<Icon
 								icon="material-symbols:arrow-forward"
 								width="20"
 								height="20"
 							/>
-						</button>
+						</Link>
 					</div>
 				)}
 			</div>

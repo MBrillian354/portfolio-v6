@@ -1,24 +1,12 @@
-import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { hasAnyLink, hasLink, openRowLink } from "../utils/linkUtils";
 import { useImageGallery } from "../utils/useImageGallery";
+import ArchiveHeader from "./ArchiveHeader";
 import CertificateThumbnail from "./CertificateThumbnail";
 import ImageLightbox from "./ImageLightbox";
 
-const CertificateArchive = ({ certificates, onClose }) => {
+const CertificateArchive = ({ certificates }) => {
 	const gallery = useImageGallery();
-
-	// Handle escape key. The lightbox handles its own Escape while open, so the
-	// archive must not also close underneath it.
-	useEffect(() => {
-		const handleEscape = (e) => {
-			if (e.key !== "Escape" || gallery.isOpen) return;
-			onClose();
-		};
-
-		document.addEventListener("keydown", handleEscape);
-		return () => document.removeEventListener("keydown", handleEscape);
-	}, [onClose, gallery.isOpen]);
 
 	const showLinkColumn = hasAnyLink(certificates);
 
@@ -35,26 +23,9 @@ const CertificateArchive = ({ certificates, onClose }) => {
 	};
 
 	return (
-		<div className="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900">
+		<div className="min-h-screen bg-white dark:bg-gray-900">
 			<div className="mx-auto max-w-4xl px-6 py-8 md:px-4">
-				{/* Header */}
-				<div className="mb-8 flex flex-col items-start justify-start gap-4 bg-white py-4 dark:bg-gray-900">
-					<button
-						onClick={onClose}
-						className="btn-action"
-						aria-label="Close Certificate Archive"
-					>
-						<Icon
-							icon="material-symbols:arrow-back-rounded"
-							width="20"
-							height="20"
-						/>
-						<span>M. Brillian</span>
-					</button>
-					<h1 className="text-3xl font-bold text-gray-900 dark:text-blue-100">
-						Certificate Archive
-					</h1>
-				</div>
+				<ArchiveHeader title="Certificate Archive" />
 
 				{/* Table */}
 				<div className="overflow-x-auto">

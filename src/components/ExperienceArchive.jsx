@@ -1,20 +1,9 @@
-import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { hasAnyLink, hasLink, openRowLink } from "../utils/linkUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
+import ArchiveHeader from "./ArchiveHeader";
 
-const ExperienceArchive = ({ experiences, internships, onClose }) => {
-	// Handle escape key
-	useEffect(() => {
-		const handleEscape = (e) => {
-			if (e.key === "Escape") {
-				onClose();
-			}
-		};
-
-		document.addEventListener("keydown", handleEscape);
-		return () => document.removeEventListener("keydown", handleEscape);
-	}, [onClose]);
+const ExperienceArchive = ({ experiences, internships }) => {
 	// Combine all experiences
 	const allExperiences = [
 		...experiences.map((exp) => ({ ...exp, type: exp.type || "work" })),
@@ -33,26 +22,9 @@ const ExperienceArchive = ({ experiences, internships, onClose }) => {
 	};
 
 	return (
-		<div className="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900">
+		<div className="min-h-screen bg-white dark:bg-gray-900">
 			<div className="mx-auto max-w-4xl px-6 py-8 md:px-4">
-				{/* Header */}
-				<div className="mb-8 flex flex-col items-start justify-start gap-4 bg-white py-4 dark:bg-gray-900">
-					<button
-						onClick={onClose}
-						className="btn-action"
-						aria-label="Close Experience Archive"
-					>
-						<Icon
-							icon="material-symbols:arrow-back-rounded"
-							width="20"
-							height="20"
-						/>
-						<span>M. Brillian</span>
-					</button>
-					<h1 className="text-3xl font-bold text-gray-900 dark:text-blue-100">
-						Experience Archive
-					</h1>
-				</div>
+				<ArchiveHeader title="Experience Archive" />
 
 				{/* Table */}
 				<div className="overflow-x-auto">
