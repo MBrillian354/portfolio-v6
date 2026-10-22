@@ -72,7 +72,7 @@ body {
 }
 
 @utility card-hover-group {
-	@apply rounded-lg p-4 transition-all duration-150 ease-out hover:cursor-pointer md:p-6 dark:text-blue-100;
+	@apply relative rounded-lg p-4 transition-all duration-150 ease-out md:p-6 dark:text-blue-100;
 }
 
 @utility card-hover-active {

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { hasAnyLink, hasLink, openRowLink } from "../utils/linkUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
 
 const ExperienceArchive = ({ experiences, internships, onClose }) => {
@@ -22,6 +23,7 @@ const ExperienceArchive = ({ experiences, internships, onClose }) => {
 
 	// Ongoing experiences first, then by start date (most recent first)
 	const sortedExperiences = sortByPeriodDesc(allExperiences);
+	const showLinkColumn = hasAnyLink(sortedExperiences);
 
 	const typeColors = {
 		work: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
@@ -72,13 +74,19 @@ const ExperienceArchive = ({ experiences, internships, onClose }) => {
 								<th className="px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Tech Stack
 								</th>
+								{showLinkColumn && (
+									<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
+										Link
+									</th>
+								)}
 							</tr>
 						</thead>
 						<tbody>
 							{sortedExperiences.map((experience, index) => (
 								<tr
 									key={index}
-									className="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50"
+									onClick={(event) => openRowLink(event, experience.link)}
+									className={`border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50 ${hasLink(experience) ? "cursor-pointer" : ""}`}
 								>
 									<td className="px-4 py-4 text-sm font-medium text-gray-600 dark:text-gray-400">
 										{experience.period}
@@ -117,6 +125,26 @@ const ExperienceArchive = ({ experiences, internships, onClose }) => {
 											)}
 										</div>
 									</td>
+									{showLinkColumn && (
+										<td className="px-4 py-4">
+											{experience.link && (
+												<a
+													href={experience.link}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-block rounded-lg bg-blue-100 p-2 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800"
+													aria-label={`View ${experience.title} experience`}
+												>
+													<Icon
+														icon="ic:round-link"
+														width="20"
+														height="20"
+														className="text-blue-600 dark:text-blue-400"
+													/>
+												</a>
+											)}
+										</td>
+									)}
 								</tr>
 							))}
 						</tbody>

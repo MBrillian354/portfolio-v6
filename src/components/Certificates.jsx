@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
+import CardLinkIcon from "./CardLinkIcon";
 
 const CertificateCard = ({
 	certificate,
@@ -57,11 +58,10 @@ const CertificateCard = ({
 								{certificate.title}
 							</h3>
 						</div>
-						<div className="card-content">
-							<span className="hover-rotate-scale">
-								<Icon icon="ic:round-link" width="24" height="24" />
-							</span>
-						</div>
+						<CardLinkIcon
+							href={certificate.link}
+							label={`View ${certificate.title} certificate`}
+						/>
 					</div>
 
 					<p className="leading-relaxed text-gray-700 dark:text-gray-300">

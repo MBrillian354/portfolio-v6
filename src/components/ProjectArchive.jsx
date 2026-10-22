@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { normalizeImages } from "../utils/imageUtils";
+import { hasAnyLink, hasLink, openRowLink } from "../utils/linkUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
 import { useImageGallery } from "../utils/useImageGallery";
 import ImageLightbox from "./ImageLightbox";
@@ -66,6 +67,7 @@ const ProjectArchive = ({ projects, onClose }) => {
 
 	// Ongoing projects first, then by start date (most recent first)
 	const sortedProjects = sortByPeriodDesc(projects);
+	const showLinkColumn = hasAnyLink(sortedProjects);
 
 	const handleOpenImage = (project, event, index) => {
 		gallery.open({
@@ -118,16 +120,19 @@ const ProjectArchive = ({ projects, onClose }) => {
 								<th className="min-w-[120px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Images
 								</th>
-								<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
-									Link
-								</th>
+								{showLinkColumn && (
+									<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
+										Link
+									</th>
+								)}
 							</tr>
 						</thead>
 						<tbody>
 							{sortedProjects.map((project, index) => (
 								<tr
 									key={index}
-									className="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50"
+									onClick={(event) => openRowLink(event, project.link)}
+									className={`border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50 ${hasLink(project) ? "cursor-pointer" : ""}`}
 								>
 									<td className="px-4 py-4 text-sm font-medium text-gray-600 dark:text-gray-400">
 										{project.period}
@@ -165,24 +170,26 @@ const ProjectArchive = ({ projects, onClose }) => {
 											}
 										/>
 									</td>
-									<td className="px-4 py-4">
-										{project.link && (
-											<a
-												href={project.link}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="inline-block rounded-lg bg-blue-100 p-2 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800"
-												aria-label={`View ${project.title} project`}
-											>
-												<Icon
-													icon="ic:round-link"
-													width="20"
-													height="20"
-													className="text-blue-600 dark:text-blue-400"
-												/>
-											</a>
-										)}
-									</td>
+									{showLinkColumn && (
+										<td className="px-4 py-4">
+											{project.link && (
+												<a
+													href={project.link}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-block rounded-lg bg-blue-100 p-2 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800"
+													aria-label={`View ${project.title} project`}
+												>
+													<Icon
+														icon="ic:round-link"
+														width="20"
+														height="20"
+														className="text-blue-600 dark:text-blue-400"
+													/>
+												</a>
+											)}
+										</td>
+									)}
 								</tr>
 							))}
 						</tbody>

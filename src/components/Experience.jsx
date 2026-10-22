@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
 import { sortByPeriodDesc } from "../utils/periodSort";
+import CardLinkIcon from "./CardLinkIcon";
 
 const ExperienceCard = ({
 	experience,
@@ -37,11 +38,10 @@ const ExperienceCard = ({
 							</h3>
 							<p className="card-subtitle">{experience.company}</p>
 						</div>
-						<div className="card-content">
-							<span className="hover-rotate-scale">
-								<Icon icon="ic:round-link" width="24" height="24" />
-							</span>
-						</div>
+						<CardLinkIcon
+							href={experience.link}
+							label={`View ${experience.title} experience`}
+						/>
 					</div>
 
 					<p className="mb-3 leading-relaxed text-gray-700 md:mb-4 dark:text-gray-300">

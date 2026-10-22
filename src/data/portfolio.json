@@ -286,6 +286,28 @@
 	],
 	"projects": [
 		{
+			"title": "Physics Simulation for Singapore Ministry of Education",
+			"period": "February - March 2026",
+			"company": "Elice",
+			"description": "16 interactive learning content for Singapore's Ministry of Education's (MOE) next-generation Interactive Digital Textbook (IDT)",
+			"techStack": ["React", "TypeScript", "Three.js", "GSAP", "pixi.js", "matter.js", "p5.js", "Konva"],
+			"link": "https://physics-simulation-hazel.vercel.app/",
+			"images": [
+				{
+					"src": "/projects/physics-simulation/01.png",
+					"caption": "Magnetic Force Simulation - Magnets"
+				},
+				{
+					"src": "/projects/physics-simulation/02.png",
+					"caption": "Inertia Simulation - Table and Cloth"
+				},
+				{
+					"src": "/projects/physics-simulation/03.png",
+					"caption": "Unbalanced Force Simulation - Cyclist"
+				}
+			]
+		},
+		{
 			"title": "House Price Prediction Model",
 			"period": "March – April 2024",
 			"company": "University of Singaperbangsa Karawang",

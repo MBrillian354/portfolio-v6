@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { hasAnyLink, hasLink, openRowLink } from "../utils/linkUtils";
 
 const CertificateArchive = ({ certificates, onClose }) => {
 	// Handle escape key
@@ -13,6 +14,9 @@ const CertificateArchive = ({ certificates, onClose }) => {
 		document.addEventListener("keydown", handleEscape);
 		return () => document.removeEventListener("keydown", handleEscape);
 	}, [onClose]);
+
+	const showLinkColumn = hasAnyLink(certificates);
+
 	return (
 		<div className="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900">
 			<div className="mx-auto max-w-4xl px-6 py-8 md:px-4">
@@ -49,16 +53,19 @@ const CertificateArchive = ({ certificates, onClose }) => {
 								<th className="px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
 									Description
 								</th>
-								<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
-									Link
-								</th>
+								{showLinkColumn && (
+									<th className="min-w-[100px] px-4 py-4 text-left font-semibold text-gray-900 dark:text-blue-100">
+										Link
+									</th>
+								)}
 							</tr>
 						</thead>
 						<tbody>
 							{certificates.map((certificate, index) => (
 								<tr
 									key={index}
-									className="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50"
+									onClick={(event) => openRowLink(event, certificate.link)}
+									className={`border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50 ${hasLink(certificate) ? "cursor-pointer" : ""}`}
 								>
 									<td className="px-4 py-4">
 										<div className="h-12 w-16 overflow-hidden rounded border border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-700">
@@ -91,19 +98,26 @@ const CertificateArchive = ({ certificates, onClose }) => {
 											{certificate.description}
 										</div>
 									</td>
-									<td className="px-4 py-4">
-										<button
-											className="rounded-lg bg-blue-100 p-2 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800"
-											aria-label={`View ${certificate.title} certificate`}
-										>
-											<Icon
-												icon="ic:round-link"
-												width="20"
-												height="20"
-												className="text-blue-600 dark:text-blue-400"
-											/>
-										</button>
-									</td>
+									{showLinkColumn && (
+										<td className="px-4 py-4">
+											{certificate.link && (
+												<a
+													href={certificate.link}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-block rounded-lg bg-blue-100 p-2 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800"
+													aria-label={`View ${certificate.title} certificate`}
+												>
+													<Icon
+														icon="ic:round-link"
+														width="20"
+														height="20"
+														className="text-blue-600 dark:text-blue-400"
+													/>
+												</a>
+											)}
+										</td>
+									)}
 								</tr>
 							))}
 						</tbody>

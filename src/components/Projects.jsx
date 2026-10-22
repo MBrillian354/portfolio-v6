@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { normalizeImages } from "../utils/imageUtils";
 import { sortByPeriodDesc } from "../utils/periodSort";
 import { useImageGallery } from "../utils/useImageGallery";
+import CardLinkIcon from "./CardLinkIcon";
 import ImageLightbox from "./ImageLightbox";
 
 // Deepest layer first, so the nearer layer paints on top without extra z-index.
@@ -32,7 +33,7 @@ const ProjectImageStack = ({ project, onOpenImage }) => {
 						: `View screenshot of ${project.title}`
 				}
 				aria-haspopup="dialog"
-				className="project-image-stack"
+				className="project-image-stack relative z-10"
 			>
 				{layerDepths.map((depth) => (
 					<span
@@ -118,11 +119,10 @@ const ProjectCard = ({
 							<h3 className="experience-title card-title">{project.title}</h3>
 							<p className="card-subtitle">{project.company}</p>
 						</div>
-						<div className="card-content">
-							<span className="hover-rotate-scale">
-								<Icon icon="ic:round-link" width="24" height="24" />
-							</span>
-						</div>
+						<CardLinkIcon
+							href={project.link}
+							label={`View ${project.title} project`}
+						/>
 					</div>
 
 					<p className="mb-3 leading-relaxed text-gray-700 md:mb-4 dark:text-gray-300">
