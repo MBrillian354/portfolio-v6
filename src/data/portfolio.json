@@ -43,6 +43,22 @@
 			]
 		},
 		{
+			"title": "Lead Developer",
+			"company": "Elice - KADA Bootcamp",
+			"period": "June 2025 – Aug 2025",
+			"type": "work",
+			"description": "Led a team of developers, optimizing workflow and completing and MVP app within 2 weeks. Directed task breakdown, work allocation, and progress tracking for the development team. Directed architecture, tech stack, and coding standards, enabling a scalable, secure, and high-performance web platform. Reviewed code for quality, maintainability, and adherence to best practices.",
+			"scope": [
+				"Project Management",
+				"Git and GitHub"
+			],
+			"techStack": [
+				"Next.js",
+				"Tailwind CSS",
+				"MongoDB"
+			]
+		},
+		{
 			"title": "IT Staff",
 			"company": "SUGIMA Car Painting & Training Center",
 			"period": "Oct 2023 – Dec 2024",
@@ -288,9 +304,9 @@
 	],
 	"projects": [
 		{
-			"title": "Physics Simulation for Singapore Ministry of Education",
+			"title": "Physics Simulation Learning Content",
 			"period": "February - March 2026",
-			"company": "Elice",
+			"company": "Elice, for Singapore Ministry of Education",
 			"description": "16 interactive learning content for Singapore's Ministry of Education's (MOE) next-generation Interactive Digital Textbook (IDT)",
 			"techStack": [
 				"React",
@@ -355,9 +371,9 @@
 			"images": []
 		},
 		{
-			"title": "Academic System PPG",
+			"title": "PPG Digital Platform",
 			"period": "October 2024 – Present",
-			"company": "ICT – PPG Komisariat Karawang",
+			"company": "PPG Komisariat Karawang",
 			"description": "Built, deployed, and monitor an integrated digital platform for an Islamic Educational Institution (30+ locations, 200+ teachers, 1000+ students). System Built: , IAM SSO, Academic System, CIS (competition information system), Digital library, Marriage information service, and, SEO optimized landing page.",
 			"techStack": [
 				"MongoDB",
@@ -366,23 +382,27 @@
 				"Shadcn/ui",
 				"Nginx"
 			],
-			"link": "https://github.com/mbrillian354/academic-system",
+			"link": "https://news.ppgcikampek.id",
 			"images": [
 				{
-					"src": "/projects/academic-system-ppg/01.jpg",
-					"caption": "Placeholder — MERN Fullstack certificate"
+					"src": "/projects/academic-system-ppg/01.png",
+					"caption": "PPG Cikampek News Landing Page"
 				},
 				{
-					"src": "/projects/academic-system-ppg/02.jpg",
-					"caption": "Placeholder — KOMDIGI microcredential certificate"
+					"src": "/projects/academic-system-ppg/02.png",
+					"caption": "Digital Library"
 				},
 				{
-					"src": "/projects/academic-system-ppg/03.jpg",
-					"caption": "Placeholder — Google Data Analytics certificate"
+					"src": "/projects/academic-system-ppg/03.png",
+					"caption": "IAM System (role and permission policy management page)"
 				},
 				{
-					"src": "/projects/academic-system-ppg/04.jpg",
-					"caption": "Placeholder — Google Data Analytics certificate (duplicate)"
+					"src": "/projects/academic-system-ppg/04.png",
+					"caption": "Academic System (attendance management page)"
+				},
+				{
+					"src": "/projects/academic-system-ppg/05.png",
+					"caption": "Academic System (munaqasyah performance page)"
 				}
 			]
 		},
