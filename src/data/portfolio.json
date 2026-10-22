@@ -2,7 +2,8 @@
 	"personalInfo": {
 		"name": "M. Brillian",
 		"title": "Full Stack Engineer & Data Scientist",
-		"profileImage": null,
+		"profileImage": "/profile/profile-light.jpg",
+		"profileImageDark": "/profile/profile-dark.jpg",
 		"phone": "+628 1323452095",
 		"email": "brillian354@gmail.com",
 		"website": "https://mbrillian.github.io",

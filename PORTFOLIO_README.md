@@ -57,6 +57,11 @@ All portfolio data is stored in `src/data/portfolio.json`. Edit this file to upd
 - Skills and certifications
 - Education details
 
+`personalInfo.profileImage` is the light-mode photo and
+`personalInfo.profileImageDark` is the dark-mode photo. Both use public-root paths
+(for example `/profile/profile-light.jpg`). If the active theme's value is null or
+missing, the profile picture is not rendered.
+
 ### Customizing the Design
 
 The portfolio uses Tailwind CSS for styling. You can customize:

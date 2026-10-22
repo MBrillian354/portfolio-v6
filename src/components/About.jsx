@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import profileImage from "../assets/DSC8935_resized.jpg";
 import cvFile from "../assets/MBrillian_CV_2025_06_26.pdf";
 import { useAppToast } from "../utils/toastUtils";
+import { useTheme } from "../utils/useTheme";
 import ImageLightbox from "./ImageLightbox";
 
 const About = ({ personalInfo }) => {
 	const { showCopySuccess, showCopyError } = useAppToast();
+	const { isDark } = useTheme();
 	const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 	const [lightboxOrigin, setLightboxOrigin] = useState(null);
 
-	const imageSrc = personalInfo.profileImage || profileImage;
+	const lightImage = personalInfo.profileImage;
+	const darkImage = personalInfo.profileImageDark;
+	const imageSrc = isDark ? darkImage : lightImage;
 	const imageAlt = `${personalInfo.name} profile`;
 
 	// Capture the picture's on-screen box so the lightbox can grow out of it.
@@ -55,32 +58,46 @@ const About = ({ personalInfo }) => {
 	return (
 		<div className="flex flex-col bg-white p-6 max-md:items-center max-md:justify-center md:p-6 dark:bg-gray-900">
 			{/* Profile Picture */}
-			<div className="mb-4 flex">
-				<button
-					type="button"
-					onClick={handlePictureClick}
-					aria-label={`View full-size photo of ${personalInfo.name}`}
-					className="group relative h-64 w-48 overflow-hidden rounded-md ring-1 ring-gray-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:ring-blue-300 dark:focus-visible:outline-blue-400"
-				>
-					{/* Shimmer overlay */}
-					<div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-						<div className="absolute inset-0 translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 ease-in-out group-hover:-translate-x-full"></div>
-					</div>
-					<img
-						src={imageSrc}
-						alt={imageAlt}
-						className="h-full w-full object-cover"
-					/>
-				</button>
-			</div>
+			{imageSrc && (
+				<div className="mb-4 flex">
+					<button
+						type="button"
+						onClick={handlePictureClick}
+						aria-label={`View full-size photo of ${personalInfo.name}`}
+						className="group relative h-64 w-48 overflow-hidden rounded-md ring-1 ring-gray-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:ring-blue-300 dark:focus-visible:outline-blue-400"
+					>
+						{/* Shimmer overlay */}
+						<div className="absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+							<div className="absolute inset-0 translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 ease-in-out group-hover:-translate-x-full"></div>
+						</div>
+						{lightImage && (
+							<img
+								src={lightImage}
+								alt={imageAlt}
+								className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 motion-reduce:transition-none dark:opacity-0"
+							/>
+						)}
+						{darkImage && (
+							<img
+								src={darkImage}
+								alt={lightImage ? "" : imageAlt}
+								aria-hidden={lightImage ? "true" : undefined}
+								className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 motion-reduce:transition-none dark:opacity-100"
+							/>
+						)}
+					</button>
+				</div>
+			)}
 
-			<ImageLightbox
-				src={imageSrc}
-				alt={imageAlt}
-				isOpen={isLightboxOpen}
-				onClose={handleLightboxClose}
-				originRect={lightboxOrigin}
-			/>
+			{imageSrc && (
+				<ImageLightbox
+					src={imageSrc}
+					alt={imageAlt}
+					isOpen={isLightboxOpen}
+					onClose={handleLightboxClose}
+					originRect={lightboxOrigin}
+				/>
+			)}
 
 			<h1 className="mt-4 person-name mb-1 max-md:text-center">
 				{personalInfo.name || "Your Name"}

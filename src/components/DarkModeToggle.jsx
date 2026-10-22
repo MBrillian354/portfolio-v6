@@ -1,34 +1,13 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import React, { useState, useEffect } from "react";
+import { useTheme } from "../utils/useTheme";
 
 const DarkModeToggle = ({ compact = false, floating = false }) => {
-	const [isDark, setIsDark] = useState(false);
-
-	useEffect(() => {
-		// Saved preference wins; otherwise default to 'dark' mode
-		const savedTheme = localStorage.getItem("theme");
-		const useDark = savedTheme !== "light";
-
-		setIsDark(useDark);
-		document.documentElement.classList.toggle("dark", useDark);
-	}, []);
-
-	const toggleDarkMode = () => {
-		if (isDark) {
-			document.documentElement.classList.remove("dark");
-			localStorage.setItem("theme", "light");
-			setIsDark(false);
-		} else {
-			document.documentElement.classList.add("dark");
-			localStorage.setItem("theme", "dark");
-			setIsDark(true);
-		}
-	};
+	const { isDark, toggleTheme } = useTheme();
 
 	if (floating) {
 		return (
 			<button
-				onClick={toggleDarkMode}
+				onClick={toggleTheme}
 				className="group fixed right-6 bottom-6 z-50 rounded-full border border-gray-200 bg-white p-4 shadow-lg transition-all duration-300 hover:scale-110 hover:cursor-pointer hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
 				aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
 			>
@@ -52,7 +31,7 @@ const DarkModeToggle = ({ compact = false, floating = false }) => {
 	if (compact) {
 		return (
 			<button
-				onClick={toggleDarkMode}
+				onClick={toggleTheme}
 				className="rounded-lg p-2 text-gray-600 transition-colors hover:cursor-pointer hover:bg-blue-50 hover:text-blue-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-blue-400"
 				aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
 			>
@@ -92,7 +71,7 @@ const DarkModeToggle = ({ compact = false, floating = false }) => {
 	return (
 		<div className="flex items-center gap-3">
 			<button
-				onClick={toggleDarkMode}
+				onClick={toggleTheme}
 				className={`relative inline-flex h-8 w-14 items-center rounded-full transition-colors duration-300 hover:cursor-pointer focus:outline-none ${
 					isDark ? "bg-blue-800" : "bg-gray-400"
 				}`}
