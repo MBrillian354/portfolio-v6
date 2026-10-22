@@ -12,7 +12,9 @@
 		"location": "Karawang, Indonesia",
 		"countryCode": "id",
 		"description": "I combine web development skills with data science expertise to create innovative solutions.",
-		"summary": ["I'm Muhammad Brillian, a full stack engineer, building solutions since 2024."]
+		"summary": [
+			"I'm Muhammad Brillian, a full stack engineer, building solutions since 2024."
+		]
 	},
 	"experiences": [
 		{
@@ -290,7 +292,16 @@
 			"period": "February - March 2026",
 			"company": "Elice",
 			"description": "16 interactive learning content for Singapore's Ministry of Education's (MOE) next-generation Interactive Digital Textbook (IDT)",
-			"techStack": ["React", "TypeScript", "Three.js", "GSAP", "pixi.js", "matter.js", "p5.js", "Konva"],
+			"techStack": [
+				"React",
+				"TypeScript",
+				"Three.js",
+				"GSAP",
+				"pixi.js",
+				"matter.js",
+				"p5.js",
+				"Konva"
+			],
 			"link": "https://physics-simulation-hazel.vercel.app/",
 			"images": [
 				{

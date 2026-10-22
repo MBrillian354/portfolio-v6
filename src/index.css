@@ -84,11 +84,11 @@ body {
 }
 
 @utility card-title {
-	@apply mb-1 text-lg font-semibold text-gray-900 dark:text-blue-100;
+	@apply text-lg font-semibold text-gray-900 dark:text-blue-100;
 }
 
 @utility card-subtitle {
-	@apply mb-2 text-gray-600 dark:text-gray-300;
+	@apply text-gray-600 dark:text-gray-300;
 }
 
 @utility card-content {
@@ -127,7 +127,7 @@ body {
 
 /* Section Components */
 @utility section-container {
-	@apply mx-auto max-w-4xl px-6 md:px-4;
+	@apply mx-auto max-w-4xl max-md:px-4;
 }
 
 @utility section-title {

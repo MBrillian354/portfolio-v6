@@ -1,7 +1,7 @@
 function Footer() {
 	return (
 		<footer className="bg-white py-12 text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-			<div className="max-w-4xl px-6 md:px-4">
+			<div className="max-w-4xl pb-6 max-md:px-4">
 				<p className="text-sm">
 					Built with experimental technologies: React 19, Vite 7, and
 					TailwindCSS v4.

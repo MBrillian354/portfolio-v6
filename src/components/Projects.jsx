@@ -110,7 +110,7 @@ const ProjectCard = ({
 			onMouseLeave={onLeave}
 		>
 			<div className="flex flex-col gap-2 md:flex-row">
-				<span className="mt-1 mb-2 min-w-36 text-sm font-semibold text-gray-500 dark:text-gray-400">
+				<span className="min-w-36 text-sm font-semibold text-gray-500 md:mt-1 md:mb-2 dark:text-gray-400">
 					{project.period}
 				</span>
 				<div>

@@ -27,7 +27,7 @@ const CertificateCard = ({
 		>
 			<div className="flex flex-col gap-4 md:flex-row">
 				{/* Certificate Image */}
-				<div className="min-w-36 flex-shrink-0 self-center">
+				<div className="min-w-36 self-start md:self-center">
 					<div className="h-24 w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-100 md:h-24 md:w-36 dark:border-gray-600 dark:bg-gray-700">
 						<img
 							src={certificate.image}
