@@ -32,7 +32,7 @@ const CurrentTechnologies = ({ technologies }) => {
 									</i>
 									<div className="flex flex-col">
 										<div className="flex items-center gap-3">
-											<h4 className="card-title text-base">{tech.name}</h4>
+											<h3 className="card-title text-base">{tech.name}</h3>
 										</div>
 										<span className="text-xs">{tech.category}</span>
 									</div>

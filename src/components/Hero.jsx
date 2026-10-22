@@ -1,9 +1,11 @@
 import React from "react";
+import Header from "./Header";
 
 const Hero = ({ personalInfo }) => {
 	return (
 		<section id="about" className="section-padding">
-			<div className="section-container mt-6 md:mt-8">
+			<Header title="About" />
+			<div className="section-container">
 				{Array.isArray(personalInfo.summary) ? (
 					personalInfo.summary.map((text, idx) => (
 						<p
