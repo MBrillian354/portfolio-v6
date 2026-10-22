@@ -1,21 +1,38 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { hasAnyLink, hasLink, openRowLink } from "../utils/linkUtils";
+import { useImageGallery } from "../utils/useImageGallery";
+import CertificateThumbnail from "./CertificateThumbnail";
+import ImageLightbox from "./ImageLightbox";
 
 const CertificateArchive = ({ certificates, onClose }) => {
-	// Handle escape key
+	const gallery = useImageGallery();
+
+	// Handle escape key. The lightbox handles its own Escape while open, so the
+	// archive must not also close underneath it.
 	useEffect(() => {
 		const handleEscape = (e) => {
-			if (e.key === "Escape") {
-				onClose();
-			}
+			if (e.key !== "Escape" || gallery.isOpen) return;
+			onClose();
 		};
 
 		document.addEventListener("keydown", handleEscape);
 		return () => document.removeEventListener("keydown", handleEscape);
-	}, [onClose]);
+	}, [onClose, gallery.isOpen]);
 
 	const showLinkColumn = hasAnyLink(certificates);
+
+	const handleOpenImage = (event, index) => {
+		gallery.open({
+			images: certificates.map(({ image, title }) => ({
+				src: image,
+				caption: title
+			})),
+			index,
+			altPrefix: "Certificate",
+			trigger: event.currentTarget
+		});
+	};
 
 	return (
 		<div className="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900">
@@ -68,25 +85,11 @@ const CertificateArchive = ({ certificates, onClose }) => {
 									className={`border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800/50 ${hasLink(certificate) ? "cursor-pointer" : ""}`}
 								>
 									<td className="px-4 py-4">
-										<div className="h-12 w-16 overflow-hidden rounded border border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-700">
-											<img
-												src={certificate.image}
-												alt={`${certificate.title} Certificate`}
-												className="h-full w-full object-cover"
-												onError={(e) => {
-													e.target.style.display = "none";
-													e.target.nextSibling.style.display = "flex";
-												}}
-											/>
-											<div className="hidden h-full w-full items-center justify-center bg-gray-100 dark:bg-gray-700">
-												<Icon
-													icon="material-symbols:workspace-premium"
-													width="20"
-													height="20"
-													className="text-gray-400 dark:text-gray-500"
-												/>
-											</div>
-										</div>
+										<CertificateThumbnail
+											certificate={certificate}
+											onOpen={(event) => handleOpenImage(event, index)}
+											className="h-12 w-16"
+										/>
 									</td>
 									<td className="px-4 py-4">
 										<div className="font-semibold text-gray-900 dark:text-blue-100">
@@ -124,6 +127,20 @@ const CertificateArchive = ({ certificates, onClose }) => {
 					</table>
 				</div>
 			</div>
+
+			<ImageLightbox
+				src={gallery.src}
+				alt={gallery.alt}
+				caption={gallery.caption}
+				isOpen={gallery.isOpen}
+				onClose={gallery.close}
+				originRect={gallery.originRect}
+				onPrev={gallery.prev}
+				onNext={gallery.next}
+				index={gallery.index}
+				count={gallery.count}
+				returnFocusTo={gallery.trigger}
+			/>
 		</div>
 	);
 };

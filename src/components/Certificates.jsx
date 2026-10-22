@@ -1,13 +1,17 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
+import { useImageGallery } from "../utils/useImageGallery";
 import CardLinkIcon from "./CardLinkIcon";
+import CertificateThumbnail from "./CertificateThumbnail";
+import ImageLightbox from "./ImageLightbox";
 
 const CertificateCard = ({
 	certificate,
 	isHovered,
 	isDimmed,
 	onHover,
-	onLeave
+	onLeave,
+	onOpenImage
 }) => {
 	const getCardClasses = () => {
 		let baseClasses = "card-hover-group";
@@ -28,26 +32,11 @@ const CertificateCard = ({
 			<div className="flex flex-col gap-4 md:flex-row">
 				{/* Certificate Image */}
 				<div className="min-w-36 self-start md:self-center">
-					<div className="h-24 w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-100 md:h-24 md:w-36 dark:border-gray-600 dark:bg-gray-700">
-						<img
-							src={certificate.image}
-							alt={`${certificate.title} Certificate`}
-							className="h-full w-full object-cover"
-							onError={(e) => {
-								// Fallback to icon if image fails to load
-								e.target.style.display = "none";
-								e.target.nextSibling.style.display = "flex";
-							}}
-						/>
-						<div className="hidden h-full w-full items-center justify-center bg-gray-100 dark:bg-gray-700">
-							<Icon
-								icon="material-symbols:workspace-premium"
-								width="32"
-								height="32"
-								className="text-gray-400 dark:text-gray-500"
-							/>
-						</div>
-					</div>
+					<CertificateThumbnail
+						certificate={certificate}
+						onOpen={onOpenImage}
+						className="h-24 w-full md:w-36"
+					/>
 				</div>
 
 				{/* Certificate Content */}
@@ -79,8 +68,9 @@ const Certificates = ({
 	onShowArchive
 }) => {
 	const [hoveredCard, setHoveredCard] = useState(null);
+	const gallery = useImageGallery();
 
-	// Show only first 5 if showArchiveButton is true
+	// Show only first 3 if showArchiveButton is true
 	const displayCertificates = showArchiveButton
 		? certificates.slice(0, 3)
 		: certificates;
@@ -91,6 +81,18 @@ const Certificates = ({
 
 	const handleCardLeave = () => {
 		setHoveredCard(null);
+	};
+
+	const handleOpenImage = (event, index) => {
+		gallery.open({
+			images: displayCertificates.map(({ image, title }) => ({
+				src: image,
+				caption: title
+			})),
+			index,
+			altPrefix: "Certificate",
+			trigger: event.currentTarget
+		});
 	};
 
 	return (
@@ -105,6 +107,7 @@ const Certificates = ({
 							isDimmed={hoveredCard !== null && hoveredCard !== index}
 							onHover={() => handleCardHover(index)}
 							onLeave={handleCardLeave}
+							onOpenImage={(event) => handleOpenImage(event, index)}
 						/>
 					))}
 				</div>
@@ -122,6 +125,20 @@ const Certificates = ({
 					</div>
 				)}
 			</div>
+
+			<ImageLightbox
+				src={gallery.src}
+				alt={gallery.alt}
+				caption={gallery.caption}
+				isOpen={gallery.isOpen}
+				onClose={gallery.close}
+				originRect={gallery.originRect}
+				onPrev={gallery.prev}
+				onNext={gallery.next}
+				index={gallery.index}
+				count={gallery.count}
+				returnFocusTo={gallery.trigger}
+			/>
 		</section>
 	);
 };
